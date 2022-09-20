@@ -1,0 +1,18 @@
+/* FILE: editor-block/blocks/_gallery.scss */
+
+#{ $selector_editor_wrapper } {
+
+	.blocks-gallery-grid {
+		margin: 0 auto;
+
+		figure:last-child {
+			margin-bottom: 0;
+		}
+
+	}
+
+	.wp-block-gallery .wp-block-image {
+		max-width: none;
+	}
+
+}
