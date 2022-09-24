@@ -1,0 +1,52 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Story 2-media module
+// =============================================================================
+// This file contains the story 2-media component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-story__2-media {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        align-items: flex-start;
+        flex-direction: row;
+    }
+
+    // Media card overrides
+    .c-media-card {
+        margin-top: rem(30px);
+
+        // Modify first child
+        &:first-child {
+            margin-top: 0;
+        }
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            margin: 0;
+            margin-left: rem(30px);
+
+            // Modify first child
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+
+        // From desktop
+        @media (min-width: $from-desktop) {
+            margin-left: rem(60px);
+        }
+
+        // From desktop large
+        @media (min-width: $from-desktop-lg) {
+            margin-left: rem(100px);
+        }
+    }
+}

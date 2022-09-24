@@ -1,0 +1,28 @@
+// *****************************************************************************
+// =============================================================================
+// Components: Form campaign block
+// =============================================================================
+// This file contains the campaign form block properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-campaign--form {
+
+    // Intro
+    .c-page-module__intro {
+        // From tablet
+        @media (min-width: $from-tablet) {
+            max-width: rem(500px);
+        }
+    }
+
+    // Form overrides
+    .c-form {
+        // From tablet
+        @media (min-width: $from-tablet) {
+            margin: 0 auto;
+            max-width: rem(500px);
+        }
+    }
+}

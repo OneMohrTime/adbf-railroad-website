@@ -1,0 +1,59 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Content people module
+// =============================================================================
+// This file contains the content people component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-content__people {
+
+    // Text card overrides
+    .c-text-card {
+        margin: 0 0 rem(40px);
+        padding: 0;
+        text-align: left;
+    }
+
+    // Headline
+    .c-text-card__headline {
+        @extend %-is-d3;
+    }
+
+    // body
+    .c-text-card__body {
+        @extend %-is-b3;
+    }
+
+    // Grid
+    .c-page-module__grid {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: calc(50% - 10px) calc(50% - 10px);
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            grid-gap: 40px;
+            grid-template-columns: calc(33.33% - 26.66px) calc(33.33% - 26.66px) calc(33.33% - 26.66px);
+        }
+    }
+
+    // Grid
+    .c-page-module__grid-item {
+        margin-top: rem(10px);
+        margin-bottom: 0;
+
+        // Remove margin from first row
+        &:nth-child(1),
+        &:nth-child(2) {
+            margin-top: 0;
+        }
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            margin-top: 0;
+        }
+    }
+}

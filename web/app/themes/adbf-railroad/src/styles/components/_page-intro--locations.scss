@@ -1,0 +1,98 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Page intro - locations
+// =============================================================================
+// This file contains the page intro - locations component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-page-intro__locations {
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        flex-direction: row;
+    }
+
+    // Is right aligned
+    &.-is-right-aligned {
+        flex-direction: column;
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            flex-direction: row-reverse;
+        }
+
+        // Branding card overrides
+        .c-branding-card {
+            right: auto;
+            left: rem(-20px);
+        }
+    }
+
+    // Has dark background
+    &.-has-dark-background {
+        background-color: $gray-8;
+
+        // Headline overrides
+        .c-text-card__headline {
+            color: $white;
+        }
+
+        // Body overrides
+        .c-text-card__body {
+            color: $white;
+        }
+    }
+
+    // Map card overrides
+    .c-map-card {
+        height: rem(400px);
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            width: 50%;
+            height: 100%;
+            min-height: rem(623px);
+        }
+
+        // From desktop
+        @media (min-width: $from-desktop) {
+            width: 59%;
+        }
+    }
+
+    // Text card overrides
+    .c-text-card {
+        margin: rem(50px) rem(20px);
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            margin: 0;
+            margin-left: auto;
+            padding: rem(40px);
+            width: 50%;
+            text-align: left;
+        }
+
+        // From desktop
+        @media (min-width: $from-desktop) {
+            padding: rem(80px);
+            width: 41%;
+        }
+
+        // From desktop large
+        @media (min-width: $from-desktop-lg) {
+            padding: rem(100px);
+        }
+    }
+
+    // Headline overrides
+    .c-text-card__headline {
+        @extend %-is-d2;
+    }
+}

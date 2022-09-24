@@ -1,0 +1,64 @@
+// *****************************************************************************
+// =============================================================================
+// Components: Image gallery campaign block
+// =============================================================================
+// This file contains the image gallery block properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-campaign--image-gallery {
+    @extend %-is-ui-3;
+    padding: 0;
+    text-align: center;
+
+    //
+    .c-media-card {
+        caption-side: bottom;
+        display: table;
+        height: auto !important;
+        width: auto !important;
+    }
+
+    // Caption overrides
+    .c-media-card__caption {
+        display: table-caption;
+        margin-right: rem(20px);
+        margin-left: rem(20px);
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            margin-right: 0;
+            margin-left: 0;
+        }
+    }
+
+    //
+    &.-has-light-elements {
+        .c-media-card__caption {
+            color: white;
+        }
+
+        .c-slider__arrow {
+            border-color: $gray-4;
+
+            // Icon file
+            svg {
+                fill: $white;
+            }
+
+            // Hover
+            &:hover {
+                border-color: $white;
+            }
+        }
+
+        .c-slider__dot {
+            // Hover
+            &.-is-selected,
+            &:hover {
+                background-color: $white;
+            }
+        }
+    }
+}

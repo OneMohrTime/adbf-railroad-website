@@ -1,0 +1,186 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Location card
+// =============================================================================
+// This file contains the location card component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-location-card {
+    width: 100%;
+
+    // Remove top margin from first child
+    *:first-child {
+        margin-top: 0;
+    }
+
+    // Remove bottom margin from last child
+    *:last-child {
+        margin-bottom: 0;
+    }
+
+    // Media card overrides
+    .c-media-card {
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        margin: 0;
+        width: 100%;
+        min-height: 0;
+        height: auto;
+    }
+}
+
+// Image & label
+// =============================================================================
+.c-location-card__image-label {
+    display: block;
+    margin: rem(14px) 0;
+    position: relative;
+}
+
+// Label
+// =============================================================================
+.c-location-card__label {
+    @extend %-is-ui-3A-bold;
+    margin: 0;
+    padding: rem(7px) rem(8px);
+    color: $white;
+    background-color: $gray-8;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        padding: rem(5px) rem(10px);
+    }
+
+    // Has image
+    .-has-image & {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 2;
+    }
+
+    // Has dark background
+    .-has-dark-background & {
+        color: $gray-8 !important;
+        background-color: $white;
+    }
+}
+
+// Headline
+// =============================================================================
+.c-location-card__headline {
+    @extend %-is-d5A;
+    margin: rem(15px) 0;
+
+    // Has dark background
+    .-has-dark-background & {
+        color: $white;
+    }
+}
+
+// CTA
+// =============================================================================
+.c-location-card__cta {
+    font-size: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+
+    // Arrow
+    &:after {
+        width: rem(21px) !important;
+        height: rem(12px) !important;
+    }
+}
+
+// Information
+// =============================================================================
+.c-location-card__information {
+    margin: rem(15px) 0;
+
+    // Remove top margin from first child
+    *:first-child {
+        margin-top: 0;
+    }
+
+    // Remove bottom margin from last child
+    *:last-child {
+        margin-bottom: 0;
+    }
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        margin-top: rem(20px);
+    }
+
+    // Has dark background OR is dark theme
+    .-has-dark-background & {
+        color: $white;
+    }
+
+    // Ensure links follow text color
+    a {
+        color: inherit;
+    }
+}
+
+// Description
+// =============================================================================
+.c-location-card__description {
+    @extend %-is-b3;
+    margin: rem(15px) 0;
+
+    // Paragraph
+    p {
+        margin: rem(15px) 0;
+    }
+}
+
+// Details
+// =============================================================================
+.c-location-card__details {
+    @extend %-is-ui-1;
+    margin: rem(15px) 0;
+}
+
+// Detail
+// =============================================================================
+.c-location-card__detail {
+    display: flex;
+    flex-direction: row;
+    margin: rem(12px) 0;
+
+    // Remove top margin from first child
+    *:first-child {
+        margin-top: 0;
+    }
+
+    // Remove bottom margin from last child
+    *:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// Detail label
+// =============================================================================
+.c-location-card__detail-label {
+    margin-right: rem(20px);
+    width: rem(75px);
+    font-weight: $semibold;
+}
+
+// Detail value
+// =============================================================================
+.c-location-card__detail-value {
+    width: calc(100% - 95px);
+
+    // Paragraph
+    p {
+        margin: rem(5px) 0;
+    }
+}

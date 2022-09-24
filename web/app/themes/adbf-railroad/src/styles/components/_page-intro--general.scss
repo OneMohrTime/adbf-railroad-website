@@ -1,0 +1,260 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Page intro - general
+// =============================================================================
+// This file contains the page intro - general component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-page-intro__general {
+    position: relative;
+    background-color: transparent;
+
+    // Is stacked
+    &.-is-stacked {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    // Text
+    .c-page-intro__general-text {
+        margin: 0 auto;
+        padding: rem(30px) rem(20px) 0;
+        max-width: rem(860px);
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            padding: rem(80px) rem(60px) 0;
+        }
+
+        // Remove top margin from first child
+        *:first-child {
+            margin-top: 0 !important;
+        }
+
+        // Remove bottom margin from last child
+        *:last-child {
+            margin-bottom: 0 !important;
+        }
+
+        // Ensure headings include more spacing up top
+        h3, h4, h5, h6 {
+            margin-top: rem(65px);
+        }
+    }
+
+    // Text, has primary image hidden
+    &.-has-primary-image-hidden .c-page-intro__general-text {
+        padding-top: rem(72px);
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            padding-top: rem(80px);
+        }
+    }
+
+    // Text, is stacked
+    &.-is-stacked .c-page-intro__general-text {
+        padding-top: rem(80px);
+        padding-bottom: rem(50px);
+        text-align: center;
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            padding-bottom: rem(90px) !important;
+        }
+    }
+
+    // Text, is stacked AND has primary image hidden
+    &.-is-stacked.-has-primary-image-hidden .c-page-intro__general-text {
+        padding-bottom: 0 !important;
+    }
+
+    // Sub headline
+    .c-page-intro__general-sub-headline {
+        @extend %-is-d6-bold;
+        display: block;
+        margin: rem(15px) 0;
+        text-align: center;
+        opacity: 0.66;
+        color: $gray-8;
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            margin: rem(25px) 0;
+        }
+    }
+
+    // Headline
+    .c-page-intro__general-headline {
+          @extend %-is-d2;
+          position: absolute;
+          top: rem(48px);
+          left: rem(10px);
+          padding: rem(10px);
+          background-color: $white;
+
+          // From tablet
+          @media (min-width: $from-tablet) {
+              top: rem(58px);
+              left: rem(50px);
+              padding: rem(10px) rem(30px);
+          }
+    }
+
+    // Headline, has primary image hidden AND
+    // Headline, is stacked
+    &.-has-primary-image-hidden .c-page-intro__general-headline,
+    &.-is-stacked .c-page-intro__general-headline  {
+        position: relative;
+        top: auto;
+        left: auto;
+        margin: rem(20px) 0;
+        padding: 0;
+        background-color: transparent;
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            font-size: rem(40px);
+            letter-spacing: rem(-0.5px);
+            line-height: rem(50px);
+        }
+    }
+
+    // Headline, is stacked
+    &.-is-stacked .c-page-intro__general-headline  {
+        // From tablet
+        @media (min-width: $from-tablet) {
+            font-size: rem(60px);
+            letter-spacing: rem(-1px);
+            line-height: rem(75px);
+        }
+    }
+
+    // Body
+    .c-page-intro__general-body {
+        // From tablet
+        @media (min-width: $from-tablet) {
+            font-size: rem(24px);
+            line-height: rem(36px);
+        }
+    }
+
+    // Body, has primary image hidden
+    &.-has-primary-image-hidden .c-page-intro__general-body {
+        margin: rem(20px) 0;
+    }
+
+    &.-has-sidebar:not(.-is-stacked):not(.-has-primary-image-hidden) .c-page-intro__general-text {
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            float: left;
+            margin-left: rem(220px);
+            padding-right: 0;
+            padding-left: 0;
+            width: calc(100% - 280px);
+            max-width: 10000px;
+        }
+
+        // From desktop
+        @media (min-width: $from-desktop) {
+            width: calc(100% - 330px);
+            // width: calc(100% - 330px);
+            // width: 200%;
+        }
+
+        // From desktop large
+        @media (min-width: $from-desktop-lg) {
+            margin-left: rem(200px);
+            width: calc(100% - 380px);
+            // padding-left: rem(160px);
+            // margin-left: 0;
+        }
+    }
+
+    &.-has-sidebar:not(.-is-stacked):not(.-has-primary-image-hidden) .c-page-intro__general-body {
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            margin: 0 auto;
+            max-width: rem(740px);
+        }
+    }
+
+    // Media card overrides
+    .c-media-card {
+        height: rem(400px);
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            height: rem(620px);
+        }
+    }
+
+    // Media card, has primary image hidden
+    &.-has-primary-image-hidden .c-media-card {
+        display: none !important;
+    }
+
+    // Media card, is stacked
+    &.-is-stacked .c-media-card {
+        height: auto !important;
+    }
+
+    // Breadcrumb overrides
+    .c-page-breadcrumb {
+          top: rem(10px);
+          left: rem(10px);
+          padding: rem(10px);
+          background-color: $white;
+
+          // From tablet
+          @media (min-width: $from-tablet) {
+              top: rem(20px);
+              left: rem(50px);
+              padding: rem(10px) rem(30px);
+          }
+
+          // Breadcrumb
+          li {
+              opacity: 0.66;
+          }
+
+          // Caret
+          svg {}
+
+          // Link
+          a {}
+    }
+
+    // Breadcrumb, has primary image hidden AND
+    // Breadcrumb, is stacked
+    &.-has-primary-image-hidden .c-page-breadcrumb,
+    &.-is-stacked .c-page-breadcrumb {
+        position: absolute;
+        top: rem(20px);
+        left: rem(20px);
+        padding: 0;
+        background: none;
+        z-index: 2;
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            top: rem(30px);
+            left: rem(60px);
+        }
+    }
+
+    // Modify first content builder block
+    &:not(.-is-stacked):not(.-has-primary-image-hidden) + .o-page-builder .c-page-module:first-child {
+        margin-top: rem(10px) !important;
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            margin-top: rem(70px) !important;
+        }
+    }
+}

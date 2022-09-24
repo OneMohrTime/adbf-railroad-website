@@ -1,0 +1,230 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Locations grid page module
+// =============================================================================
+// This file contains the locations grid page module component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-page-module__locations-grid {
+
+    // Grid overrides
+    .c-page-module__grid {
+        flex-direction: column;
+
+        // Modify first child
+        *:first-child {
+            margin-top: 0;
+        }
+
+        // Modify last child
+        *:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    // Grid item overrides
+    .c-page-module__grid-item {
+        margin: rem(60px) 0;
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            margin: rem(30px) 0;
+        }
+    }
+
+
+    // Is stacked
+    &:not(.-is-grid) {
+
+        // Grid overrides
+        .c-page-module__grid {
+
+            // From tablet
+            @media (min-width: $from-tablet) {
+                // Modify first child
+                *:first-child {
+                    margin-top: 0;
+                }
+
+                // Modify last child
+                *:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        // Grid item overrides
+        .c-page-module__grid-item {
+
+            // From tablet
+            @media (min-width: $from-tablet) {
+                margin: rem(20px) 0;
+            }
+
+            // From desktop
+            @media (min-width: $from-desktop) {
+                margin: rem(40px) 0;
+            }
+
+            // From desktop large
+            @media (min-width: $from-desktop-lg) {
+                margin: rem(60px) 0;
+            }
+
+            // Location card overrides
+            .c-location-card {
+
+                // From tablet
+                @media (min-width: $from-tablet) {
+                    display: flex;
+                    align-items: center;
+                    flex-direction: row;
+                }
+            }
+
+            // Image and label overrides
+            .c-location-card__image-label {
+
+                // From tablet
+                @media (min-width: $from-tablet) {
+                    margin: 0;
+                    width: 50%;
+                }
+            }
+
+            // Headline overrids
+            .c-location-card__headline {
+
+                // From desktop
+                @media (min-width: $from-desktop) {
+                    font-size: rem(24px);
+                    line-height: rem(30px);
+                }
+            }
+
+            // Information overrides
+            .c-location-card__information {
+
+                // From tablet
+                @media (min-width: $from-tablet) {
+                    margin: 0;
+                    padding: 0 rem(40px);
+                    width: 50%;
+                }
+
+                // From desktop
+                @media (min-width: $from-desktop) {
+                    padding: 0 rem(60px);
+                }
+
+                // From desktop large
+                @media (min-width: $from-desktop-lg) {
+                    padding: 0 rem(80px);
+                }
+            }
+
+            // Details overrides
+            .c-location-card__details {
+
+                // From desktop
+                @media (min-width: $from-desktop) {
+                    display: grid;
+                    grid-gap: 20px;
+                    grid-template-columns: calc(50% - 10px) calc(50% - 10px);
+                }
+            }
+
+            // Details overrides
+            .c-location-card__detail {
+
+                // From desktop
+                @media (min-width: $from-desktop) {
+                    flex-direction: column;
+                    margin: 0;
+                    width: 100%;
+                }
+            }
+
+            // Detail label overrides
+            .c-location-card__detail-label {
+
+                // From desktop
+                @media (min-width: $from-desktop) {
+                    align-self: stretch;
+                    margin: 0;
+                    width: 100%;
+                }
+            }
+
+            // Detail valueoverrides
+            .c-location-card__detail-value {
+
+                // From desktop
+                @media (min-width: $from-desktop) {
+                    align-self: flex-start;
+                    margin: 0;
+                    width: auto;
+                }
+            }
+        }
+    }
+
+    // Is grid
+    &.-is-grid {
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+
+            // Grid overrides
+            .c-page-module__grid {
+                display: grid;
+                grid-gap: 40px;
+                grid-template-columns: calc(50% - 20px) calc(50% - 20px);
+            }
+
+            // Grid item overrides
+            .c-page-module__grid-item {
+                margin: 0;
+            }
+        }
+
+        // From desktop
+        @media (min-width: $from-desktop) {
+
+            // Grid overrides
+            .c-page-module__grid {
+                grid-template-columns: calc(33.33% - 26.6px) calc(33.33% - 26.6px) calc(33.33% - 26.6px);
+            }
+        }
+
+        // From desktop large
+        @media (min-width: $from-desktop-lg) {
+
+            // Grid overrides
+            .c-page-module__grid {
+                grid-gap: 60px;
+                grid-template-columns: calc(33.33% - 40px) calc(33.33% - 40px) calc(33.33% - 40px);
+            }
+        }
+    }
+}
+
+// Service area text
+// =============================================================================
+.c-page-module__locations-grid-service-area {
+    margin-bottom: rem(50px);
+    font-size: rem(28px);
+    text-align: center;
+    line-height: rem(35px);
+
+    // From desktop
+    @media (min-width: $from-desktop) {
+        margin-bottom: rem(60px);
+        font-size: rem(32px);
+        letter-spacing: rem(-0.02px);
+        line-height: rem(40px);
+    }
+}

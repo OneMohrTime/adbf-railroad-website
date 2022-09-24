@@ -1,0 +1,615 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Form
+// =============================================================================
+// This file contains the form component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-form {}
+
+// Section
+// =============================================================================
+.c-form__section {
+    @extend %-is-d5A;
+    margin-bottom: rem(20px);
+    color: $gray-6;
+
+    // Add top margin to section headings that follow a wrapper element
+    .c-form__wrapper + & {
+        margin-top: rem(40px);
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            margin-top: rem(50px);
+        }
+    }
+}
+
+// Wrapper
+// =============================================================================
+.c-form__wrapper {
+    margin: rem(-15px);
+    width: calc(100% + 30px);
+    font-size: 0;
+}
+
+// Row
+// =============================================================================
+.c-form__row {
+    margin: 0 rem(-15px);
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+// Item
+// =============================================================================
+.c-form__item {
+    position: relative;
+    margin: 0 rem(15px) rem(28px);
+    width: calc(100% - 30px);
+    font-size: rem(14px);
+    color: $gray-8;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        width: 100%;
+    }
+
+    // Is center
+    &.-is-center {
+        margin-top: rem(12px);
+        margin-right: auto;
+        margin-left: auto;
+        width: auto;
+        text-align: center;
+    }
+
+    // Is right
+    &.-is-right {
+        margin-right: rem(15px);
+        margin-left: auto;
+        width: auto;
+    }
+
+    // Is left
+    &.-is-left {
+        margin-right: auto;
+        margin-left: rem(15px);
+        width: auto;
+    }
+}
+
+// Label
+// =============================================================================
+.c-form__label {
+    // Import font classes
+    @extend %f-ui;
+    @extend %-is-ui-1-bold;
+
+    // Set component defaults
+    display: block;
+    margin-bottom: rem(10px);
+    color: $gray-8;
+
+    // Has error
+    .-has-error & {
+        color: $form-failure-light;
+    }
+}
+
+// Sub label
+// =============================================================================
+.c-form__sub-label {
+    // Import font classes
+    @extend %f-ui;
+    @extend %-is-ui-2;
+
+    // Set component defaults
+    display: block;
+    margin-bottom: rem(10px);
+    color: $gray-8;
+
+    // Has error
+    .-has-error & {
+        color: $form-failure-light;
+    }
+}
+
+// Error
+// =============================================================================
+.c-form__error {
+    @extend %-is-ui-2A;
+    display: none;
+    margin-top: rem(10px);
+    letter-spacing: 0;
+    color: $form-failure-light;
+
+    // Has error
+    .-has-error & {
+        display: block;
+    }
+
+    // One-liner forms
+    .-is-single-line & {
+        // with only one field, the error state misaligns them
+        position: absolute;
+        top: 100%;
+        left: 0;
+    }
+}
+
+// Input
+// =============================================================================
+.c-form__input {}
+
+// Field
+.c-form__input-field {
+    // Import font classes
+    @extend %f-body;
+    @extend %-is-b3;
+
+    // Set component defaults
+    padding: rem(9px);
+    padding-left: rem(15px);
+    padding-right: rem(15px);
+    color: $gray-8;
+    border: rem(1px) solid $gray-5;
+    border-radius: $input-field-radius;
+
+    // Active
+    &:active {
+        border-color: $gray-8;
+    }
+
+    // Focus
+    &:focus {
+        border-color: $gray-8;
+
+        // Is dark
+        .-has-ui-60-background-color  & {
+            border-color: $gray-6;
+            color: $white;
+        }
+    }
+
+    // Placeholder
+    &::placeholder {
+        color: $gray-7;
+    }
+
+    // Has error
+    .-has-error & {
+        border-color: $form-failure-light;
+    }
+
+    // Has rounded buttons
+    .-has-round-edge-buttons & {
+        border-radius: rem(22px);
+        outline-offset: 4px;
+    }
+
+    // Has soft edge buttons
+    .-has-soft-edge-buttons & {
+        border-radius: rem(5px);
+    }
+
+    // Has hard edge buttons
+    .-has-hard-edge-buttons & {
+        border-radius: 0;
+    }
+}
+
+// Checkbox
+// =============================================================================
+.c-form__checkbox {
+    font-size: 0;
+}
+
+// Options
+.c-form__checkbox-options {
+
+    // Is one line
+    &.-is-one-line {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+// Label
+.c-form__checkbox-label {
+    // // commented to resolve https://github.com/mightyinthemidwest/hm-dealer-platform/issues/1527
+    // // verify this should be removed here, not from another place in https://github.com/mightyinthemidwest/hm-dealer-platform/pull/1524
+    // margin-left: rem(10px);
+
+    // // Modify first child
+    // &:first-child {
+    //     margin-left: 0;
+    // }
+}
+
+// Indicator
+.c-form__checkbox-indicator {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    margin: 0;
+    margin-bottom: rem(-2px);
+    padding: 0;
+    width: rem(14px);
+    height: rem(14px);
+    border: rem(1px) solid $gray-6;
+    border-radius: rem(2px);
+    transition: border $speed-hover $easing;
+
+    // Outline
+    &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: rem(16px);
+        height: rem(16px);
+        border: rem(2px) solid #0D75CB;
+        border-radius: rem(2px);
+        transform: translate(-50%, -50%);
+        transition: opacity $speed-hover $easing;
+        opacity: 0;
+    }
+
+    // Checked
+    &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: rem(14px);
+        height: rem(14px);
+        background-image: url("data:image/svg+xml,%3Csvg width='14' height='14' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath fill='%23F6F6F6' d='M-40-1240h315V290H-40z'/%3E%3Cpath d='M12.606 0C13.376 0 14 .629 14 1.394v11.212c0 .77-.629 1.394-1.394 1.394H1.394C.624 14 0 13.371 0 12.606V1.394C0 .624.629 0 1.394 0h11.212zm-1.97 2.8L5.06 8.933l-1.88-1.88L2.1 8.136l3.012 3.012 6.654-7.319-1.13-1.028z' fill='%23252525'/%3E%3C/g%3E%3C/svg%3E");
+        border-radius: rem(2px);
+        transform: translate(-50%, -50%);
+        transition: opacity $speed-hover $easing;
+        opacity: 0;
+
+        // Is dark background
+        .-is-dark-background & {
+            background-image: url("data:image/svg+xml,%3Csvg width='14' height='14' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath fill='%23252525' d='M-40-1240h315V290H-40z'/%3E%3Cpath d='M12.606 0C13.376 0 14 .629 14 1.394v11.212c0 .77-.629 1.394-1.394 1.394H1.394C.624 14 0 13.371 0 12.606V1.394C0 .624.629 0 1.394 0h11.212zm-1.97 2.8L5.06 8.933l-1.88-1.88L2.1 8.136l3.012 3.012 6.654-7.319-1.13-1.028z' fill='%23fff'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .-has-ui-60-background-color & {
+            background-image: url("data:image/svg+xml,%3Csvg width='14' height='14' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath fill='%23252525' d='M-40-1240h315V290H-40z'/%3E%3Cpath d='M12.606 0C13.376 0 14 .629 14 1.394v11.212c0 .77-.629 1.394-1.394 1.394H1.394C.624 14 0 13.371 0 12.606V1.394C0 .624.629 0 1.394 0h11.212zm-1.97 2.8L5.06 8.933l-1.88-1.88L2.1 8.136l3.012 3.012 6.654-7.319-1.13-1.028z' fill='%23fff'/%3E%3C/g%3E%3C/svg%3E");
+        }
+    }
+}
+
+// Text
+.c-form__checkbox-text {
+    // Import font classes
+    @extend %f-ui;
+    @extend %-is-ui-2;
+
+    // Set component defaults
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    margin-left: rem(8px);
+    width: calc(100% - 22px);
+    color: $gray-8;
+}
+
+// Checkbox is checked
+.c-form__checkbox input:checked ~ .c-form__checkbox-indicator  {
+    border-color: $link-primary-color;
+
+    // Indicator highlight
+    &:after {
+        opacity: 1;
+    }
+}
+
+// Checkbox is focused
+.c-form__checkbox input:focus ~ .c-form__checkbox-indicator  {
+    // Indicator glow
+    &:before {
+        opacity: 0.4;
+    }
+}
+
+// Radio
+// =============================================================================
+.c-form__radio {
+    font-size: 0;
+}
+
+// Options
+.c-form__radio-options {
+
+    // Is one line
+    &.-is-one-line {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+// Label
+.c-form__radio-label {
+    margin-left: rem(10px);
+
+    // Modify first child
+    &:first-child {
+        margin-left: 0;
+    }
+}
+
+// Indicator
+.c-form__radio-indicator {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    margin: 0;
+    margin-bottom: rem(-2px);
+    padding: 0;
+    width: rem(14px);
+    height: rem(14px);
+    border: rem(1px) solid $gray-6;
+    border-radius: rem(7px);
+    transition: border $speed-hover $easing;
+
+    // Outline
+    &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: rem(16px);
+        height: rem(16px);
+        border: rem(2px) solid #0D75CB;
+        border-radius: rem(7px);
+        transform: translate(-50%, -50%);
+        transition: opacity $speed-hover $easing;
+        opacity: 0;
+    }
+
+    // Checked
+    &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: rem(7px);
+        height: rem(7px);
+        background-color: $link-primary-color;
+        border-radius: rem(3.5px);
+        transform: translate(-50%, -50%);
+        transition: opacity $speed-hover $easing;
+        opacity: 0;
+    }
+}
+
+// Text
+.c-form__radio-text {
+    // Import font classes
+    @extend %f-ui;
+    @extend %-is-ui-2;
+
+    // Set component defaults
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    margin-left: rem(8px);
+    width: calc(100% - 24px);
+    color: $gray-8;
+}
+
+// Radio is checked
+.c-form__radio input:checked ~ .c-form__radio-indicator  {
+    border-color: $link-primary-color;
+
+    // Indicator highlight
+    &:after {
+        opacity: 1;
+    }
+}
+
+// Radio is focused
+.c-form__radio input:focus ~ .c-form__radio-indicator  {
+    // Indicator glow
+    &:before {
+        opacity: 0.4;
+    }
+}
+
+
+// Select
+// =============================================================================
+.c-form__select {}
+
+// Wrapper
+.c-form__select-wrapper {
+    position: relative;
+    display: block;
+    cursor: pointer;
+
+    // Arrow
+    &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: rem(15px);
+        bottom: 0;
+        z-index: 2;
+        width: rem(10px);
+        height: rem(6px);
+        background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M-250-725H65V805h-315z'/%3E%3Cg transform='translate(-210 -49)'%3E%3Crect stroke='%23ACACAC' x='.5' y='30.5' width='234' height='43' rx='5'/%3E%3Cpath fill='%23252525' d='M211.502 49L210 50.386 215 55l5-4.614L218.498 49 215 52.228z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        transform: translateY(-50%);
+        pointer-events: none;
+    }
+}
+
+// Field
+.c-form__select-field {
+    @extend .c-form__input-field;
+
+    position: relative;
+    z-index: 1;
+    padding-right: rem(35px);
+    cursor: pointer;
+}
+
+// Textarea
+// =============================================================================
+.c-form__textarea {}
+
+
+// Field
+.c-form__textarea-field {
+    @extend .c-form__input-field;
+
+    min-height: rem(200px);
+}
+
+// Upload
+// =============================================================================
+.c-form__upload {
+
+  // Label overrides
+  .c-form__label {
+      margin-bottom: rem(5px);
+  }
+
+  // Sub label overrides
+  .c-form__sub-label {}
+}
+
+// Input
+.c-form__upload-input {
+    .-has-js & {
+        display: none;
+        width: 0;
+        height: 0;
+    }
+
+    .-has-no-js & {
+        display: block;
+        width: auto;
+        height: auto;
+    }
+}
+
+// Choose
+.c-form__upload-choose {
+    display: none;
+    overflow: hidden;
+
+    // Has js
+    .-has-js & {
+        display: flex;
+        align-items: center;
+    }
+
+    .-has-no-js & {
+        display: none;
+    }
+
+    // Has file
+    .-has-js .c-form__upload.-has-file & {
+        display: none;
+    }
+
+    // Text
+    span {
+        @extend %-is-ui-3-bold;
+        margin-left: rem(10px);
+        letter-spacing: 0;
+        color: $gray-7;
+    }
+}
+
+// File
+.c-form__upload-file {
+    display: none;
+    overflow: hidden;
+
+    // Has js
+    .-has-js & {
+        margin-top: rem(18px);
+        font-size: 0;
+        line-height: 0;
+    }
+
+    // Has file
+    .-has-js .c-form__upload.-has-file & {
+        display: block;
+    }
+
+    // Text
+    span {
+        @extend %-is-ui-3;
+        display: block;
+        margin-bottom: rem(10px);
+        letter-spacing: 0;
+    }
+}
+
+// Remove
+.c-form__upload-remove {
+    display: block;
+    margin: 0;
+    padding: 0;
+    padding-left: rem(18px);
+    font-size: rem(12px);
+    letter-spacing: 0;
+    line-height: rem(22px);
+    text-decoration: underline;
+    color: $gray-7;
+    background-image: url("data:image/svg+xml,%3Csvg width='8' height='8' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M-40-1484h315V46H-40z'/%3E%3Cpath d='M8 1.202L6.798 0 4 2.798 1.202 0 0 1.202 2.798 4 0 6.798 1.202 8 4 5.202 6.798 8 8 6.798 5.202 4z' fill='%23464646'/%3E%3C/g%3E%3C/svg%3E");
+    background-position: 0 60%;
+    background-repeat: no-repeat;
+    overflow: visible;
+
+    // Text
+    span {
+        margin-bottom: 0 !important;
+        width: auto;
+        height: auto;
+    }
+}
+
+// Footer link
+// =============================================================================
+.c-form__footer-link {
+    // Import font classes
+    @extend %f-ui;
+    @extend %-is-ui-1-bold;
+
+    // Set component defaults
+    text-decoration: none;
+
+    // Hover
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// Submit
+// =============================================================================
+.c-form__submit {
+    display: inline-block;
+    margin: 0 auto;
+    width: auto;
+
+    .-has-ui-60-background-color & {
+        &:hover {
+            color: $white !important;
+        }
+    }
+}

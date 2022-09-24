@@ -1,0 +1,99 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Form select page module
+// =============================================================================
+// This file contains the form select page module component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-page-module__form-select {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding: rem(20px) 0 rem(8px);
+    border-bottom: rem(1px) solid $gray-4;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        padding: rem(30px) 0 rem(10px);
+    }
+}
+
+// Label
+// =============================================================================
+.c-page-module__form-select-label {
+    margin-bottom: rem(20px);
+    font-size: rem(14px);
+    font-weight: $semibold;
+    line-height: rem(14px);
+    color: $gray-55;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        margin-bottom: rem(25px);
+    }
+}
+
+// Buttons
+// =============================================================================
+.c-page-module__form-select-buttons {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    padding: 0 rem(10px);
+    padding-bottom: rem(17px);
+    min-width: rem(80px);
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        padding: 0 rem(60px);
+        padding-bottom: rem(20px);
+    }
+}
+
+// Button wrapper
+// =============================================================================
+.c-page-module__form-select-button-wrapper {
+    text-align: center;
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin: 0 rem(10px);
+    width: rem(220px);
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        width: rem(265px);
+    }
+}
+
+// Button
+// =============================================================================
+.c-page-module__form-select-button {
+    @extend %-is-d6A-semibold;
+    display: block;
+    padding: rem(15px) rem(20px);
+    width: 100%;
+    text-decoration: none;
+    color: $gray-8;
+    border: rem(1px) solid $gray-4;
+    border-radius: rem(5px);
+    transition: border-color $speed-hover $easing;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        padding: rem(17px) rem(20px);
+    }
+
+    // Hover
+    &:hover,
+    &.-is-active {
+        border-color: $gray-8;
+    }
+}

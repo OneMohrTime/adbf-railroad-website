@@ -1,0 +1,29 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Skip Navigation
+// =============================================================================
+// This file contains the a11y skip nav styles
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-skip-nav {
+    position: relative;
+}
+
+.c-skip-nav__link {
+    // hide/focus mixins
+    @include u-accessibly-hidden;
+    @include u-accessibly-focusable;
+
+    // additional configuration needed
+    @include u-actus {
+        padding-top: rem(12px);
+        padding-left: rem(25px);
+        padding-right: rem(25px);
+        padding-bottom: rem(12px);
+        color: $white;
+        z-index: 99999;
+    }
+}

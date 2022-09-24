@@ -1,0 +1,94 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Story card
+// =============================================================================
+// This file contains the product card component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-story-card {
+    display: block;
+    text-decoration: none;
+
+    // Remove top margin from first child element
+    *:first-child {
+        margin-top: 0 !important;
+    }
+
+    // Remove bottom margin from last child element
+    *:last-child {
+        margin-bottom: 0 !important;
+    }
+}
+
+// Image
+// =============================================================================
+.c-story-card__image {
+  @include aspect-ratio(4,3);
+  width: 100%;
+  height: auto;
+  margin-top: rem(16px);
+  margin-bottom: rem(16px);
+
+  // From tablet
+  @media (min-width: $from-tablet) {
+
+  }
+
+  // Image styles remain constant at all sizes
+  // Unfortunately we have to style for IE11 first
+  & > img,
+  & > picture > img {
+    display: block;
+    top: 50%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(-50%);
+    // if we aren't dealing with IE11, undo some styles
+    @supports (object-fit: cover) {
+      top: 0;
+      width: 100%;
+      height: 100%;
+      transform: translateY(0);
+      object-fit: cover;
+    }
+  }
+}
+
+// Title
+// =============================================================================
+.c-story-card__title {
+    @extend %f-display;
+    @extend %-is-d6A-bold;
+    display: block;
+    margin-top: rem(6px);
+    margin-bottom: rem(6px);
+    transition: color $speed-hover $easing;
+
+    // Hover
+    .c-story-card:hover & {
+        color: $link-primary-color;
+    }
+}
+
+// Company
+// =============================================================================
+.c-story-card__sub-title {
+    @extend %-is-d6;
+    margin-top: rem(6px);
+    margin-bottom: rem(6px);
+    letter-spacing: 0;
+    color: $gray-7;
+}
+
+// Preview
+// =============================================================================
+.c-story-card__preview {
+    @extend %-is-b4;
+    display: block;
+    margin-top: rem(6px);
+    margin-bottom: rem(6px);
+}

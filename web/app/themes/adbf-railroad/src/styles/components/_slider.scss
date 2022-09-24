@@ -1,0 +1,263 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Slider
+// =============================================================================
+// This file contains the slider component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-slider {
+    position: relative;
+    width: auto;
+}
+
+// Slider track
+// =============================================================================
+.c-slider__track {
+    display: flex;
+    position: relative;
+    margin: 0 auto;
+    width: auto;
+    height: rem(270px);
+
+    // Modify first child
+    *:first-child {
+        margin-left: 0;
+    }
+
+    // Modify last child
+    *:last-child {
+        margin-right: 0;
+    }
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        height: rem(608px);
+    }
+
+    // Is adaptive height slider
+    [data-module-slider-adaptive-height="true"] & {
+        //transform: translateX(-100%);
+        height: auto;
+    }
+
+    // Is animating
+    &.-is-animating {
+        transition: height $speed-reveal $easing, transform $speed-reveal $easing;
+    }
+}
+
+// Slider item
+// =============================================================================
+.c-slider__slide {
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin: 0 rem(10px);
+    width: auto;
+    height: 100%;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        margin: 0 rem(15px);
+    }
+
+    // Is adaptive height slider
+    [data-module-slider-adaptive-height="true"] & {
+        display: none;
+        margin: 0;
+        width: 100%;
+        height: auto;
+        align-items: baseline;
+        margin-bottom: auto;
+
+        // Show first child only
+        &:first-child {
+            display: block;
+        }
+
+        // Show all if we have js
+        .-has-js & {
+            display: block;
+        }
+    }
+
+    // Media cards overrides
+    .c-media-card {
+        width: auto;
+        height: 100%;
+
+        // Is adaptive height slider
+        [data-module-slider-adaptive-height="true"] & {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    // Image overrides
+    .c-media-card__image {
+        width: auto;
+        height: rem(240px);
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            height: rem(580px);
+        }
+
+        // Is adaptive height slider
+        [data-module-slider-adaptive-height="true"] & {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+// Slider controls
+// =============================================================================
+.c-slider__controls {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    margin: rem(20px) auto 0;
+    width: auto;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        margin: rem(30px) auto 0;
+    }
+
+    // Show all if we have js
+    .-has-js & {
+        display: flex;
+    }
+}
+
+// Slider arrow
+// =============================================================================
+.c-slider__arrow {
+    display: none;
+    width: rem(36px);
+    height: rem(36px);
+    text-indent: -2000px;
+    border: rem(1px) solid $gray-4;
+    border-radius: $control-button-radius;
+    transition: border-color $speed-hover $easing;
+    overflow: hidden;
+
+    // Hover
+    &:hover {
+        border-color: $gray-8;
+    }
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        display: block;
+    }
+
+    // Text
+    span {
+        position: absolute;
+    }
+
+    // Icon file
+    svg {
+        display: block;
+        max-width: 12px;
+        max-height: 12px;
+        margin: 0 auto;
+        fill: $gray-8;
+        pointer-events: none;
+    }
+
+    // Has rounded buttons
+    .-has-round-edge-buttons & {
+        border-radius: 22px;
+    }
+
+    // Has rounded buttons
+    .-has-soft-edge-buttons & {
+        border-radius: 5px;
+    }
+
+    // Has hard edge buttons
+    .-has-hard-edge-buttons & {
+        border-radius: 0;
+    }
+
+    // Is dark background
+    .-is-dark-background & {
+        border-color: $gray-4;
+
+        // Icon file
+        svg {
+            fill: $white;
+        }
+
+        // Hover
+        &:hover {
+            border-color: $white;
+        }
+    }
+}
+
+// Slider dots
+// =============================================================================
+.c-slider__dots {
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        margin: 0 rem(30px);
+    }
+
+    // Modify first child
+    *:first-child {
+        margin-left: 0;
+    }
+
+    // Modify last child
+    *:last-child {
+        margin-right: 0;
+    }
+}
+
+// Slider dot
+// =============================================================================
+.c-slider__dot {
+    margin: 0 rem(5px);
+    width: rem(10px);
+    height: rem(10px);
+    background-color: $gray-4;
+    border-radius: rem(5px);
+    transition: background-color $speed-hover $easing;
+
+    // Hover
+    &.-is-selected,
+    &:hover {
+        background-color: $gray-8;
+    }
+
+    // Is dark background
+    .-is-dark-background & {
+        background-color: $gray-4;
+
+        // Hover
+        &.-is-selected,
+        &:hover {
+            background-color: $white;
+        }
+    }
+
+}
+
+// Slider counter
+// =============================================================================
+.c-slider__counter {
+    @extend %-is-ui-1;
+    display: none;
+
+    // Is dark background
+    .-is-dark-background & {
+        color: $white !important;
+    }
+}

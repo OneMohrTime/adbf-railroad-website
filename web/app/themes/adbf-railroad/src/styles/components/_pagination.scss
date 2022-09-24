@@ -1,0 +1,187 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Pagination
+// =============================================================================
+// This file contains the pagination component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-pagination {
+    @extend %-is-ui-3;
+    display: flex;
+    align-items: center;
+}
+
+// Links
+// =============================================================================
+.c-pagination__links {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        margin-left: 0;
+    }
+
+    // Link wrapper
+    li {
+
+        // Text
+        span {
+            transition: margin $speed-hover $easing;
+        }
+
+        // Arrow
+        svg {
+            max-width: rem(17px);
+            max-height: rem(10px);
+            transition: fill $speed-hover $easing;
+            fill: currentColor;
+        }
+
+        // Is previous
+        &.-is-previous {
+            margin-right: rem(5px);
+
+            // To tablet
+            @media (max-width: $to-tablet) {
+                a,
+                button {
+                    padding-right: rem(10px);
+                    padding-left: rem(10px);
+                }
+            }
+
+            // From tablet
+            @media (min-width: $from-tablet) {
+                margin-right: rem(15px);
+            }
+
+            // Hide before
+            &:before {
+                display: none !important;
+            }
+
+            // Text
+            span {
+                margin-left: rem(5px);
+            }
+
+            // Link
+            a,
+            button {
+                display: flex;
+                align-items: center;
+                flex-direction: row-reverse;
+
+                // To tablet
+                @media (max-width: $to-tablet) {
+                    font-size: 0;
+                    line-height: 0;
+                }
+            }
+        }
+
+        // Is next
+        &.-is-next {
+            margin-left: rem(5px);
+
+            // To tablet
+            @media (max-width: $to-tablet) {
+                a,
+                button {
+                    padding-right: rem(10px);
+                    padding-left: rem(10px);
+                }
+            }
+
+            // From tablet
+            @media (min-width: $from-tablet) {
+                margin-left: rem(15px);
+            }
+
+            // Text
+            span {
+                margin-right: rem(5px);
+            }
+
+            // Link
+            a,
+            button {
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+
+                // To tablet
+                @media (max-width: $to-tablet) {
+                    font-size: 0;
+                    line-height: 0;
+                }
+
+                // Hover
+                &:hover {
+
+                    // Arrow
+                    svg {
+                        fill: $white;
+                    }
+                }
+            }
+        }
+
+        // Is numeric
+        &.-is-numeric {
+            @extend %-is-ui-3A-bold;
+
+            margin-left: rem(5px);
+            margin-right: rem(5px);
+
+            // Link
+            a,
+            button {
+                display: block;
+                padding: rem(10px);
+                width: rem(40px);
+                text-align: center;
+                text-decoration: none;
+                background-color: transparent;
+                border: rem(1px) solid transparent;
+                border-radius: $control-button-radius;
+                transition: color $speed-hover $easing, background $speed-hover $easing, border $speed-hover $easing;
+
+                // Has rounded buttons
+                .-has-round-edge-buttons & {
+                    border-radius: rem(22px);
+                }
+
+                // Has soft edge buttons
+                .-has-soft-edge-buttons & {
+                    border-radius: rem(5px);
+                }
+
+                // Has hard edge buttons
+                .-has-hard-edge-buttons & {
+                    border-radius: 0;
+                }
+
+                // Hover
+                &:hover {
+                    background-color: $link-primary-color;
+                    border-color: $link-primary-color;
+                    color: $white;
+                }
+            }
+        }
+
+        // Is selected
+        &.-is-selected a,
+        &.-is-selected button {
+            border-color: $gray-8;
+            pointer-events: none;
+        }
+    }
+}

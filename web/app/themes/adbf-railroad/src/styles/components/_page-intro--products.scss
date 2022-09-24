@@ -1,0 +1,61 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Page intro - narrow
+// =============================================================================
+// This file contains the page intro - narrow component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-page-intro__products {
+    padding-top: rem(96px);
+    padding-right: rem(20px);
+    padding-bottom: rem(96px);
+    padding-left: rem(20px);
+    text-align: center;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        padding-top: rem(109px);
+        padding-right: rem(60px);
+        padding-bottom: rem(109px);
+        padding-left: rem(60px);
+    }
+
+    // Text card overrides
+    .c-text-card {
+        position: relative;
+        margin: 0 auto;
+        max-width: rem(740px);
+        z-index: 2;
+    }
+
+    // Headline overrides, has dark background
+    &.-has-overlay-image .c-text-card__headline {
+        color: $white;
+    }
+
+    // Headline overrides, has color image
+    &.-has-color-image .c-text-card__headline {
+        display: inline-block;
+        margin: 0;
+        padding: rem(4px) rem(15px);
+        background-color: $white;
+
+        // From desktop
+        @media (min-width: $from-desktop) {
+            padding: rem(13px) rem(30px);
+        }
+    }
+
+    // Body overrides, has color image
+    &.-has-color-image .c-text-card__body {
+        display: none;
+    }
+
+    // Body overrides, has dark background
+    &.-has-overlay-image .c-text-card__body {
+        color: $white;
+    }
+}

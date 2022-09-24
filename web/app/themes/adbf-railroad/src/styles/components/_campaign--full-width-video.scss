@@ -1,0 +1,161 @@
+// *****************************************************************************
+// =============================================================================
+// Components: Full width video campaign block
+// =============================================================================
+// This file contains the full width video block properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-campaign--full-width-video {
+    // Is right aligned
+    &.-is-right-aligned {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        display: flex;
+        align-items: stretch;
+        min-height: rem(800px);
+
+        // Is right aligned
+        &.-is-right-aligned {
+            flex-direction: row-reverse;
+        }
+    }
+
+    // Media card overrides
+    .c-media-card {
+        height: rem(240px);
+        z-index: 1;
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .c-campaign__text {
+        position: relative;
+        padding: rem(30px);
+        background-color: $white;
+        z-index: 2;
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            display: flex;
+            align-items: center;
+            padding: rem(80px);
+            padding-right: rem(100px);
+            width: 50%;
+        }
+
+        // From desktop
+        @media (min-width: $from-desktop) {
+            padding: rem(160px);
+            padding-right: rem(155px);
+        }
+
+        // From desktop large
+        @media (min-width: $from-desktop-lg) {
+            padding: rem(160px);
+            padding-right: rem(210px);
+        }
+    }
+
+    // Is right aligned
+    &.-is-right-aligned .c-campaign__text {
+        // From tablet
+        @media (min-width: $from-tablet) {
+            padding-right: rem(80px);
+            padding-left: rem(100px);
+        }
+
+        // From desktop
+        @media (min-width: $from-desktop) {
+            padding-right: rem(160px);
+            padding-left: rem(155px);
+        }
+
+        // From desktop large
+        @media (min-width: $from-desktop-lg) {
+            padding-right: rem(160px);
+            padding-left: rem(210px);
+        }
+    }
+
+    // Text card overrides
+    .c-text-card {
+        // From tablet
+        @media (min-width: $from-tablet) {
+            text-align: left;
+        }
+    }
+
+    // Play overrides
+    .c-button.-is-play {
+        position: absolute;
+        bottom: rem(98px);
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 3;
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            top: 50% !important;
+            bottom: auto !important;
+            transform: translate(-50%, -50%) !important;
+        }
+    }
+
+    // Is right aligned
+    &.-is-right-aligned .c-button {
+        top: rem(98px);
+        bottom: auto;
+    }
+
+    // Button overrides
+    .c-text-card__button {
+        // Import font classes
+        @extend %f-ui;
+        @extend %-is-ui-1-bold;
+
+        // Set component defaults
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        margin: 0;
+        padding: 0;
+        background: none !important;
+        text-decoration: none !important;
+        color: $gray-8 !important;
+        transform: none !important;
+
+        // Text
+        span {
+            margin-right: 5px;
+        }
+
+        // Add arrow
+        svg {
+            max-width: rem(17px);
+            max-height: rem(10px);
+            fill: currentColor;
+        }
+
+        // Hover
+        &:hover {
+            svg {
+                fill: $link-hover-color;
+            }
+        }
+    }
+}

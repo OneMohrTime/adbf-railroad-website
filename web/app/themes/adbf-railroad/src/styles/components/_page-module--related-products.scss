@@ -1,0 +1,61 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Related products page module
+// =============================================================================
+// This file contains the related products page module component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-page-module__related-products {
+
+    // From desktop large
+    @media (min-width: $from-desktop-lg) {
+        padding-right: rem(110px);
+        padding-left: rem(110px);
+    }
+
+    // Text card overrides
+    .c-text-card {
+
+        // Headline overrides
+        .c-text-card__headline {
+            letter-spacing: rem(-0.5px);
+        }
+    }
+
+    // Grid
+    .c-page-module__grid {
+
+        // From 414px
+        @media (min-width: 414px) {
+            display: grid;
+            grid-gap: 40px;
+            grid-template-columns: calc(50% - 20px) calc(50% - 20px);
+            margin-top: rem(40px);
+        }
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            grid-gap: 60px;
+            grid-template-columns: calc(33.33% - 40px) calc(33.33% - 40px) calc(33.33% - 40px);
+            margin-top: rem(60px);
+        }
+
+        // From desktop
+        @media (min-width: $from-desktop) {
+            grid-template-columns: calc(25% - 45px) calc(25% - 45px) calc(25% - 45px) calc(25% - 45px);
+        }
+    }
+
+    // Grid item
+    .c-page-module__grid-item {
+        margin-top: rem(40px);
+
+        // From 414px
+        @media (min-width: 414px) {
+            margin: 0;
+        }
+    }
+}

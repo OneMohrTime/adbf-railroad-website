@@ -1,0 +1,145 @@
+
+// *****************************************************************************
+// =============================================================================
+// Elements: Page
+// =============================================================================
+// This file contains the page element properties
+// *****************************************************************************
+
+// *****************************************************************************
+//
+// Simple page-level setup.
+//
+// 1. Ensure the page always fills at least the entire height of the viewport.
+//
+// *****************************************************************************
+
+// Html
+// =============================================================================
+html {
+    min-height: 100%; /* [3] */
+    scroll-behavior: smooth;
+
+    // Fix web fonts in Chrome, Safari, Firefox
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
+    // To tablet
+    @media (max-width: $to-tablet) {
+        overflow-x: hidden;
+    }
+
+
+    // Has menu open
+    &.-has-menu-open {
+        // To tablet
+        @media (max-width: $to-tablet) {
+            overflow: hidden;
+        }
+    }
+
+    // Has video playing
+    &.-has-video-playing {
+        overflow: hidden;
+    }
+}
+
+// Body
+// =============================================================================
+body {
+    // Import font body styles into our body
+    @extend %f-body;
+
+    position: relative;
+    background-color: $gray-3;
+
+    // To tablet
+    @media (max-width: $to-tablet) {
+        overflow-x: hidden;
+    }
+
+    // Has menu open
+    .-has-menu-open & {
+        // To tablet
+        @media (max-width: $to-tablet) {
+            overflow: hidden;
+        }
+    }
+
+    // Has video playing
+    .-has-video-playing & {
+        overflow: hidden;
+    }
+}
+
+// Paragraph text
+// =============================================================================
+p {
+    margin-top: $line-height;
+    margin-bottom: $line-height;
+}
+
+// Selection
+// =============================================================================
+::selection {
+    // text-shadow: none;
+    // background-color: $selection-background-color;
+    // color: $selection-text-color;
+}
+
+// Links
+// =============================================================================
+a {
+    text-decoration: underline;
+    color: $body-color;
+
+    // Generate hover and focus states
+    @include u-hocus {
+        text-decoration: none;
+        color: $body-color;
+    }
+}
+
+// Headings
+// =============================================================================
+// h1
+h1 {
+    // Import font display styles into our heading
+    @extend %f-display;
+    @extend %-is-d1;
+}
+
+// h2
+h2 {
+    // Import font display styles into our heading
+    @extend %f-display;
+    @extend %-is-d2;
+}
+
+// h3
+h3 {
+    // Import font display styles into our heading
+    @extend %f-display;
+    @extend %-is-d3;
+}
+
+// h4
+h4 {
+    // Import font display styles into our heading
+    @extend %f-display;
+    @extend %-is-d4;
+}
+
+// h5
+h5 {
+    // Import font display styles into our heading
+    @extend %f-display;
+    @extend %-is-d5;
+}
+
+// h6
+h6 {
+    // Import font display styles into our heading
+    @extend %f-display;
+    @extend %-is-d6;
+}

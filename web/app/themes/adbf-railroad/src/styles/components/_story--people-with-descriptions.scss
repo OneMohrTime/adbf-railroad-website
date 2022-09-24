@@ -1,0 +1,110 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Content people with descriptions module
+// =============================================================================
+// This file contains the content people with descriptions component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-story__people-with-descriptions {
+    max-width: rem(740px);
+    margin-left: auto;
+    margin-right: auto;
+
+    // Text card overrides
+    .c-text-card {
+        margin: 0 0 rem(40px);
+        padding: 0;
+        text-align: left;
+    }
+
+    // Headline
+    .c-text-card__headline {
+        @extend %-is-d3;
+    }
+
+    // body
+    .c-text-card__body {
+        @extend %-is-b3;
+    }
+
+    // People card overrides
+    .c-people-card {
+        margin: rem(40px) 0;
+        text-align: left;
+
+        // Remove top margin from first child
+        &:first-child {
+            margin-top: 0;
+        }
+
+        // Remove bottom margin from last child
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin: rem(60px) 0;
+        }
+    }
+
+    // Image overrides
+    .c-people-card__image {
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            margin: 0;
+            max-width: 220px;
+        }
+    }
+
+    // Information overrides
+    .c-people-card__information {
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            margin: 0;
+            max-width: calc(100% - 260px);
+        }
+    }
+
+    // Name overrides
+    .c-people-card__name {
+        @extend %-is-d4;
+    }
+
+    // Position & Linkedin button overrides
+    .c-people-card__posi-link {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    // Position overrides
+    .c-people-card__position {
+        align-self: center;
+        margin: 0;
+        width: auto !important;
+        font-size: rem(16px);
+        line-height: rem(20px);
+    }
+
+    // Linkedin overrides
+    .c-people-card__linkedin {
+        align-self: center;
+        margin: 0;
+        margin-left: rem(8px);
+        margin-right: auto;
+    }
+
+    // Description overrides
+    .c-people-card__description {
+        @extend %-is-b3;
+    }
+}

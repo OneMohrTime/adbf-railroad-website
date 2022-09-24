@@ -1,0 +1,101 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Video modal
+// =============================================================================
+// This file contains the video modal component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-video-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    transition-delay: $speed-reveal;
+    visibility: hidden;
+    z-index: 10000;
+    overflow: auto;
+
+    // Has video playing
+    .-has-video-playing & {
+        visibility: visible;
+        height: 100%;
+        transition-delay: 0s;
+    }
+}
+
+// Video wrapper
+// =============================================================================
+.c-video-modal__video-wrapper {
+    padding: rem(56px) rem(20px);
+    width: 100%;
+    min-height: 100%;
+    background: rgba(37, 37, 37, 0.92);
+    opacity: 0;
+    transition: opacity $speed-reveal $easing;
+
+    // Has video playing
+    .-has-video-playing & {
+        opacity: 1;
+    }
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        padding: rem(100px) rem(120px);
+    }
+}
+
+// Video
+// =============================================================================
+.c-video-modal__video {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 56.25%;
+    width: 100%;
+    background-color: $black;
+
+    // From 1340px
+    @media (min-width: rem(1340px)) {
+        padding: 0;
+        width: rem(1100px);
+        height: rem(618px);
+    }
+
+    // Iframe
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+// Close
+// =============================================================================
+.c-video-modal__close {
+    position: fixed;
+    top: rem(20px);
+    right: rem(20px);
+    width: rem(16px);
+    height: rem(16px);
+    text-indent: rem(-2000px);
+    overflow: hidden;
+
+    // Text
+    span {
+        position: absolute;
+    }
+
+    // Icon file
+    svg {
+        display: block;
+        max-width: rem(16px);
+        max-height: rem(16px);
+        fill: $white;
+    }
+}

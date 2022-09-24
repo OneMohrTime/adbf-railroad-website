@@ -1,0 +1,59 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Brand card
+// =============================================================================
+// This file contains the brand card component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-brand-card {
+
+    // Remove top margin from first child
+    *:first-child {
+        margin-top: 0;
+    }
+
+    // Remove bottom margin from last child
+    *:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// Image
+// =============================================================================
+.c-brand-card__image {
+    margin: rem(9px) 0;
+}
+
+// Text
+// =============================================================================
+.c-brand-card__text {
+    margin: rem(9px) 0;
+}
+
+// Headline
+// =============================================================================
+.c-brand-card__headline {
+    @extend %-is-d4;
+    margin-bottom: rem(12px);
+    text-decoration: none;
+    color: $gray-8;
+
+    // Link
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+.c-brand-card__body {
+    @extend %-is-b4;
+    margin-bottom: rem(14px);
+
+    // Paragraph
+    p {
+        margin: rem(14px) 0;
+    }
+}

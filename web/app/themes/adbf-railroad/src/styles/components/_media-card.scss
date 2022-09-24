@@ -1,0 +1,53 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Media card
+// =============================================================================
+// This file contains the media card component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-media-card {
+    position: relative;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    // Button overrides
+    .c-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+// Image
+// =============================================================================
+.c-media-card__image {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+}
+
+// Caption
+// =============================================================================
+.c-media-card__caption {
+    display: none;
+    margin-top: rem(10px);
+    width: 100%;
+    font-size: rem(12px);
+    letter-spacing: 0;
+    line-height: rem(12px);
+    text-align: left;
+    color: $gray-55;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        margin-top: rem(12px);
+        line-height: rem(16px);
+    }
+}

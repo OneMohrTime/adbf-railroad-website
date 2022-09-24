@@ -1,0 +1,221 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Campaign
+// =============================================================================
+// This file contains the campaign block component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-campaign {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin-top: rem(60px);
+    padding-right: rem(20px);
+    padding-left: rem(20px);
+
+    // Modify first child
+    &:first-child {
+        margin-top: rem(60px);
+    }
+
+    // Modify last child
+    &:last-child {
+        margin-bottom: rem(60px);
+    }
+
+    // Anchor link specific overrides
+    .c-text-card {
+        a {
+            color: inherit;
+        }
+        .c-text-card__button {
+            color: $white;
+        }
+    }
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        margin-top: rem(120px);
+        padding-right: rem(60px);
+        padding-left: rem(60px);
+
+        // Modify first child
+        &:first-child {
+            margin-top: rem(100px);
+        }
+
+        // Modify last child
+        &:last-child {
+            margin-bottom: rem(100px);
+        }
+    }
+
+    // From desktop
+    @media (min-width: $from-desktop) {
+        padding-right: rem(110px);
+        padding-left: rem(110px);
+    }
+
+    // From desktop large
+    @media (min-width: $from-desktop-lg) {
+        padding-right: rem(160px);
+        padding-left: rem(160px);
+    }
+
+    // Has background color
+    //
+    // Currently placing all color instances here, though they may end up being
+    // more specific and moved into only the components which they're allowed
+    // use within. For instance, color pairings below are for 1up, but not used
+    // for 2up - 4up components as they're only allowed white backgrounds*.
+    // (* also their 'dark theme' equivalent)
+    &.-has-background-color {
+        margin: 0;
+        padding-top: rem(40px);
+        padding-bottom: rem(40px);
+
+        // If the previous module has a colored background,
+        // remove top margin from the current module
+        .c-campaign:not(.-has-background-color):not(.-is-full-width) + & {
+            margin-top: rem(60px);
+
+            // From tablet
+            @media (min-width: $from-tablet) {
+                margin-top: rem(120px);
+            }
+        }
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            padding-top: rem(80px);
+            padding-bottom: rem(80px);
+        }
+    }
+
+    // Is full width
+    &.-is-full-width {
+        margin: 0;
+        padding: 0;
+
+        // If the previous module has a colored background,
+        // remove top margin from the current module
+        .c-campaign:not(.-has-background-color):not(.-is-full-width) + & {
+            margin-top: rem(60px);
+
+            // From tablet
+            @media (min-width: $from-tablet) {
+                margin-top: rem(120px);
+            }
+        }
+    }
+}
+
+// Intro
+// =============================================================================
+.c-campaign__intro {
+    margin-bottom: rem(50px);
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        margin: 0 auto;
+        margin-bottom: rem(60px);
+        max-width: rem(740px);
+    }
+
+    .c-text-card__button {
+        background-color: $link-primary-color;
+        color: $white;
+
+        // Hover
+        &:hover {
+            background-color: $link-hover-color;
+            opacity: 1;
+        }
+
+        // Active
+        &:active {
+            background-color: $link-active-color;
+            opacity: 1;
+        }
+    }
+}
+
+// Grid
+// =============================================================================
+.c-campaign__grid {
+    position: relative;
+    z-index: 2;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        display: flex;
+    }
+}
+
+// Grid item
+// =============================================================================
+.c-campaign__grid-item {
+    margin-top: rem(50px);
+    margin-bottom: rem(50px);
+    width: 100%;
+
+    // Remove top margin from first child
+    &:first-child {
+        margin-top: 0;
+    }
+
+    // Remove bottom margin from last child
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    // Set margins for cards within a grid item
+    .c-media-card,
+    .c-text-card,
+    .c-testimonial-card {
+        margin-top: rem(25px);
+        margin-bottom: rem(25px);
+    }
+
+    // Text card specific overrides
+    .c-text-card {
+        // Has no text
+        .-has-no-text & {
+            display: none;
+        }
+    }
+
+    // Remove top margin from first child element
+    *:first-child {
+        margin-top: 0 !important;
+    }
+
+    // Remove bottom margin from last child element
+    *:last-child {
+        margin-bottom: 0 !important;
+    }
+}
+
+// Imports
+// =============================================================================
+// Import our remaining pieces
+@import 'campaign--action-banner';
+@import 'campaign--content-grid';
+@import 'campaign--form';
+@import 'campaign--full-width-image';
+@import 'campaign--full-width-text';
+@import 'campaign--full-width-video';
+@import 'campaign--image-gallery';
+@import 'campaign--image-image';
+@import 'campaign--image-text';
+@import 'campaign--locations';
+@import 'campaign--video-text';

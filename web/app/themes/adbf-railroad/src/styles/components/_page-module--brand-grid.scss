@@ -1,0 +1,105 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Brand grid page module
+// =============================================================================
+// This file contains the brand grid page module component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-page-module__brand-grid {
+
+    // Grid item
+    .c-page-module__grid {
+
+        // Remove top margin from first child
+        *:first-child {
+            margin-top: 0;
+        }
+
+        // Remove bottom margin from last child
+        *:last-child {
+            margin-bottom: 0;
+        }
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            display: grid;
+            grid-gap: 30px;
+            grid-template-columns: calc(50% - 15px) calc(50% - 15px);
+        }
+
+        // From desktop
+        @media (min-width: $from-desktop) {
+            grid-template-columns: calc(33.33% - 20px) calc(33.33% - 20px) calc(33.33% - 20px);
+        }
+
+        // From desktop large
+        @media (min-width: $from-desktop-lg) {
+            grid-gap: 60px;
+            grid-template-columns: calc(33.33% - 40px) calc(33.33% - 40px) calc(33.33% - 40px);
+        }
+    }
+
+    // Grid item
+    .c-page-module__grid-item {
+        margin: rem(40px) 0;
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            margin: 0;
+        }
+    }
+}
+
+// Text
+// =============================================================================
+.c-page-module__brand-grid-text {
+    margin: rem(50px) auto;
+    max-width: rem(740px);
+    text-align: center;
+
+    // Remove top margin from first child
+    *:first-child {
+        margin-top: 0;
+    }
+
+    // Remove bottom margin from last child
+    *:last-child {
+        margin-bottom: 0;
+    }
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        margin: rem(60px) auto;
+    }
+}
+
+// Headline
+// =============================================================================
+.c-page-module__brand-grid-headline {
+    @extend %-is-d3;
+    margin: rem(14px) 0;
+}
+
+// Body
+// =============================================================================
+.c-page-module__brand-grid-body {
+    @extend %-is-b1;
+    margin: rem(14px) 0;
+
+    // Paragraph
+    p {
+        margin: rem(20px) 0;
+    }
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+
+        // Paragraph
+        p {
+            margin: rem(24px) 0;
+        }
+    }
+}

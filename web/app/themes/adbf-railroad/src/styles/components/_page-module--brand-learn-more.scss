@@ -1,0 +1,20 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Brand learn more page module
+// =============================================================================
+// This file contains the brand learn more page module component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-page-module__brand-learn-more {
+    @extend %-is-ui-1-semibold;
+    text-align: center;
+    color: $gray-8;
+
+    // Link
+    a {
+        color: inherit !important;
+    }
+}

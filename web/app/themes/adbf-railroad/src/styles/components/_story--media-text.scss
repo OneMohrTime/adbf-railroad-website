@@ -1,0 +1,218 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Story media & text module
+// =============================================================================
+// This file contains the story media & text component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-story__media-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        flex-direction: row;
+    }
+
+    // Is right aligned
+    &.-is-right-aligned {
+        flex-direction: column-reverse;
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            flex-direction: row-reverse;
+        }
+
+        // Set margins for cards within a grid item
+        .c-media-card,
+        .c-text-card {
+
+            // Add top margin from first child
+            &:first-child {
+                margin-top: rem(6px) !important;
+                margin-bottom: 0;
+            }
+
+            // Addbottom margin from last child
+            &:last-child {
+                margin-top: 0;
+                margin-bottom: rem(6px) !important;
+            }
+
+            // From tablet
+            @media (min-width: $from-tablet) {
+
+                // Remove top margin from first child
+                &:first-child {
+                    margin-top: 0 !important;
+                    margin-right: 0;
+                    margin-bottom: 0 !important;
+                    margin-left: rem(20px);
+                }
+
+                // Remove bottom margin from last child
+                &:last-child {
+                    margin-top: 0 !important;
+                    margin-right: rem(20px);
+                    margin-bottom: 0 !important;
+                    margin-left: 0;
+                }
+            }
+
+            // From desktop
+            @media (min-width: $from-desktop) {
+
+                // Remove top margin from first child
+                &:first-child {
+                    margin-right: 0;
+                    margin-left: rem(40px);
+                }
+
+                // Remove bottom margin from last child
+                &:last-child {
+                    margin-right: rem(40px);
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+
+    // Set margins for cards within a grid item
+    .c-media-card,
+    .c-text-card {
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            margin-right: rem(20px);
+            margin-left: rem(20px);
+
+            // Remove top margin from first child
+            &:first-child {
+                margin-left: 0;
+            }
+
+            // Remove bottom margin from last child
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        // From desktop
+        @media (min-width: $from-desktop) {
+            margin-left: rem(40px);
+            margin-right: rem(40px);
+        }
+    }
+
+    // Media card overrides
+    .c-media-card {
+        // From tablet
+        @media (min-width: $from-tablet) {
+            width: calc(65% - 20px);
+        }
+
+        // From desktop
+        @media (min-width: $from-desktop) {
+            width: calc(65% - 40px);
+        }
+    }
+
+    // Text card overrides
+    .c-text-card {
+        margin-top: rem(20px);
+        padding-right: rem(20px);
+        padding-left: rem(20px);
+        text-align: left;
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            margin-top: 0;
+            padding: 0;
+            width: calc(35% - 20px);
+            text-align: left;
+        }
+
+        // From desktop
+        @media (min-width: $from-desktop) {
+            width: calc(35% - 40px);
+        }
+    }
+
+    // Headline overrides
+    .c-text-card__headline {
+        @extend %-is-d3;
+        margin-bottom: rem(10px);
+    }
+
+    // Body overrides
+    .c-text-card__body {
+        @extend %-is-b2;
+    }
+
+    // Is right aligned
+    &.-is-right-aligned {
+        flex-direction: column-reverse;
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            flex-direction: row-reverse;
+        }
+
+        // Set margins for cards within a grid item
+        .c-media-card,
+        .c-text-card {
+
+            // Add top margin from first child
+            &:first-child {
+                margin-top: rem(10px) !important;
+                margin-bottom: 0;
+            }
+
+            // Addbottom margin from last child
+            &:last-child {
+                margin-top: 0;
+                margin-bottom: rem(10px) !important;
+            }
+
+            // From tablet
+            @media (min-width: $from-tablet) {
+
+                // Remove top margin from first child
+                &:first-child {
+                    margin-top: 0 !important;
+                    margin-right: 0;
+                    margin-bottom: 0 !important;
+                    margin-left: rem(20px);
+                }
+
+                // Remove bottom margin from last child
+                &:last-child {
+                    margin-top: 0 !important;
+                    margin-right: rem(20px);
+                    margin-bottom: 0 !important;
+                    margin-left: 0;
+                }
+            }
+
+            // From desktop
+            @media (min-width: $from-desktop) {
+
+                // Remove top margin from first child
+                &:first-child {
+                    margin-right: 0;
+                    margin-left: rem(40px);
+                }
+
+                // Remove bottom margin from last child
+                &:last-child {
+                    margin-right: rem(40px);
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,52 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Thank you page module
+// =============================================================================
+// This file contains the page module component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-page-module__thank-you {
+
+    // Text card overrides
+    .c-text-card {
+        padding: rem(30px) rem(20px);
+        background-color: $gray-2;
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            padding: rem(70px) rem(50px);
+        }
+
+        // Has UI 00 background color
+        .-has-ui-00-background-color & {
+            background-color: $white;
+        }
+
+        // Has UI 20 background color
+        .-has-ui-20-background-color & {
+            background-color: $gray-2;
+        }
+
+        // Has UI 60 background color
+        .-has-ui-60-background-color & {
+            background-color: $gray-8;
+        }
+    }
+
+    // Headline overrides
+    .c-text-card__headline {
+        margin-right: auto;
+        margin-left: auto;
+        max-width: rem(740px);
+    }
+
+    // Headline overrides
+    .c-text-card__body {
+        margin-right: auto;
+        margin-left: auto;
+        max-width: rem(740px);
+    }
+}

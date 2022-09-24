@@ -1,0 +1,164 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Content resource group module
+// =============================================================================
+// This file contains the content resource group component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-content__resource-group {
+    padding: rem(24px) rem(20px);
+    border: rem(1px) solid $gray-4;
+    border-radius: rem(5px);
+
+    // Remove top margin from first child
+    *:first-child {
+        margin-top: 0;
+    }
+
+    // Remove bottom margin from last child
+    *:last-child {
+        margin-bottom: 0;
+    }
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        padding: rem(26px) rem(30px);
+    }
+}
+
+// Headline
+// =============================================================================
+.c-content__resource-group-headline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+
+    // Icon
+    &:after {
+        content: '';
+        width: rem(16px);
+        height: rem(11px);
+        background-image: url("data:image/svg+xml,%3Csvg width='16' height='11' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(-244 -33)' fill='none' fill-rule='evenodd'%3E%3Crect stroke='%23D7D7D7' x='.5' y='.5' width='279' height='76' rx='5'/%3E%3Cpath fill='%23252525' d='M257.596 33.5L260 35.718l-8 7.382-8-7.382 2.404-2.218L252 38.664z'/%3E%3C/g%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: contain;
+        transform-origin: center center;
+
+        // Is open
+        .c-content__resource-group.-is-open & {
+            transform: rotate(-180deg);
+        }
+    }
+}
+
+// Description
+// =============================================================================
+.c-content__resource-group-description {
+    @extend %-is-b3;
+    display: none;
+    margin: rem(8px) 0;
+
+    // Remove top margin from first child
+    *:first-child {
+        margin-top: 0;
+    }
+
+    // Remove bottom margin from last child
+    *:last-child {
+        margin-bottom: 0;
+    }
+
+    // Ensure headings include more spacing up top
+    h3, h4, h5, h6 {
+        margin-top: rem(65px);
+    }
+
+    p {
+        margin: rem(8px) 0;
+    }
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        margin: rem(10px) 0;
+
+        p {
+            margin: rem(10px) 0;
+        }
+    }
+
+    // Is open
+    .c-content__resource-group.-is-open & {
+        display: block;
+    }
+}
+
+// Items
+// =============================================================================
+.c-content__resource-group-items {
+    display: none;
+    margin: rem(24px) 0;
+    border-bottom: rem(1px) solid $gray-4;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        margin: rem(34px) 0;
+    }
+
+    // Is open
+    .c-content__resource-group.-is-open & {
+        display: block;
+    }
+}
+
+// Item
+// =============================================================================
+.c-content__resource-group-item {
+    display: flex;
+    justify-content: space-between;
+    padding: rem(16px) 0;
+    border-top: rem(1px) solid $gray-4;
+}
+
+// Text
+// =============================================================================
+.c-content__resource-group-text {
+    @extend %-is-ui-1-semibold;
+}
+
+// Link
+// =============================================================================
+.c-content__resource-group-link {
+    @extend %-is-ui-1-semibold;
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin-left: rem(20px);
+    text-decoration: none;
+
+    // Icon
+    svg {
+        margin-left: rem(6px);
+        fill: currentColor;
+    }
+
+    // Is download
+    &.-is-download {
+        // Icon
+        svg {
+            max-width: rem(10px);
+            max-height: rem(12px);
+        }
+    }
+
+    // Is link
+    &.-is-link {
+        // Icon
+        svg {
+            max-width: rem(10px);
+            max-height: rem(11px);
+        }
+    }
+}

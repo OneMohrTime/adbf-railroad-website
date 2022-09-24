@@ -1,0 +1,14 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Page intro - Campaigns
+// =============================================================================
+// This file contains the page intro - campaign component properties
+// HIDDEN by default: https://www.nomensa.com/blog/how-improve-web-accessibility-hiding-elements
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-page-intro__campaign {
+    @include u-accessibly-hidden();
+}

@@ -1,0 +1,312 @@
+// *****************************************************************************
+// =============================================================================
+// Components: Button
+// =============================================================================
+// This file contains the button component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-button {
+    // Import font classes
+    @extend %f-ui;
+    @extend %-is-ui-1-bold;
+
+    // Set component defaults
+    display: inline-block;
+    position: relative;
+    padding-top: rem(12px);
+    padding-left: rem(25px);
+    padding-right: rem(25px);
+    padding-bottom: rem(12px);
+    background-color: $black;
+    border-radius: $primary-button-radius;
+    color: $white;
+    overflow: hidden;
+    transition: color $speed-hover $easing, background-color $speed-hover $easing, opacity $speed-hover $easing;
+
+    // Hover
+    &:hover {
+        color: $white;
+        opacity: 0.9;
+    }
+
+    // Active
+    &:active {
+        color: $white;
+        opacity: 0.65;
+    }
+
+    // Add new window icon for links with 'target="_blank"'
+    // &[target='_blank'] {
+    //     &:after {
+    //         content: '';
+    //         display: inline-block;
+    //         vertical-align: middle;
+    //         margin-left: rem(6px);
+    //         margin-bottom: rem(2px);
+    //         width: rem(12px);
+    //         height: rem(12px);
+    //         background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Crect id='a' x='0' y='0' width='147' height='44' rx='5'/%3E%3C/defs%3E%3Cg transform='translate(-110 -16)' fill='none' fill-rule='evenodd'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Cuse xlink:href='%23a'/%3E%3Cpath d='M120.667 26.667h-9.334v-9.334H116V16h-4.667c-.74 0-1.333.6-1.333 1.333v9.334c0 .733.593 1.333 1.333 1.333h9.334c.733 0 1.333-.6 1.333-1.333V22h-1.333v4.667zM117.333 16v1.333h2.394l-6.554 6.554.94.94 6.554-6.554v2.394H122V16h-4.667z' fill='%23FFF' mask='url(%23b)'/%3E%3C/g%3E%3C/svg%3E");
+    //         background-size: contain;
+    //         transition: background-image $speed-hover $easing;
+    //     }
+    // }
+
+    // Disabled
+    &[disabled] {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    // *************************************************************************
+    // *************************************************************************
+    // *************************************************************************
+    // *************************************************************************
+    // Start override classes for buttons. This may need to be re-worked after
+    // we have properly established these overrides via the admin section. For
+    // now I'm storing these so we at least have each button override styled
+    // *************************************************************************
+    // *************************************************************************
+    // *************************************************************************
+    // *************************************************************************
+
+    // Is play
+    &.-is-play {
+        display: flex;
+        align-items: center;
+        padding-top: rem(15px);
+        padding-right: rem(28px);
+        padding-bottom: rem(15px);
+        padding-left: rem(28px);
+        transition: width $speed-hover;
+        font-size: rem(16px);
+        letter-spacing: rem(-0.02px);
+        line-height: rem(20px);
+        color: $white !important;
+        background-color: rgba(37,37,37,0.80) !important;
+        border-radius: rem(40px) !important;
+        overflow: visible;
+
+        // Text
+        & > span {
+            // position: absolute;
+            width: 0;
+            margin-left: 0;
+            opacity: 0;
+            transition: opacity 0s ease-in,
+                        margin 0s ease-out,
+                        width 0s ease-out;
+        }
+
+        // Icon
+        &::before {
+            content: "";
+            margin: 0;
+            width: rem(11px);
+            height: rem(14px);
+            transition: margin $speed-hover;
+            background-image: url("data:image/svg+xml,%3Csvg width='11' height='14' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(-28 -18)' fill='none' fill-rule='evenodd'%3E%3Crect stroke-opacity='.4' stroke='%23252525' stroke-width='8' fill-opacity='.8' x='-4' y='-4' width='118' height='58' rx='29'/%3E%3Cpath fill='%23FFF' d='M38.5 25L28 32V18z'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: cover;
+        }
+
+        // Faux faded border
+        &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: 0;
+            width: calc(100% + 16px);
+            height: calc(100% + 16px);
+            transform: translate(-50%, -50%);
+            transition: background-color $speed-hover;
+            background-image: none !important;
+            background-color: rgba(37,37,37,0.40) !important;
+            border-radius: rem(40px) !important;
+            z-index: -1;
+        }
+
+        // Hover Parent
+        .c-media-card:hover &,
+        .c-campaign__full-width-video:hover & {
+            // Text
+            & > span {
+                width: auto;
+                opacity: 1;
+                margin-left: rem(10px);
+                transition: opacity $speed-hover ease-out 0.15s,
+                            margin $speed-hover linear,
+                            width $speed-hover linear;
+            }
+        }
+
+        // Hover, Focus
+        @include u-hocus {
+            // Faux faded border
+            &::after {
+                background-color: $link-primary-color !important;
+            }
+        }
+
+        // Is small
+        &.-is-small {
+            padding-top: rem(10px);
+            padding-right: rem(20px);
+            padding-bottom: rem(10px);
+            padding-left: rem(20px);
+            font-size: rem(12px);
+            letter-spacing: 0;
+            line-height: rem(16px);
+
+            // Icon
+            &::before {
+                width: rem(7.5px);
+                height: rem(10px);
+            }
+
+            // Faux faded border
+            &::after {
+                width: calc(100% + 8px);
+                height: calc(100% + 8px);
+            }
+        }
+    }
+
+    // Is small
+    &.-is-small {
+        // Import font classes
+        @extend %-is-ui-2;
+
+        // Set component defaults
+        padding-top: rem(5px);
+        padding-left: rem(10px);
+        padding-right: rem(10px);
+        padding-bottom: rem(5px);
+
+        // Resize new window icon
+        &:after {
+            width: rem(10px);
+            height: rem(10px);
+        }
+    }
+
+    // Is primary color
+    &.-is-color-primary {
+        background-color: $link-primary-color;
+
+        // Hover
+        &:hover {
+            background-color: $link-hover-color;
+            opacity: 1;
+        }
+
+        // Active
+        &:active {
+            background-color: $link-active-color;
+            opacity: 1;
+        }
+    }
+
+    // Is outlined
+    &.-is-outlined {
+        color: $outline-button-color;
+        background-color: transparent;
+
+        // Faux outline/border
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: $outline-button-border;
+            border-radius: $primary-button-radius;
+            opacity: 0.4;
+            transition: opacity $speed-hover $easing;
+
+            // Has rounded buttons
+            .-has-round-edge-buttons & {
+                border-radius: rem(22px);
+            }
+
+            // Has soft edge buttons
+            .-has-soft-edge-buttons & {
+                border-radius: rem(5px);
+            }
+
+            // Has hard edge buttons
+            .-has-hard-edge-buttons & {
+                border-radius: 0;
+            }
+        }
+
+        // Change new window icon color
+        &:after {
+            background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Crect id='a' x='0' y='0' width='147' height='44' rx='5'/%3E%3C/defs%3E%3Cg transform='translate(-110 -16)' fill='none' fill-rule='evenodd'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Cuse xlink:href='%23a'/%3E%3Cpath d='M120.667 26.667h-9.334v-9.334H116V16h-4.667c-.74 0-1.333.6-1.333 1.333v9.334c0 .733.593 1.333 1.333 1.333h9.334c.733 0 1.333-.6 1.333-1.333V22h-1.333v4.667zM117.333 16v1.333h2.394l-6.554 6.554.94.94 6.554-6.554v2.394H122V16h-4.667z' fill='%23252525' mask='url(%23b)'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        // Hover
+        &:hover {
+            color: $white;
+            background-color: $link-hover-color;
+            opacity: 1;
+
+            // Faux outline/border
+            &:before {
+                opacity: 0;
+            }
+
+            // Change new window icon color
+            &:after {
+                background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Crect id='a' x='0' y='0' width='147' height='44' rx='5'/%3E%3C/defs%3E%3Cg transform='translate(-110 -16)' fill='none' fill-rule='evenodd'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Cuse xlink:href='%23a'/%3E%3Cpath d='M120.667 26.667h-9.334v-9.334H116V16h-4.667c-.74 0-1.333.6-1.333 1.333v9.334c0 .733.593 1.333 1.333 1.333h9.334c.733 0 1.333-.6 1.333-1.333V22h-1.333v4.667zM117.333 16v1.333h2.394l-6.554 6.554.94.94 6.554-6.554v2.394H122V16h-4.667z' fill='%23fff' mask='url(%23b)'/%3E%3C/g%3E%3C/svg%3E");
+            }
+        }
+
+        // Active
+        &:active {
+            color: $white;
+            background-color: $link-active-color;
+            opacity: 1;
+
+            // Faux outline/border
+            &:before {
+                opacity: 0;
+            }
+
+            // Change new window icon color
+            &:after {
+                background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Crect id='a' x='0' y='0' width='147' height='44' rx='5'/%3E%3C/defs%3E%3Cg transform='translate(-110 -16)' fill='none' fill-rule='evenodd'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Cuse xlink:href='%23a'/%3E%3Cpath d='M120.667 26.667h-9.334v-9.334H116V16h-4.667c-.74 0-1.333.6-1.333 1.333v9.334c0 .733.593 1.333 1.333 1.333h9.334c.733 0 1.333-.6 1.333-1.333V22h-1.333v4.667zM117.333 16v1.333h2.394l-6.554 6.554.94.94 6.554-6.554v2.394H122V16h-4.667z' fill='%23fff' mask='url(%23b)'/%3E%3C/g%3E%3C/svg%3E");
+            }
+        }
+
+    }
+
+    // Has rounded buttons
+    .-has-round-edge-buttons & {
+        border-radius: rem(22px);
+    }
+
+    // Has soft edge buttons
+    .-has-soft-edge-buttons & {
+        border-radius: rem(5px);
+    }
+
+    // Has hard edge buttons
+    .-has-hard-edge-buttons & {
+        border-radius: 0;
+    }
+
+    // *************************************************************************
+    // *************************************************************************
+    // *************************************************************************
+    // *************************************************************************
+    // End override classes for buttons. This may need to be re-worked after we
+    // have properly established these overrides via the admin section. For now
+    // I'm storing these so we at least have each button override styled
+    // *************************************************************************
+    // *************************************************************************
+    // *************************************************************************
+    // *************************************************************************
+}

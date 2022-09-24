@@ -1,0 +1,198 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Header
+// =============================================================================
+// This file contains the header component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-header {
+    display: block;
+    position: relative;
+    width: 100%;
+    overflow: visible;
+    z-index: 2000;
+}
+
+// Out of bounds
+// =============================================================================
+.c-header__oob {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    transform: translateX(-50%);
+    z-index: 2000;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        // Has sub nav open
+        .-has-sub-nav-open & {
+            display: block;
+            background: rgba(37, 37, 37,.15)
+        }
+    }
+}
+
+// Elements
+// =============================================================================
+.c-header__elements {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: rem(20px);
+    padding-left: rem(20px);
+    height: rem(70px);
+    background-color: $white;
+    border-bottom: $header-primary-border;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        padding-right: rem(30px);
+        padding-left: rem(30px);
+        height: rem(104px);
+    }
+
+    // From desktop
+    @media (min-width: $from-desktop) {
+        padding-right: rem(60px);
+        padding-left: rem(60px);
+    }
+
+    // Has custom header and footer
+    .-has-custom-header-footer & {
+        background-color: var(--color-header-primary-navigation-background);
+        border-bottom: rem(1px) solid var(--color-header-primary-navigation-border);
+    }
+
+}
+
+// Logo
+// =============================================================================
+.c-header__logo {
+    flex-grow: 0;
+    flex-shrink: 0;
+    display: block;
+    font-size: 0;
+    line-height: 0;
+
+    // Image
+    img {
+        display: block;
+        position: relative;
+        margin: 0;
+        max-width: rem(148px);
+        max-height: rem(38px);
+    }
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        flex-shrink: 1;
+        flex-basis: rem(148px);
+
+        // Image
+        img {
+            max-width: rem(148px);
+            max-height: rem(38px);
+        }
+    }
+
+    // From desktop
+    @media (min-width: $from-desktop) {
+        flex-shrink: 1;
+        flex-basis: rem(176px);
+
+        // Image
+        img {
+            max-width: rem(176px);
+            max-height: rem(64px);
+        }
+    }
+
+    // From desktop lg
+    @media (min-width: $from-desktop-lg) {
+        flex-shrink: 1;
+        flex-basis: rem(200px);
+
+        // Image
+        img {
+            max-width: rem(200px);
+            max-height: rem(64px);
+        }
+    }
+}
+
+// Burger
+// =============================================================================
+.c-header__burger {
+    flex-grow: 0;
+    flex-shrink: 0;
+    position: relative;
+    margin-left: rem(30px);
+    width: rem(21px);
+    height: rem(21px);
+
+    // Icon file
+    svg {
+        display: block;
+        max-width: rem(21px);
+        max-height: rem(21px);
+        fill: $gray-8;
+
+        // Has custom header and footer
+        .-has-custom-header-footer & {
+            fill: var(--color-header-primary-navigation-text);
+        }
+    }
+
+    // Burger menu icon
+    .-burger {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transform-origin: center;
+        transition: opacity $speed-hover $easing, transform $speed-hover $easing;
+        opacity: 1;
+
+        // Has menu open
+        .-has-menu-open & {
+            transform: translate(-50%, -50%) rotate(90deg);
+            opacity: 0;
+        }
+    }
+
+    // Close
+    .-close {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-90deg);
+        transform-origin: center center;
+        transition: opacity $speed-hover $easing, transform $speed-hover $easing;
+        opacity: 0;
+
+        // Has menu open
+        .-has-menu-open & {
+            transform: translate(-50%, -50%) rotate(0deg);
+            opacity: 1;
+        }
+    }
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        display: none;
+    }
+}
+
+// Imports
+// =============================================================================
+// Import our remaining pieces
+@import 'header-navigation';
+@import 'header-search';
+@import 'header-sub';
+@import 'header-utility';

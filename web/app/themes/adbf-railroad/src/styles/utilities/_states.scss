@@ -1,0 +1,150 @@
+
+// *****************************************************************************
+// =============================================================================
+// Utilities: States
+// =============================================================================
+// This file contains utilities for states
+// *****************************************************************************
+
+//
+// ARIA roles display visual cursor hints
+[aria-busy="true"] {
+    cursor: progress;
+}
+
+[aria-controls] {
+    cursor: pointer;
+}
+
+[aria-disabled] {
+    cursor: default;
+}
+
+//
+// Control visibility without affecting flow.
+.-is-visible {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.-is-invisible {
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+//
+// Completely remove from the flow and screen readers.
+.-is-hidden {
+    @include u-hidden;
+}
+
+@media not print {
+    .-is-hidden\@screen {
+        @include u-hidden;
+    }
+}
+
+@media print {
+    .-is-hidden\@print {
+        @include u-hidden;
+    }
+}
+
+// .-is-hidden\@to-large {
+//     @media (max-width: $to-large) {
+//         display: none;
+//     }
+// }
+
+// .-is-hidden\@from-large {
+//     @media (min-width: $from-large) {
+//         display: none;
+//     }
+// }
+
+// /**
+//  * Display a hidden-by-default element.
+//  */
+
+// .-is-shown {
+//     @include u-shown;
+// }
+
+// table.-is-shown {
+//     display: table !important;
+// }
+
+// tr.-is-shown {
+//     display: table-row !important;
+// }
+
+// td.-is-shown,
+// th.-is-shown {
+//     display: table-cell !important;
+// }
+
+
+// Has UI 00 background color
+.-has-ui-00-background-color {
+    background-color: $ui00BackgroundColor !important;
+}
+
+// Has UI 20 background color
+.-has-ui-20-background-color {
+    background-color: $ui20BackgroundColor !important;
+}
+
+// Has UI 60 background color
+.-has-ui-60-background-color {
+    background-color: $ui60BackgroundColor !important;
+}
+
+// Has light elements
+.-has-light-elements {
+    // Text overrides
+    .c-text-card__headline {
+        color: $white;
+    }
+
+    .c-text-card__body {
+        color: $white;
+    }
+
+    .c-text-card__sub-headline {
+        color: $white;
+    }
+
+    .c-text-card__button {
+        color: $gray-8;
+        background-color: $white;
+
+        span {
+            color: $gray-8;
+        }
+
+        &:hover {
+            background-color: $white;
+            opacity: 0.9;
+        }
+    }
+
+    .c-form__label {
+        color: $white;
+    }
+
+    .c-form__input-field {
+        color: $white;
+    }
+
+    .c-form__checkbox-text {
+        color: $white;
+    }
+
+    .c-form__sub-label {
+        color: $white;
+    }
+
+    .c-form__upload-choose span {
+        color: $white;
+    }
+}

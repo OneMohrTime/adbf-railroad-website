@@ -1,0 +1,163 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Brand directory page module
+// =============================================================================
+// This file contains the brand directory page module component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-page-module__brand-directory {}
+
+// Intro
+// =============================================================================
+.c-page-module__brand-directory-intro {
+    margin: rem(50px) auto;
+    max-width: rem(740px);
+    text-align: center;
+
+    // Remove top margin from first child
+    *:first-child {
+        margin-top: 0;
+    }
+
+    // Remove bottom margin from last child
+    *:last-child {
+        margin-bottom: 0;
+    }
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        margin: rem(60px) auto;
+    }
+}
+
+// Intro Headline
+// =============================================================================
+.c-page-module__brand-directory-intro-headline {
+    @extend %-is-d4;
+    margin: rem(14px) 0;
+}
+
+// Intro Body
+// =============================================================================
+.c-page-module__brand-directory-intro-body {
+    @extend %-is-b1;
+    margin: rem(14px) 0;
+
+    // Paragraph
+    p {
+        margin: rem(20px) 0;
+    }
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+
+        // Paragraph
+        p {
+            margin: rem(24px) 0;
+        }
+    }
+}
+
+
+// Grid
+// =============================================================================
+.c-page-module__brand-directory-grid {
+    // margin-bottom: rem(30px) !important;
+    font-size: 0;
+    line-height: 0;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        column-count: 2;
+        column-gap: rem(40px);
+    }
+
+    // From desktop
+    @media (min-width: $from-desktop) {
+        // margin-bottom: rem(50px) !important;
+        column-count: 3;
+        column-gap: rem(80px);
+    }
+}
+
+// Set
+// =============================================================================
+.c-page-module__brand-directory-set {
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 rem(50px);
+
+    // From desktop
+    @media (min-width: $from-desktop) {
+        margin: 0 0 rem(70px);
+    }
+}
+
+// Label
+// =============================================================================
+.c-page-module__brand-directory-label {
+    @extend %-is-d4A-bold;
+    display: inline-block;
+    vertical-align: top;
+    width: rem(40px);
+}
+
+// List
+// =============================================================================
+.c-page-module__brand-directory-list {
+    display: inline-block;
+    vertical-align: top;
+    padding-left: rem(20px);
+    width: calc(100% - 60px);
+    border-left: rem(1px) solid $gray-4;
+}
+
+// Brand
+// =============================================================================
+.c-page-module__brand-directory-brand {
+    @extend %-is-b3;
+}
+
+// Link
+// =============================================================================
+.c-page-module__brand-directory-link {
+    font-weight: $bold;
+    color: $link-primary-color !important;
+    text-decoration: none;
+    color: inherit;
+
+    // Hover, Focus
+    @include u-hocus {
+        text-decoration: underline;
+        color: inherit;
+    }
+
+    // Customize link if it is for a new window
+    &[target="_blank"] {
+        font-weight: $normal;
+        color: $gray-8 !important;
+    }
+
+    // Is external link
+    &.-is-external-link {
+        text-decoration: none;
+
+        // Link text
+        .c-link__text,
+        .e-link__text,
+        .c-button__text {
+            margin-right: rem(3px);
+
+            // Hover, Focus
+            @include u-hocus {
+                text-decoration: underline;
+                color: inherit;
+            }
+        }
+
+    }
+
+}

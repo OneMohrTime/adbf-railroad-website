@@ -1,0 +1,61 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: CTA
+// =============================================================================
+// This file contains the cta component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-cta {
+    // Import font classes
+    @extend %f-ui;
+    @extend %-is-ui-1-bold;
+
+    // Set component defaults
+    text-decoration: none !important;
+    color: $gray-8;
+
+    // Has arrow
+    &.-has-arrow {
+
+        // Link text
+        .c-link__text,
+        .e-link__text,
+        .c-button__text {
+            margin-right: rem(5px);
+            transition: margin $speed-hover $easing;
+        }
+
+        // Link arrow
+        .c-cta__arrow {
+            max-width: rem(17px);
+            max-height: rem(10px);
+            transition: fill $speed-hover $easing;
+            fill: currentColor;
+        }
+
+        // Hover, Focus
+        @include u-hocus {
+            // Push arrow to the right by 5px
+            .c-link__text,
+            .e-link__text,
+            .c-button__text {
+                margin-right: rem(10px);
+            }
+        }
+    }
+
+    // Is primary color
+    &.-is-color-primary {
+        // Set component defaults
+        text-decoration: none;
+        color: $link-primary-color !important;
+
+        // Hover
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

@@ -1,0 +1,239 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Photo tags
+// =============================================================================
+// This file contains the photo tags component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-photo-tags {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 28px);
+}
+
+// Toggle all
+// =============================================================================
+.c-photo-tags__toggle-all {
+    @extend %-is-ui-3-bold;
+    position: absolute;
+    top: rem(10px);
+    left: rem(10px);
+    padding: rem(8px) rem(15px);
+    color: $white;
+    background-color: rgba(37,37,37,0.70);
+    border-radius: rem(5px);
+    overflow: hidden;
+    transition: background-color $speed-hover $easing;
+
+    // Hover
+    &:hover {
+        background-color: $gray-8;
+    }
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        top: rem(20px);
+        left: rem(20px);
+    }
+}
+
+// Show all
+// =============================================================================
+.c-photo-tags__toggle-all-show {
+
+    .-is-showing-all & {
+        display: none;
+    }
+
+    &:before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 rem(5px) rem(1px) 0;
+        width: rem(15px);
+        height: rem(12px);
+        background-image: url("data:image/svg+xml,%3Csvg width='15' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.333 0C4 0 1.153 2.073 0 5c1.153 2.927 4 5 7.333 5 3.334 0 6.18-2.073 7.334-5-1.154-2.927-4-5-7.334-5zm0 8.333a3.335 3.335 0 010-6.666 3.335 3.335 0 010 6.666zm0-5.333c-1.106 0-2 .893-2 2s.894 2 2 2c1.107 0 2-.893 2-2s-.893-2-2-2z' fill='%23FFF' fill-rule='nonzero'/%3E%3C/svg%3E");
+        background-size: rem(15px) rem(10px);
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+    }
+}
+
+// Hide all
+// =============================================================================
+.c-photo-tags__toggle-all-hide {
+    display: none;
+
+    .-is-showing-all & {
+        display: block;
+    }
+
+    &:before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 rem(5px) rem(1px) 0;
+        width: rem(14px);
+        height: rem(12px);
+        background-image: url("data:image/svg+xml,%3Csvg width='14' height='12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.947 2.526a3.159 3.159 0 013.158 3.158c0 .41-.082.796-.227 1.156l1.844 1.844a7.464 7.464 0 002.166-3A7.47 7.47 0 006.941.947c-.884 0-1.73.158-2.514.442l1.365 1.365c.36-.146.745-.228 1.155-.228zM.632.802l1.44 1.44.29.29A7.455 7.455 0 000 5.685a7.47 7.47 0 009.714 4.207l.265.265L11.829 12l.803-.802L1.434 0 .632.802zm3.492 3.493l.98.979c-.032.132-.051.271-.051.41 0 1.049.846 1.895 1.894 1.895.14 0 .278-.019.41-.05l.98.978a3.13 3.13 0 01-1.39.335A3.159 3.159 0 013.79 5.684c0-.499.127-.966.335-1.39zm2.722-.493l1.99 1.99.012-.101a1.892 1.892 0 00-1.894-1.895l-.108.006z' fill='%23FFF' fill-rule='nonzero'/%3E%3C/svg%3E");
+        background-size: rem(14px) rem(12px);
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+    }
+}
+
+// Tag
+// =============================================================================
+.c-photo-tags__tag {
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+// Bubble wrapper
+// =============================================================================
+.c-photo-tags__bubble-wrapper {
+    position: absolute;
+    top: rem(-50px);
+    left: 0;
+    height: 0;
+    transition-delay: ($speed-reveal * 2);
+    transform: translateX(-50%);
+    visibility: hidden;
+
+    // Is showing
+    .-is-showing & {
+        visibility: visible;
+        height: auto;
+        transition-delay: 0s;
+    }
+}
+
+// Bubble
+// =============================================================================
+.c-photo-tags__bubble {
+    @extend %-is-ui-3-bold;
+    padding: rem(6px) rem(10px);
+    white-space: nowrap;
+    background-color: $white;
+    box-shadow: 0 rem(4px) rem(8px) 0 rgba(37,37,37,0.10);
+    border-radius: rem(5px);
+    transition: opacity $speed-reveal $easing;
+    opacity: 0;
+
+    // Is showing
+    .-is-showing & {
+        opacity: 1;
+    }
+
+    // Link
+    a {
+        text-decoration: none;
+
+        // Hover
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    // Arrow
+    &:after {
+        position: absolute;
+        top: rem(20px);
+        left: 50%;
+        content: '';
+        width: rem(28px);
+        height: rem(23px);
+        background-image: url("data:image/svg+xml,%3Csvg width='28' height='23' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cfilter x='-102.2%25' y='-125%25' width='304.4%25' height='450%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeOffset dy='4' in='SourceAlpha' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='4' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0.145098039 0 0 0 0 0.145098039 0 0 0 0 0.145098039 0 0 0 0.1 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3Cpath id='b' d='M8 4h13.7l-6.85 8z'/%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cuse fill='%23000' filter='url(%23a)' xlink:href='%23b'/%3E%3Cuse fill='%23FFF' xlink:href='%23b'/%3E%3C/g%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: 0 50%;
+        transform: translateX(-50%);
+    }
+}
+
+// Tag toggle
+// =============================================================================
+.c-photo-tags__tag-toggle {
+    position: relative;
+    width: rem(18px);
+    height: rem(18px);
+    background-color: rgba(37,37,37,0.70);
+    transform: translate(-50%, -50%);
+    border-radius: rem(8px);
+    overflow: hidden;
+    transition: background-color $speed-hover $easing;
+
+    // Hover
+    &:hover {
+        background-color: $gray-8;
+    }
+
+    // Show icon
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(-4 -4)' fill='none' fill-rule='evenodd'%3E%3Ccircle cx='12' cy='12' r='12'/%3E%3Cpath d='M12.8 8h-1.6v3.2H8v1.6h3.2V16h1.6v-3.2H16v-1.6h-3.2V8zM12 4c-4.416 0-8 3.584-8 8s3.584 8 8 8 8-3.584 8-8-3.584-8-8-8zm0 14.4A6.408 6.408 0 015.6 12c0-3.528 2.872-6.4 6.4-6.4 3.528 0 6.4 2.872 6.4 6.4 0 3.528-2.872 6.4-6.4 6.4z' fill='%23FFF' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E");
+        background-size: rem(12px) rem(12px);
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        opacity: 1;
+        transition: opacity $speed-hover $easing;
+
+        // Is showing
+        .-is-showing & {
+            opacity: 0;
+        }
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            background-size: rem(16px) rem(16px);
+        }
+    }
+
+    // Close icon
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg transform='translate(-4 -4)'%3E%3Ccircle cx='12' cy='12' r='12'/%3E%3Cpath d='M8 11.2v1.6h8v-1.6H8zM12 4c-4.416 0-8 3.584-8 8s3.584 8 8 8 8-3.584 8-8-3.584-8-8-8zm0 14.4A6.408 6.408 0 015.6 12c0-3.528 2.872-6.4 6.4-6.4 3.528 0 6.4 2.872 6.4 6.4 0 3.528-2.872 6.4-6.4 6.4z' fill='%23FFF' fill-rule='nonzero'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        background-size: rem(12px) rem(12px);
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        opacity: 0;
+        transition: opacity $speed-hover $easing;
+
+        // Is showing
+        .-is-showing & {
+            opacity: 1;
+        }
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            background-size: rem(16px) rem(16px);
+        }
+    }
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        width: rem(24px);
+        height: rem(24px);
+        border-radius: rem(12px);
+    }
+}

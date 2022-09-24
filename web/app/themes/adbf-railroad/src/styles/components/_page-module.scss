@@ -1,0 +1,300 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Page module
+// =============================================================================
+// This file contains the page module component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-page-module {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin-top: rem(60px);
+    padding-right: rem(20px);
+    padding-left: rem(20px);
+
+    // Modify first child
+    &:first-child {
+        margin-top: rem(60px);
+    }
+
+    // Modify last child
+    &:last-child {
+        margin-bottom: rem(60px);
+    }
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        margin-top: rem(120px);
+        padding-right: rem(60px);
+        padding-left: rem(60px);
+
+        // Modify first child
+        &:first-child {
+            margin-top: rem(100px);
+        }
+
+        // Modify last child
+        &:last-child {
+            margin-bottom: rem(100px);
+        }
+    }
+
+    // From desktop
+    @media (min-width: $from-desktop) {
+        padding-right: rem(110px);
+        padding-left: rem(110px);
+    }
+
+    // From desktop large
+    @media (min-width: $from-desktop-lg) {
+        padding-right: rem(160px);
+        padding-left: rem(160px);
+    }
+
+    // Has background color
+    //
+    // Currently placing all color instances here, though they may end up being
+    // more specific and moved into only the components which they're allowed
+    // use within. For instance, color pairings below are for 1up, but not used
+    // for 2up - 4up components as they're only allowed white backgrounds*.
+    // (* also their 'dark theme' equivalent)
+    &.-has-background-color {
+        margin: 0;
+        padding-top: rem(40px);
+        padding-bottom: rem(40px);
+
+        // If the previous module has a colored background,
+        // remove top margin from the current module
+        .c-page-module:not(.-has-background-color) + & {
+            margin-top: rem(60px);
+
+            // From tablet
+            @media (min-width: $from-tablet) {
+                margin-top: rem(120px);
+            }
+        }
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            padding-top: rem(80px);
+            padding-bottom: rem(80px);
+        }
+
+        // Has UI 00 background color
+        &.-has-ui-00-background-color {
+            background-color: $white;
+
+            // Button overrides
+            .c-button:not(.-is-play) {
+                background-color: $link-primary-color;
+
+                // Hover
+                &:hover {
+                    background-color: $link-hover-color;
+                    opacity: 1;
+                }
+
+                // Active
+                &:active {
+                    background-color: $link-active-color;
+                    opacity: 1;
+                }
+            }
+        }
+
+        // Has UI 20 background color
+        &.-has-ui-20-background-color {
+            background-color: $gray-2;
+
+            // Button overrides
+            .c-button:not(.-is-play) {
+                color: $white !important;
+                background-color: $link-primary-color;
+
+                // Hover
+                &:hover {
+                    background-color: $link-hover-color;
+                    opacity: 1;
+                }
+
+                // Active
+                &:active {
+                    background-color: $link-active-color;
+                    opacity: 1;
+                }
+            }
+        }
+
+        // Has UI 60 background color
+        &.-has-ui-60-background-color {
+            color: $white !important;
+            background-color: $gray-8;
+
+            // Text overrides
+            * {
+                color: $white !important;
+            }
+
+            // Button overrides
+            .c-button:not(.-is-play) {
+                color: $gray-8 !important;
+                background-color: $white;
+
+                // Change new window icon color
+                &:after {
+                    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Crect id='a' x='0' y='0' width='147' height='44' rx='5'/%3E%3C/defs%3E%3Cg transform='translate(-110 -16)' fill='none' fill-rule='evenodd'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Cuse xlink:href='%23a'/%3E%3Cpath d='M120.667 26.667h-9.334v-9.334H116V16h-4.667c-.74 0-1.333.6-1.333 1.333v9.334c0 .733.593 1.333 1.333 1.333h9.334c.733 0 1.333-.6 1.333-1.333V22h-1.333v4.667zM117.333 16v1.333h2.394l-6.554 6.554.94.94 6.554-6.554v2.394H122V16h-4.667z' mask='url(%23b)'/%3E%3C/g%3E%3C/svg%3E");
+                }
+
+                // Hover
+                &:hover {
+                    opacity: 0.9;
+                }
+            }
+        }
+
+    }
+}
+
+// Intro
+// =============================================================================
+.c-page-module__intro {
+    margin-bottom: rem(40px);
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        margin: 0 auto;
+        margin-bottom: rem(40px);
+        max-width: rem(740px);
+    }
+
+    .c-text-card__button {
+        background-color: $link-primary-color;
+        color: $white;
+
+        // Hover
+        &:hover {
+            background-color: $link-hover-color;
+            opacity: 1;
+        }
+
+        // Active
+        &:active {
+            background-color: $link-active-color;
+            opacity: 1;
+        }
+    }
+}
+
+// Grid
+// =============================================================================
+.c-page-module__grid {
+    position: relative;
+    z-index: 2;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        display: flex;
+    }
+
+    // sometimes, we'll get no results, and that's okay
+    &.-has-no-results {
+        flex-direction: column;
+        margin-top: rem(100px) !important;
+        margin-bottom: rem(40px) !important;
+        padding-right: rem(20px);
+        padding-left: rem(20px);
+        text-align: center;
+        border: 0 !important;
+
+        // heading text is a bit smaller
+        h2 {
+            @extend %-is-d4;
+            width: 100%;
+            border: 0;
+        }
+
+        // paragraph text is a bit larger
+        p {
+            @extend %-is-b1;
+            width: 100%;
+            margin: 0;
+            border: 0;
+        }
+    }
+}
+
+// Grid item
+// =============================================================================
+.c-page-module__grid-item {
+    margin-top: rem(50px);
+    margin-bottom: rem(50px);
+    width: 100%;
+
+    // Remove top margin from first child
+    &:first-child {
+        margin-top: 0;
+    }
+
+    // Remove bottom margin from last child
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    // Set margins for cards within a grid item
+    .c-media-card,
+    .c-text-card,
+    .c-testimonial-card {
+        margin-top: rem(25px);
+        margin-bottom: rem(25px);
+    }
+
+    // Text card specific overrides
+    .c-text-card {
+        // Has no text
+        .-has-no-text & {
+            display: none;
+        }
+    }
+}
+
+// Imports
+// =============================================================================
+// Import our remaining pieces
+@import 'page-module--1up';
+@import 'page-module--2up';
+@import 'page-module--3up';
+@import 'page-module--4up';
+@import 'page-module--form';
+@import 'page-module--product-category-slider';
+@import 'page-module--sortable-product-grid';
+@import 'page-module--sortable-story-grid';
+@import 'page-module--enhanced-gallery';
+@import 'page-module--related-products';
+@import 'page-module--related-content';
+@import 'page-module--action-banner';
+@import 'page-module--story-builder';
+@import 'page-module--testimonials';
+@import 'page-module--brand-banner';
+@import 'page-module--locations-grid';
+@import 'page-module--testimonials-grid';
+@import 'page-module--form-select';
+@import 'page-module--search';
+@import 'page-module--brand-directory';
+@import 'page-module--brand-grid';
+@import 'page-module--brand-logo-grid';
+@import 'page-module--brand-learn-more';
+@import 'page-module--campaign-builder';
+@import 'page-module--thank-you';
+@import 'page-module--audience-login';
+@import 'page-module--content-builder';
+@import 'page-module--index-grid';

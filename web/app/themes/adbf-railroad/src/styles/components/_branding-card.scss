@@ -1,0 +1,27 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Branding card
+// =============================================================================
+// This file contains the branding card component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-branding-card {
+    position: absolute;
+    top: rem(-20px);
+    left: rem(-20px);
+    width: rem(80px);
+    height: rem(80px);
+    background-size: 100% auto;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    z-index: 1;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        width: rem(120px);
+        height: rem(120px);
+    }
+}

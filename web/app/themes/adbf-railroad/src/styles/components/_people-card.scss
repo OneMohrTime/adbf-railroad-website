@@ -1,0 +1,109 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: People card
+// =============================================================================
+// This file contains the people card component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-people-card {}
+
+// Component class
+// =============================================================================
+.c-people-card__image {
+    display: block;
+    margin: rem(16px) 0;
+    width: 100%;
+    height: auto;
+}
+
+// Information
+// =============================================================================
+.c-people-card__information {
+    flex-shrink: 0;
+    width: 100%;
+
+    // Remove top margin from first child
+    *:first-child {
+        margin-top: 0;
+    }
+
+    // Remove bottom margin from last child
+    *:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// Name
+// =============================================================================
+.c-people-card__name {
+    @extend %-is-d6;
+    display: block;
+    margin: rem(3px) 0;
+}
+
+// Position and Linkedin button
+// =============================================================================
+.c-people-card__posi-link {
+    display: flex;
+    flex-direction: column;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        flex-direction: row;
+        justify-content: space-between;
+        margin: rem(3px) 0;
+    }
+}
+
+// Position
+// =============================================================================
+.c-people-card__position {
+    display: block;
+    margin: rem(3px) 0;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        margin: 0;
+        width: calc(100% - 24px);
+    }
+}
+
+// Linkedin
+// =============================================================================
+.c-people-card__linkedin {
+    display: block;
+    margin: rem(8px) 0;
+    width: rem(14px);
+    height: rem(12px);
+    text-indent: rem(-2000px);
+    background-image: url("data:image/svg+xml,%3Csvg width='14' height='12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.2 12h-2.917V7.782c0-1.105-.457-1.858-1.46-1.858-.768 0-1.195.508-1.393.998-.075.176-.063.422-.063.667V12h-2.89s.037-7.473 0-8.152h2.89v1.28c.17-.56 1.094-1.358 2.568-1.358 1.828 0 3.265 1.172 3.265 3.697V12zM1.554 2.828h-.019C.604 2.828 0 2.205 0 1.415 0 .61.622 0 1.572 0c.949 0 1.532.609 1.551 1.413 0 .79-.602 1.415-1.57 1.415zM.333 3.848h2.573V12H.333V3.848z' fill='%23252525' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    overflow: hidden;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        margin: 0;
+        margin-top: rem(6px);
+    }
+}
+
+// Description
+// =============================================================================
+.c-people-card__description {
+    margin-top: rem(15px);
+
+    // Headding overrides
+    h2, h3, h4, h5, h6 {
+        margin-top: rem(15px);
+    }
+
+    // Paragraph overrides
+    p {
+        margin-top: rem(15px);
+        margin-bottom: rem(15px);
+    }
+}

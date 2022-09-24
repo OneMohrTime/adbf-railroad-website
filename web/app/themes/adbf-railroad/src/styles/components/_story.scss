@@ -1,0 +1,76 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Story
+// =============================================================================
+// This file contains the story block component   properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-story {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin-top: rem(50px);
+
+    // Modify first child
+    &:first-child {
+        margin-top: rem(50px);
+    }
+
+    // Modify last child
+    &:last-child {
+        margin-bottom: rem(50px);
+    }
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        margin-top: rem(100px);
+    }
+
+    // Play button overrides
+    .c-media-card .c-button.-is-play {
+        @extend %-is-d6-desktop-only;
+
+        // From desktop
+        // Why is this in a media query?
+        @media (min-width: $from-desktop) {
+            padding-top: rem(15px);
+            padding-right: rem(28px);
+            padding-bottom: rem(15px);
+            padding-left: rem(28px);
+
+            // Icon
+            &:before {
+                width: rem(11px);
+                height: rem(14px);
+            }
+
+            // Faux faded border
+            &:after {
+                width: calc(100% + 16px);
+                height: calc(100% + 16px);
+            }
+        }
+    }
+
+    // Caption overrides
+    .c-media-card__caption {
+        display: block;
+    }
+}
+
+// Imports
+// =============================================================================
+// Import our remaining pieces
+@import 'story--divider';
+@import 'story--image';
+@import 'story--media-media';
+@import 'story--media-text';
+@import 'story--people-with-descriptions';
+@import 'story--people';
+@import 'story--resource-group';
+@import 'story--spacer';
+@import 'story--text';
+@import 'story--video';

@@ -1,0 +1,54 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Brand banner page module
+// =============================================================================
+// This file contains the brand banner page module component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-page-module__brand-banner {
+    font-size: rem(18px);
+    text-align: center;
+    line-height: rem(26px);
+
+    // Remove top margin from first child
+    *:first-child {
+        margin-top: 0;
+    }
+
+    // Remove bottom margin from last child
+    *:last-child {
+        margin-bottom: 0;
+    }
+
+    // Paragraph
+    p {
+        @extend %-is-b2;
+        margin: rem(18px) auto;
+        max-width: rem(740px);
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            margin: rem(20px) auto;
+        }
+    }
+
+
+    // CTA overrides
+    .c-cta {
+        display: block;
+        margin: rem(25px) auto;
+    }
+}
+
+// Logo
+// =============================================================================
+.c-page-module__brand-banner-logo {
+    display: block;
+    position: relative;
+    margin: rem(25px)  auto;
+    max-width: rem(200px);
+    max-height: rem(40px);
+}

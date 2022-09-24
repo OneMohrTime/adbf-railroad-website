@@ -1,0 +1,249 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Page intro
+// =============================================================================
+// This file contains the page intro component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-page-intro {
+    // Import font classes
+    @extend %f-body;
+    @extend %-is-b1;
+
+    // Set component defaults
+    position: relative;
+    color: $gray-8;
+    background-color: $gray-2;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+
+    // Has overlay image
+    &.-has-overlay-image {
+        color: $white;
+
+        // Overlay
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: $gray-8;
+            opacity: 0.7;
+            z-index: 1;
+        }
+    }
+
+    // Breadcrumbs
+    // =========================================================================
+    .c-page-breadcrumb {
+        position: absolute;
+        top: rem(20px);
+        left: rem(20px);
+        z-index: 2;
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            top: rem(30px);
+            left: rem(60px);
+        }
+
+        // Has color image
+        .-has-color-image & {
+            top: rem(10px);
+            left: rem(10px);
+            padding: rem(10px);
+            background-color: $white;
+
+            // From tablet
+            @media (min-width: $from-tablet) {
+                top: rem(20px);
+                left: rem(50px);
+            }
+        }
+
+        // Caret
+        svg {
+            // Has overlay image
+            .-has-overlay-image & {
+                fill: $white;
+            }
+        }
+
+        // Link
+        a {
+            // Has overlay image
+            .-has-overlay-image & {
+                color: $white;
+            }
+        }
+    }
+
+    // Date & share links
+    // =========================================================================
+    .c-page-intro__date-share {
+        // Import font classes
+        @extend %f-ui;
+        @extend %-is-ui-1-bold;
+
+        // Set component defaults
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        margin: 0 auto;
+        margin-top: rem(20px);
+        margin-bottom: rem(50px);
+        padding-right: rem(20px);
+        padding-left: rem(20px);
+        max-width: rem(780px);
+        color: $gray-55;
+        z-index: 2;
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            flex-direction: row;
+            justify-content: space-around;
+            margin-top: rem(30px);
+            margin-bottom: rem(90px);
+        }
+
+        // Remove top margin from first child
+        *:first-child {
+            margin-top: 0;
+        }
+
+        // Remove bottom margin from last child
+        *:last-child {
+            margin-bottom: 0;
+        }
+
+        // Date
+        .c-page-intro__date {
+            margin-top: rem(7.5px);
+            margin-bottom: rem(7.5px);
+
+            // From tablet
+            @media (min-width: $from-tablet) {
+                margin: 0;
+                margin-left: auto;
+                padding-right: rem(20px);
+                border-right: rem(1px) solid $gray-55;
+            }
+        }
+
+        // Is share only
+        &.-is-share-only .c-page-intro__share {
+
+            // From tablet
+            @media (min-width: $from-tablet) {
+                margin-left: auto;
+            }
+        }
+
+        // Share links
+        .c-page-intro__share {
+            margin-top: rem(7.5px);
+            margin-bottom: rem(7.5px);
+            display: flex;
+            align-items: center;
+
+            // From tablet
+            @media (min-width: $from-tablet) {
+                margin: 0;
+                margin-right: auto;
+            }
+
+            // Link wrapper
+            li {
+                margin-left: rem(20px);
+
+                // Add margin to last child
+                &:last-child {
+                    margin-right: rem(20px);
+                }
+
+                // Link
+                a {
+                    display: block;
+                    font-size: 0;
+                    line-height: 0;
+
+                    // Icon
+                    svg {
+                        display: inline-block;
+                        fill: currentColor;
+                    }
+
+                    // Is email
+                    &.-is-email {
+
+                        // Icon overrides
+                        svg {
+                            width: rem(14px);
+                            height: rem(11px);
+                        }
+                    }
+
+                    // Is facebook
+                    &.-is-facebook {
+
+                        // Icon overrides
+                        svg {
+                            width: rem(7px);
+                            height: rem(12px);
+                        }
+                    }
+
+                    // Is twitter
+                    &.-is-twitter {
+
+                        // Icon overrides
+                        svg {
+                            width: rem(14px);
+                            height: rem(13px);
+                        }
+                    }
+
+                    // Is linkedin
+                    &.-is-linkedin {
+
+                        // Icon overrides
+                        svg {
+                            width: rem(14px);
+                            height: rem(12px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Branding
+    // =========================================================================
+    .c-branding-card {
+        // top: 0;
+        // right: 0;
+        right: rem(-20px);
+        left: auto;
+    }
+}
+
+// Imports
+// =============================================================================
+// Import our remaining pieces
+@import 'page-intro--narrow';
+@import 'page-intro--products';
+@import 'page-intro--homepage';
+@import 'page-intro--story';
+@import 'page-intro--general';
+@import 'page-intro--product-profile';
+@import 'page-intro--locations';
+@import 'page-intro--location';
+@import 'page-intro--campaign';

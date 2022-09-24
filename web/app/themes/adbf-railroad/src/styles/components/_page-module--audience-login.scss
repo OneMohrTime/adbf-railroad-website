@@ -1,0 +1,40 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Audience login page module
+// =============================================================================
+// This file contains the page module component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-page-module__audience-login {
+
+    // Text card overrides
+    .c-text-card {
+        margin: 0 auto;
+        margin-bottom: rem(40px);
+        max-width: rem(500px);
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            margin-bottom: rem(50px);
+        }
+    }
+
+    // Headline overrides
+    .c-text-card__headline {
+        @extend %-is-d3;
+    }
+
+    // Body overrides
+    .c-text-card__body {
+        @extend %-is-b2;
+    }
+
+    // Form overrides
+    .c-form {
+        margin: 0 auto;
+        max-width: rem(500px);
+    }
+}

@@ -1,0 +1,62 @@
+
+// *****************************************************************************
+// =============================================================================
+// Settings: Config
+// =============================================================================
+// This file contains the config setting(s) properties
+// *****************************************************************************
+
+// Context
+// =============================================================================
+
+// Path is relative to the stylesheets directory.
+$assets-path: "../"  !default;
+
+// Heading Font Sizes
+// =============================================================================
+// $font-size-h1:  67px  !default;
+// $font-size-h2:  56px  !default;
+// $font-size-h3:  18px  !default;
+// $font-size-h4:  16px  !default;
+// $font-size-h5:  14px  !default;
+// $font-size-h6:  12px  !default;
+
+// Font Weights
+// =============================================================================
+$light:    300;
+$normal:   400;
+$medium:   500;
+$semibold: 600;
+$bold:     700;
+
+// Shadows
+// =============================================================================
+// $shadow: 0 8px 16px 0 rgba(37,37,37,0.10);
+
+// Transitions
+// =============================================================================
+// $speed-transition: 0.6s;
+$speed-reveal: 0.6s;
+$speed-hover:  0.3s;
+$easing: cubic-bezier(.645,.045,.355,1);
+
+// Spacing Units
+// =============================================================================
+// $unit:       60px;
+// $unit-small: 30px;
+
+// Container
+// =============================================================================
+// $container-width: 1600px;
+// $padding:         $unit;
+
+// Breakpoints
+// =============================================================================
+// $from-mobile:      0 !default;
+// $to-mobile:        0 !default;
+$from-tablet:      896px !default;
+$to-tablet:        $from-tablet - 1 !default;
+$from-desktop:     1024px !default;
+$to-desktop:       $from-desktop - 1 !default;
+$from-desktop-lg:  1440px !default;
+$to-desktop-lg:    $from-desktop-lg - 1 !default;

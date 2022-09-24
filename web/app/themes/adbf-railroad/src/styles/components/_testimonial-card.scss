@@ -1,0 +1,269 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Testimonial card
+// =============================================================================
+// This file contains the testimonial card component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-testimonial-card {
+    padding-top: rem(24px);
+    padding-right: rem(20px);
+    padding-bottom: rem(24px);
+    padding-left: rem(20px);
+    background-color: $gray-2;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        padding: rem(20px);
+    }
+}
+
+// Callout
+// =============================================================================
+.c-testimonial-card__callout {
+    padding-bottom: rem(20px);
+    border-bottom: rem(1px) solid $gray-4;
+
+    // Remove top margin from first child
+    *:first-child {
+        margin-top: 0;
+    }
+
+    // Remove bottom margin from last child
+    *:last-child {
+        margin-bottom: 0;
+    }
+
+    // Ensure headings include more spacing up top
+    h3, h4, h5, h6 {
+        margin-top: rem(65px);
+    }
+
+    // Image overrides
+    // =============================================================================
+    .c-media-card__image {
+        display: block;
+        margin-top: rem(20px);
+        margin-bottom: rem(20px);
+        width: auto;
+        max-width: 100%;
+        height: auto;
+
+        // From desktop
+        @media (min-width: $from-desktop) {
+            margin-top: rem(30px);
+            margin-bottom: rem(30px);
+        }
+    }
+}
+
+// Quote
+// =============================================================================
+.c-testimonial-card__quote {
+    @extend %-is-d5B-bold;
+    margin-top: rem(13px);
+    margin-bottom: rem(13px);
+    color: $gray-8 !important;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        .c-page-module:not(.c-page-module__4up) & {
+            margin-top: rem(14px);
+            margin-bottom: rem(14px);
+            font-size: rem(20px);
+            letter-spacing: rem(-0.02px);
+            line-height: rem(28px);
+        }
+    }
+
+    // Is dark background
+    .-is-dark-background & {
+        color: $white !important;
+    }
+}
+
+// Project link
+// =============================================================================
+.c-testimonial-card__project-link {
+    // Import button classes
+    @extend .c-cta;
+    @extend .-has-arrow;
+    @extend %f-ui;
+    @extend %-is-ui-1-bold;
+
+    // Set component defaults
+    margin-top: rem(13px);
+    margin-bottom: rem(13px);
+    color: $gray-8 !important;
+    text-decoration: none;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        .c-page-module:not(.c-page-module__4up) & {
+            margin-top: rem(14px);
+            margin-bottom: rem(14px);
+        }
+    }
+
+    // Link text
+    span {
+        margin-right: rem(5px);
+        transition: margin $speed-hover $easing;
+    }
+
+    // Link arrow
+    svg {
+        display: inline-block;
+        max-width: rem(17px);
+        max-height: rem(10px);
+        transition: fill $speed-hover $easing;
+        fill: currentColor;
+    }
+
+    // Hover, Focus
+    @include u-hocus {
+        // Push arrow to the right by 5px
+        span {
+            margin-right: rem(10px);
+        }
+    }
+
+    // Is dark background
+    .-is-dark-background & {
+        color: $white !important;
+
+        // Add arrow
+        svg {
+            fill: $white;
+        }
+
+        // Hover, Focus
+        @include u-hocus {
+            svg {
+                fill: $white;
+            }
+        }
+    }
+}
+
+// Credits
+// =============================================================================
+.c-testimonial-card__credits {
+    padding-top: rem(20px);
+
+    // Remove top margin from first child
+    *:first-child {
+        margin-top: 0;
+    }
+
+    // Remove bottom margin from last child
+    *:last-child {
+        margin-bottom: 0;
+    }
+
+    // Ensure headings include more spacing up top
+    h3, h4, h5, h6 {
+        margin-top: rem(65px);
+    }
+}
+
+// Text
+// =============================================================================
+.c-testimonial-card__text {}
+
+// Company link
+// =============================================================================
+.c-testimonial-card__company-name {
+    margin-top: rem(5px);
+    margin-bottom: rem(5px);
+    font-weight: $bold !important;
+
+    // Is dark background
+    .-is-dark-background & {
+        color: $white !important;
+        a {
+
+            // Add new window icon for links with 'target="_blank"'
+            &[target='_blank'] {
+                &:after {
+                    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Crect id='a' x='0' y='0' width='147' height='44' rx='5'/%3E%3C/defs%3E%3Cg transform='translate(-110 -16)' fill='none' fill-rule='evenodd'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Cuse xlink:href='%23a'/%3E%3Cpath d='M120.667 26.667h-9.334v-9.334H116V16h-4.667c-.74 0-1.333.6-1.333 1.333v9.334c0 .733.593 1.333 1.333 1.333h9.334c.733 0 1.333-.6 1.333-1.333V22h-1.333v4.667zM117.333 16v1.333h2.394l-6.554 6.554.94.94 6.554-6.554v2.394H122V16h-4.667z' fill='%23fff' mask='url(%23b)'/%3E%3C/g%3E%3C/svg%3E");
+                }
+            }
+        }
+    }
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+      .c-page-module:not(.c-page-module__4up) & {
+          font-size: rem(16px);
+          line-height: rem(20px);
+      }
+    }
+
+    // Link
+    a {
+        // Import button classes
+        @extend .c-cta;
+        color: inherit !important;
+
+        // Hover
+        &:hover {
+            text-decoration: underline !important;
+        }
+
+        // Add new window icon for links with 'target="_blank"'
+        &[target='_blank'] {
+            &:after {
+                content: '';
+                display: inline-block;
+                vertical-align: middle;
+                margin-left: rem(6px);
+                margin-bottom: rem(2px);
+                width: rem(12px);
+                height: rem(12px);
+                background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Crect id='a' x='0' y='0' width='147' height='44' rx='5'/%3E%3C/defs%3E%3Cg transform='translate(-110 -16)' fill='none' fill-rule='evenodd'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Cuse xlink:href='%23a'/%3E%3Cpath d='M120.667 26.667h-9.334v-9.334H116V16h-4.667c-.74 0-1.333.6-1.333 1.333v9.334c0 .733.593 1.333 1.333 1.333h9.334c.733 0 1.333-.6 1.333-1.333V22h-1.333v4.667zM117.333 16v1.333h2.394l-6.554 6.554.94.94 6.554-6.554v2.394H122V16h-4.667z' fill='%23252525' mask='url(%23b)'/%3E%3C/g%3E%3C/svg%3E");
+                background-size: contain;
+                transition: background-image $speed-hover $easing;
+            }
+        }
+    }
+}
+
+// Company logo
+// =============================================================================
+.c-testimonial-card__company-logo {
+    display: block;
+    margin-top: rem(25px);
+    margin-bottom: rem(25px);
+    width: auto;
+    max-width: rem(120px);
+    height: auto;
+    max-height: rem(60px);
+}
+
+// Author
+// =============================================================================
+.c-testimonial-card__author {
+    @extend %-is-ui-1;
+    display: block;
+    margin-top: rem(5px);
+    margin-bottom: rem(5px);
+    letter-spacing: 0;
+    color: $gray-8 !important;
+
+    // From tablet
+    @media (min-width: $from-tablet) {
+        .c-page-module:not(.c-page-module__4up) & {
+            font-size: rem(16px);
+            line-height: rem(24px);
+        }
+    }
+
+    // Is dark background
+    .-is-dark-background & {
+        color: $white !important;
+    }
+}

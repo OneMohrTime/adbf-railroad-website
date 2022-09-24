@@ -1,0 +1,237 @@
+
+// *****************************************************************************
+// =============================================================================
+// Components: Product category slider page module
+// =============================================================================
+// This file contains the page module component properties
+// *****************************************************************************
+
+// Component class
+// =============================================================================
+.c-page-module__product-category-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0 auto !important;
+    padding: 0;
+    height: auto;
+    border-bottom: rem(1px) solid $gray-4;
+
+    // Faded overlay left
+    &:before {
+        content: '';
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: rem(60px);
+        height: 100%;
+        background-color: $white;
+        opacity: 0.4;
+        z-index: 2;
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            //display: block;
+        }
+
+        // From desktop
+        @media (min-width: $from-desktop) {
+            width: rem(110px);
+        }
+    }
+
+    // Faded overlay right
+    &:after {
+        content: '';
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: rem(60px);
+        height: 100%;
+        background-color: $white;
+        opacity: 0.4;
+        z-index: 2;
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            //display: block;
+        }
+
+        // From desktop
+        @media (min-width: $from-desktop) {
+            width: rem(110px);
+        }
+    }
+
+    // Slider
+    ul {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        padding-top: rem(10px);
+        padding-right: rem(5px);
+        padding-bottom: rem(10px);
+        padding-left: rem(5px);
+        min-width: rem(80px);
+        max-width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        // From tablet
+        @media (min-width: $from-tablet) {
+            padding-top: rem(20px);
+            padding-right: rem(40px);
+            padding-bottom: rem(20px);
+            padding-left: rem(40px);
+            min-width: rem(120px);
+        }
+
+        // From desktop
+        @media (min-width: $from-desktop) {
+            padding-right: rem(90px);
+            padding-left: rem(90px);
+        }
+
+        // Item
+        li {
+            flex-basis: 1;
+            padding-left: rem(7.5px);
+            padding-right: rem(7.5px);
+            width: rem(90px);
+            min-width: rem(90px);
+            max-width: rem(90px);
+
+            // Modify first child
+            &:first-child {
+                margin-left: rem(7.5px);
+
+                // From tablet
+                @media (min-width: $from-tablet) {
+                    margin-left: rem(10px);
+                }
+            }
+
+            // Modify last child
+            &:last-child {
+                margin-right: rem(7.5px);
+
+                // From tablet
+                @media (min-width: $from-tablet) {
+                    margin-right: rem(10px);
+                }
+            }
+
+            // From tablet
+            @media (min-width: $from-tablet) {
+                padding-left: rem(10px);
+                padding-right: rem(10px);
+                width: rem(140px);
+                min-width: rem(140px);
+                max-width: rem(140px);
+            }
+
+            // Link
+            a {
+                display: block;
+                position: relative;
+                height: 100%;
+                text-decoration: none;
+
+                // Outlining border
+                &:before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: rem(-5px);
+                    right: rem(-5px);
+                    bottom: rem(-5px);
+                    left: rem(-5px);
+                    border: rem(1px) solid $gray-8;
+                    border-radius: $primary-button-radius;
+                    opacity: 0;
+                    transition: opacity $speed-hover $easing;
+
+                    // From tablet
+                    @media (min-width: $from-tablet) {
+                        top: rem(-8px);
+                        right: rem(-8px);
+                        bottom: rem(-8px);
+                        left: rem(-8px);
+                    }
+
+                    // Has rounded buttons
+                    .-has-round-edge-buttons & {
+                        // in this case, this should be the same as soft edge
+                        border-radius: rem(5px);
+                    }
+
+                    // Has soft edge buttons
+                    .-has-soft-edge-buttons & {
+                        border-radius: rem(5px);
+                    }
+
+                    // Has hard edge buttons
+                    .-has-hard-edge-buttons & {
+                        border-radius: 0;
+                    }
+                }
+
+                // Hover
+                &:hover,
+                &.-is-active {
+                    //text-decoration: underline;
+
+                    // Outlining border
+                    &:before {
+                        opacity: 1;
+                    }
+                }
+
+                // Thumbnail
+                img {
+                    display: block;
+                    margin-bottom: rem(10px);
+                    width: 100%;
+                    height: auto;
+
+                    // From tablet
+                    @media (min-width: $from-tablet) {
+                        margin-bottom: rem(12px);
+                    }
+                }
+
+                // Text
+                span {
+                    display: block;
+                    margin-top: rem(10px);
+                    margin-bottom: rem(10px);
+                    width: 100%;
+                    height: auto;
+                    font-size: rem(12px);
+                    line-height: rem(16px);
+
+                    // From tablet
+                    @media (min-width: $from-tablet) {
+                        margin-top: rem(12px);
+                        margin-bottom: rem(12px);
+                        font-size: rem(14px);
+                        line-height: rem(16px);
+                    }
+                }
+
+                // Remove top margin from first child
+                *:first-child {
+                    margin-top: 0;
+                }
+
+                // Remove bottom margin from last child
+                *:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
