@@ -1,0 +1,16 @@
+{# -- Component Variables -- #}
+
+{# -- Component Template -- #}
+
+{% if menu %}
+    <ul class="c-navigation">
+        {% for item in items %}
+            <li class="c-navigation__item">
+                <a target="{{ item.target }}" href="{{ item.link }}" class="c-link">
+                    <span class="c-link__text">{{ item.title }}</span>
+                </a>
+                {# {% if item.children %}{% endif %} #}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}

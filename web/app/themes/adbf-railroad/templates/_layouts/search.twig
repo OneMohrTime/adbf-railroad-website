@@ -1,0 +1,19 @@
+{# -- Base page layout -- #}
+{# ----------------------------------------------------------------- #}
+{% extends "_base/html/_base.twig" %}
+
+{% block content %}
+  {# see `base.twig:27` for where this block's content will be inserted #}
+  <div class="content-wrapper">
+    {% for post in posts %}
+      {% include ['_components/tease-' ~ post.post_type ~ '.twig', '_components/tease.twig'] %}
+    {% endfor %}
+
+    {% include '_components/pagination.twig' with {
+        pagination: posts.pagination({
+            show_all: false,
+            mid_size: 3,
+            end_size: 2
+    }) } %}
+  </div>
+{% endblock %}

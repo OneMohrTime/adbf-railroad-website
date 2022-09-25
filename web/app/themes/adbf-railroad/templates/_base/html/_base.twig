@@ -1,0 +1,44 @@
+{# ----------------------------------------------------------------- #}
+{# -- Base layout template that all requests inherit from -- #}
+{# ----------------------------------------------------------------- #}
+
+<!doctype html>
+<html {{ site.language_attributes }} class="-no-js -is-loading" data-page="{{ site.theme.link }}">
+
+{# -- HTML Head -- #}
+{# ----------------------------------------------------------------- #}
+<head>
+    {% include '_base/html/partials/head.twig' %}
+
+    {% block head %}
+    {% endblock %}
+</head>
+
+{# -- HTML Body -- #}
+{# ----------------------------------------------------------------- #}
+<body class="t-{{ bodyClass ?? post.type.slug ?? 'default' }} -is-{{ post.slug }} -id-{{ post.id }}">
+    {{ function('wp_body_open') }}
+
+    <div class="o-scroll" data-module-scroll="main" data-scroll-container>
+        <div class="o-container">
+
+            <a class="skip-link screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a>
+
+            {% include '_objects/header.twig' %}
+
+            <main id="content" class="o-main">
+                {% block content %}
+                    Sorry, no content
+                {% endblock %}
+            </main>
+
+            {% include '_objects/footer.twig' %}
+
+        </div>
+    </div>
+
+    <script src="{{ site.theme.link }}/js/main.js"></script>
+
+</body>
+
+</html>

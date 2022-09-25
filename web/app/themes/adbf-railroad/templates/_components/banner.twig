@@ -1,0 +1,31 @@
+{# -- Component Variables -- #}
+
+{% set eyebrow     = post.intro_eyebrow %}
+{% set introImage  = Image(post.intro_primary_image) %}
+{% set intro       = post.intro_intro %}
+
+{# -- Component Template -- #}
+
+<div class="c-banner">
+
+    <div class="c-banner__content">
+        {% if eyebrow is defined and eyebrow is not empty %}
+            <strong class="c-banner__eyebrow">{{ eyebrow }}</strong>
+        {% endif %}
+
+        <h1 class="c-banner__headline">{{ post.intro_headline ?? post.title }}</h1>
+
+        {% if intro is defined and intro is not empty %}
+            <div class="c-banner__intro c-redactor">
+                {{ intro }}
+            </div>
+        {% endif %}
+    </div>
+
+    {% if introImage is defined and introImage is not empty %}
+        <div class="c-banner__image">
+            <img src="{{ introImage.src('medium') }}" alt="{{ introImage.alt }}" class="c-image -background" />
+        </div>
+    {% endif %}
+
+</div>

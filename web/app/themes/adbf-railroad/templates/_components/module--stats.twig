@@ -1,0 +1,37 @@
+{# -- Component Variables -- #}
+
+{% set module   = params %}
+{% set headline = module.heading %}
+{% set intro    = module.intro %}
+{% set stats    = module.stats %}
+
+{# -- Component Template -- #}
+
+{% if module is defined and module is not empty %}
+
+    <div class="c-module--stats">
+
+        {% if headline is defined and headline is not empty %}
+            <h2 class="c-headline">{{ headline }}</h2>
+        {% endif %}
+
+        {% if intro is defined and intro is not empty %}
+            <div class="c-redactor">
+                {{ intro }}
+            </div>
+        {% endif %}
+
+        <div class="c-stat-grid">
+            {% for stat in stats %}
+                <figure class="c-stat-grid__item">
+                    <span class="c-stat-grid__number">{{ stat.large_text }}</span>
+                    <figcaption class="c-stat-grid__caption">
+                        {{ stat.small_text }}
+                    </figcaption>
+                </figure>
+            {% endfor %}
+        </div>
+
+    </div>
+
+{% endif %}

@@ -1,0 +1,9 @@
+{# -- Base page layout -- #}
+{# ----------------------------------------------------------------- #}
+{% extends "_base/html/_base.twig" %}
+
+{% block content %}
+    {% for post in posts %}
+        {% include ['_components/tease-' ~ post.post_type ~ '.twig', '_components/tease.twig'] %}
+    {% endfor %}
+{% endblock %}

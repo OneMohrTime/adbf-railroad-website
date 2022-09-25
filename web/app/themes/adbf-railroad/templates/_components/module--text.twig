@@ -1,0 +1,15 @@
+{# -- Component Variables -- #}
+
+{% set module = params %}
+
+{# -- Component Template -- #}
+
+{% if module is defined and module is not empty %}
+
+    <div class="c-module--text">
+        <div class="c-redactor">
+            {{ module.text }}
+        </div>
+    </div>
+
+{% endif %}

@@ -1,0 +1,19 @@
+{# -- Base page layout -- #}
+{# ----------------------------------------------------------------- #}
+{% extends "_base/html/_base.twig" %}
+
+{% block content %}
+
+    <section class="o-section -full-width">
+        {% include '_components/banner.twig' %}
+    </section>
+
+    {% for section in post.meta('page_builder') %}
+        <section class="o-section -is-{{ section.acf_fc_layout }}">
+            {% include '_components/module--' ~ section.acf_fc_layout ~ '.twig' with {
+                params: section
+            } only %}
+        </section>
+    {% endfor %}
+
+{% endblock %}

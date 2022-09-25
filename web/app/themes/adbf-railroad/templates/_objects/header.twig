@@ -1,0 +1,25 @@
+{# <header class="o-header js-menu" data-module-navigation data-scroll> #}
+<header class="o-header js-menu">
+
+    {# Main logo #}
+    <a href="{{ siteUrl }}" class="o-header__logo">
+        {% include '_base/svg/logo.twig' %}
+    </a>
+
+    {# Hamburger menu #}
+    <div class="o-header__trigger">
+        <button type="button" class="c-hamburger js-nav-trigger -not-active">
+            <span class="c-hamburger__line"></span>
+            <span class="c-hamburger__line"></span>
+            <span class="c-hamburger__line"></span>
+        </button>
+    </div>
+
+    {# Primary navigation #}
+    <nav class="o-header__nav">
+        {% include '_components/navigation.twig' with {
+            'items': menu.get_items
+        } %}
+    </nav>
+
+</header>
