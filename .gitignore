@@ -3,8 +3,8 @@ web/app/plugins/*
 !web/app/plugins/.gitkeep
 web/app/mu-plugins/*/
 web/app/themes/twentytwentytwo/
-web/app/themes/adbf-railroad/css/
-web/app/themes/adbf-railroad/js/
+web/app/themes/adbf-railroad/css/*.css
+web/app/themes/adbf-railroad/js/*.js
 web/app/upgrade
 web/app/uploads/*
 !web/app/uploads/.gitkeep
