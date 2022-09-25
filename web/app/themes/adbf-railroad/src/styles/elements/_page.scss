@@ -1,145 +1,99 @@
-
-// *****************************************************************************
 // =============================================================================
 // Elements: Page
 // =============================================================================
 // This file contains the page element properties
-// *****************************************************************************
-
-// *****************************************************************************
 //
 // Simple page-level setup.
-//
-// 1. Ensure the page always fills at least the entire height of the viewport.
-//
-// *****************************************************************************
+// 1. Set the default `font-size` and `line-height` for the entire project,
+//    sourced from our default variables.
+// 2. Force scrollbars to always be visible to prevent awkward ‘jumps’ when
+//    navigating between pages that do/do not have enough content to produce
+//    scrollbars naturally.
+// 3. Ensure the page always fills at least the entire height of the viewport.
 
 // Html
 // =============================================================================
+
 html {
     min-height: 100%; /* [3] */
-    scroll-behavior: smooth;
+    overflow: hidden;
+    font-family: $font-family;
+    font-size: $font-size; /* [1] */
+    font-weight: $font-light;
+    line-height: $line-height; /* [1] */
+    color: $font-color;
+
+    // Is loading
+    &.-is-loading {
+        cursor: wait;
+    }
+
+    &.-is-ready {
+        overflow-y: scroll; /* [2] */
+    }
+
+    // Has smooth scroll
+    &.-has-scroll-smooth {
+        overflow: hidden;
+    }
+
+    // Scroll is being dragged
+    &.-has-scroll-dragging {
+        user-select: none;
+    }
+
+    // Has menu open
+    &.-has-menu-open {
+        // below 900px
+        @include media("<medium") {
+            overflow: hidden;
+        }
+    }
 
     // Fix web fonts in Chrome, Safari, Firefox
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-
-    // To tablet
-    @media (max-width: $to-tablet) {
-        overflow-x: hidden;
-    }
-
-
-    // Has menu open
-    &.-has-menu-open {
-        // To tablet
-        @media (max-width: $to-tablet) {
-            overflow: hidden;
-        }
-    }
-
-    // Has video playing
-    &.-has-video-playing {
-        overflow: hidden;
-    }
+    font-smoothing: antialiased;
 }
 
 // Body
 // =============================================================================
+
 body {
-    // Import font body styles into our body
-    @extend %f-body;
-
     position: relative;
-    background-color: $gray-3;
+    background-color: $white;
+    color: $black;
 
-    // To tablet
-    @media (max-width: $to-tablet) {
-        overflow-x: hidden;
+    // Hide overflow when smooth scrolling is enabled
+    .-has-scroll-smooth & {
+        overflow: hidden;
     }
 
     // Has menu open
-    .-has-menu-open & {
-        // To tablet
-        @media (max-width: $to-tablet) {
+    &.-has-menu-open {
+        // below 900px
+        @include media("<medium") {
             overflow: hidden;
         }
     }
-
-    // Has video playing
-    .-has-video-playing & {
-        overflow: hidden;
-    }
-}
-
-// Paragraph text
-// =============================================================================
-p {
-    margin-top: $line-height;
-    margin-bottom: $line-height;
 }
 
 // Selection
 // =============================================================================
 ::selection {
-    // text-shadow: none;
-    // background-color: $selection-background-color;
-    // color: $selection-text-color;
+    background-color: $selection-background;
+    color: $selection-text;
+    text-shadow: none;
 }
 
 // Links
 // =============================================================================
 a {
     text-decoration: underline;
-    color: $body-color;
+    color: inherit;
 
     // Generate hover and focus states
     @include u-hocus {
         text-decoration: none;
-        color: $body-color;
     }
-}
-
-// Headings
-// =============================================================================
-// h1
-h1 {
-    // Import font display styles into our heading
-    @extend %f-display;
-    @extend %-is-d1;
-}
-
-// h2
-h2 {
-    // Import font display styles into our heading
-    @extend %f-display;
-    @extend %-is-d2;
-}
-
-// h3
-h3 {
-    // Import font display styles into our heading
-    @extend %f-display;
-    @extend %-is-d3;
-}
-
-// h4
-h4 {
-    // Import font display styles into our heading
-    @extend %f-display;
-    @extend %-is-d4;
-}
-
-// h5
-h5 {
-    // Import font display styles into our heading
-    @extend %f-display;
-    @extend %-is-d5;
-}
-
-// h6
-h6 {
-    // Import font display styles into our heading
-    @extend %f-display;
-    @extend %-is-d6;
 }

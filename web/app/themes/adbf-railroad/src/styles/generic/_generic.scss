@@ -1,18 +1,16 @@
-
-// *****************************************************************************
 // =============================================================================
 // Generic: Generic
 // =============================================================================
 // This file contains an assortment of generic element properties
-// *****************************************************************************
+//
+// Add the correct display in IE 10-.
+// 1. Add the correct display in IE
+// 2. Single taps should be dispatched immediately on clickable elements
 
 html {
     box-sizing: border-box;
 }
 
-//
-// Add the correct display in IE 10-.
-// 1. Add the correct display in IE.
 template, /* [1] */
 [hidden] {
     display: none;
@@ -37,7 +35,7 @@ i {
 
 b,
 strong {
-    font-weight: $bold;
+    font-weight: $font-bold;
 }
 
 a {
@@ -56,11 +54,10 @@ ol {
 }
 
 p,
-figure {
+figure,
+blockquote {
     margin: 0;
     padding: 0;
-    margin-top: rem(12px);
-    margin-bottom: rem(12px);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -68,6 +65,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a, area, button, input, label, select, textarea, [tabindex] {
+    -ms-touch-action: manipulation; /* [2] */
     touch-action: manipulation;
 }
 

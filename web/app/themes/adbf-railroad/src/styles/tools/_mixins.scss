@@ -1,10 +1,7 @@
-
-// *****************************************************************************
 // =============================================================================
 // Tools: Mixins
 // =============================================================================
 // This file contains tools for mixins
-// *****************************************************************************
 
 //
 // Set the color of the highlight that appears over a link while it's being tapped.
@@ -39,6 +36,56 @@
         display: if(list-contains($supports, table), table, block);
         clear: both;
         content: if(list-contains($supports, opera), " ", "");
+    }
+}
+
+//
+// Generate a font-size and baseline-compatible line-height.
+//
+// @link   https://github.com/inuitcss/inuitcss/c14029c/tools/_tools.font-size.scss
+// @param  {Number}  $font-size           - The size of the font.
+// @param  {Number}  $line-height [auto]  - The line box height.
+// @param  {Boolean} $important   [false] - Whether the font-size is important.
+// @output `font-size`, `line-height`
+@mixin font-size($font-size, $line-height: auto, $important: false) {
+    $important: important($important);
+    font-size: rem($font-size) $important;
+
+    @if ($line-height == "auto") {
+        line-height: ceil($font-size / $line-height) * ($line-height / $font-size) $important;
+    }
+    @else {
+        @if (type-of($line-height) == number or $line-height == "inherit" or $line-height == "normal") {
+            line-height: $line-height $important;
+        }
+        @else if ($line-height != "none" and $line-height != false) {
+            @error "D’oh! `#{$line-height}` is not a valid value for `$line-height`.";
+        }
+    }
+}
+
+//
+// Vertically-center the direct descendants of the current element.
+//
+// Centering is achieved by displaying children as inline-blocks. Any whitespace
+// between elements is nullified by redefining the font size of the container
+// and its children.
+//
+// @output `font-size`, `display`, `vertical-align`
+@mixin o-vertical-center {
+    font-size: 0;
+
+    &::before {
+        display: inline-block;
+        height: 100%;
+        content: "";
+        vertical-align: middle;
+    }
+
+    > * {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 1rem;
     }
 }
 
@@ -153,22 +200,77 @@
 //
 // @param {Number} $width [16] - The antecedent
 // @param {Number} $height [9] - The consequent
-@mixin aspect-ratio($width, $height) {
-  position: relative;
-  overflow: hidden;
+@mixin aspect-ratio($width: 16, $height: 9) {
+    position: relative;
+    overflow: hidden;
 
-  &::before {
-    content: "";
-    display: block;
-    width: 100%;
-    padding-top: math.percentage(math.div($height, $width));
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      padding-top: ($height / $width) * 100%;
+    }
+
+    & > * {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
   }
 
-  & > * {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
+
+//
+// A mixin to style inline links in a unique way
+//
+// @param  {Boolean} $underline [false]        - Adds a faded underline for better a11y
+// @param  {Color}   $color     [currentColor] - Whether the visibility is important.
+// @param  {String}  $display   [inline-block] - The rendering box used for the element.
+// @output Styles anchors (and other elements) with animations and CSS pseudo classes
+@mixin u-inline-link($underline: false, $color: $black, $display: inline-block) {
+    display: $display;
+    position: relative;
+    transition: color $speed-hover $easing;
+    text-decoration: none !important;
+    color: $color;
+
+    // Faux underline
+    &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 0;
+        height: 1px;
+        transition: width $speed-hover ease-out;
+        background-color: $color;
+        z-index: 2;
+    }
+
+    @if $underline {
+        // Faux underline, faded
+        &::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background-color: fade-out($color, 0.5);
+            z-index: 1;
+        }
+    }
+
+    // Hover, focus
+    @include u-hocus {
+        color: $color;
+
+        // Faux underline
+        &::after {
+            left: 0;
+            right: auto;
+            width: 100%;
+        }
+    }
 }

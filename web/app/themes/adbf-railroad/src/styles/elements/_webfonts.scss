@@ -1,0 +1,35 @@
+// =============================================================================
+// Elements: Webfonts
+// =============================================================================
+// This file contains the @font-face import properties
+
+// Body copy
+// =============================================================================
+
+// Regular
+@font-face {
+    font-family: "Moderat";
+    src: url("https://mighty.nyc3.digitaloceanspaces.com/fonts/moderat/Moderat-Regular.eot?") format("eot"),
+         url("https://mighty.nyc3.digitaloceanspaces.com/fonts/moderat/Moderat-Regular.woff2") format("woff2"),
+         url("https://mighty.nyc3.digitaloceanspaces.com/fonts/moderat/Moderat-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+// Bold
+@font-face {
+    font-family: "Moderat";
+    src: url("https://mighty.nyc3.digitaloceanspaces.com/fonts/moderat/Moderat-Bold.eot?") format("eot"),
+         url("https://mighty.nyc3.digitaloceanspaces.com/fonts/moderat/Moderat-Bold.woff2") format("woff2"),
+         url("https://mighty.nyc3.digitaloceanspaces.com/fonts/moderat/Moderat-Bold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+// Headlines
+// =============================================================================
+
+// @font-face {
+// }

@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* .banner__box .banner__heading {
+    @apply u-text-shadow u-text-white;
+  }
+
+  .banner__box {
+    .banner__text {
+      @apply u-text-white;
+      font-size: 6rem;
+    }
+  }
+
+  .c-button,
+  .button--primary {
+    @apply u-rounded;
+    padding: 11px 23px !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    background-color: #5b305e !important;
+    color: #fff !important;
+  } */
+}
+
+@layer utilities {
+  /* .u-text-shadow {
+    text-shadow: 1px 1px 1px #000;
+  } */
+}

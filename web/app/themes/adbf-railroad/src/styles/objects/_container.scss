@@ -1,35 +1,24 @@
-
-// *****************************************************************************
 // =============================================================================
 // Objects: Container
 // =============================================================================
-// This file contains the container object properties
-// *****************************************************************************
-
-// *****************************************************************************
-//
 // Page-level constraining and wrapping elements.
 //
 // > In programming languages the word *container* is generally used for structures
 // that can contain more than one element.
 // > A *wrapper* instead is something that wraps around a single object to provide
 // more functionalities and interfaces to it.
-// @link http://stackoverflow.com/a/13202141/140357
 //
-// *****************************************************************************
+// @link http://stackoverflow.com/a/13202141/140357
 
-// Component class
+// Object class
 // =============================================================================
+
 .o-container {
     position: relative;
-    margin: 0 auto;
-    //padding-top: rem(113px);
-    max-width: rem(1600px);
-    background-color: $white;
-    overflow: hidden;
 
-    // From tablet
-    @media (min-width: $from-tablet) {
-        //padding-top: rem(131px);
-    }
+    // DOM loaded
+    .-is-ready & {}
 }
+
+// Content
+// =============================================================================

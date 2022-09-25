@@ -1,15 +1,17 @@
-
-// *****************************************************************************
 // =============================================================================
 // Generic: Media
 // =============================================================================
 // This file contains the generic media properties
-// *****************************************************************************
-
 //
 // 1. Setting `vertical-align` removes the whitespace that appears under `img`
 //    elements when they are dropped into a page as-is. Safer alternative to
 //    using `display: block;`.
+// 2. Fluid media for responsive purposes.
+// 3. If a `width` and/or `height` attribute have been explicitly defined, let’s
+//    not make the image fluid.
+// 4. Offset `alt` text from surrounding copy.
+// 5. SVG elements should fallback to their surrounding text color.
+
 audio,
 canvas,
 iframe,
@@ -19,38 +21,27 @@ video {
     vertical-align: middle; /* [1] */
 }
 
-//
 // Add the correct display in iOS 4-7.
 audio:not([controls]) {
     display: none;
     height: 0;
 }
 
-//
-// 2. Fluid media for responsive purposes.
 img,
 svg {
     max-width: 100%; /* [2] */
     height: auto;
 
-    //
-    // 4. If a `width` and/or `height` attribute have been explicitly defined, let’s
-    //    not make the image fluid.
-    &[width], /* [4] */
+    &[width],
     &[height] {
-        /* [4] */
-        max-width: none;
+        max-width: none; /* [3] */
     }
 }
 
-//
-// 4. Offset `alt` text from surrounding copy.
 img {
     font-style: italic; /* [4] */
 }
 
-//
-// 5. SVG elements should fallback to their surrounding text color.
 svg {
     fill: currentColor; /* [5] */
 }

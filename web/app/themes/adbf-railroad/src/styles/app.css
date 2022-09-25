@@ -1,0 +1,74 @@
+
+/*
+// =============================================================================
+// App
+// =============================================================================
+// This file is the centerpiece of the css front end and contains all of our
+// imports that make it all up from settings to utilities. Automatically builds
+// down into one app.css file on the front end
+//
+// ! Settings, Tools, Generic, and Elements all are ordered in a specific way.
+// ! Vendors, Objects, Components, and Templates should be ordered alphabetically,
+// ! so it's easier to add/remove them as the site grows.
+
+// Dart Sass Transitions
+// =============================================================================
+@use "sass:math";
+@use "sass:list";
+
+// Settings
+// =============================================================================
+@import "settings/config";
+@import "../../node_modules/include-media/dist/_include-media";
+@import "../../node_modules/bourbon/core/bourbon";
+@import "settings/config.colors";
+@import "settings/config.type";
+
+// Tools
+// =============================================================================
+@import "tools/family";
+@import "tools/functions";
+@import "tools/mixins";
+
+// Generic
+// =============================================================================
+@import "../../node_modules/normalize.css/normalize";
+@import "generic/generic";
+@import "generic/media";
+@import "generic/form";
+@import "generic/button";
+
+// Elements
+// =============================================================================
+// @import "elements/webfonts";
+@import "elements/typography";
+@import "elements/page";
+
+// Vendors
+// =============================================================================
+// @import "vendors/example";
+
+// Objects
+// =============================================================================
+@import "objects/container";
+@import "objects/footer";
+@import "objects/header";
+// @import "objects/page-transitions";
+// @import "objects/scroll-elements";
+@import "objects/section";
+
+// Components
+// =============================================================================
+@import "components/redactor";
+
+// Templates
+// =============================================================================
+@import "templates/home";
+
+// Utilities
+// =============================================================================
+// @import "utilities/helpers";
+// @import "utilities/print";
+// @import "utilities/ratio";
+// @import "utilities/states";
+*/

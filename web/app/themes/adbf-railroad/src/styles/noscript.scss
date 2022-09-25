@@ -1,0 +1,29 @@
+// =============================================================================
+// No Script
+// =============================================================================
+// This file contains overrides for elements that are typically controlled by
+// the javascript, such as transitions or parallax type elements. This code is
+// engaged when javascript is disabled within a user's browser
+
+// HTML
+// =============================================================================
+// Ensuring scrolling works
+html {
+    overflow: auto;
+}
+
+// Loader component
+// =============================================================================
+// Set to hidden
+.c-loader {
+  display: none;
+}
+
+// Parallax elements
+// =============================================================================
+// Resets default parallax properties
+[data-scroll],
+[data-scroll] img {
+    transform: none !important;
+    opacity: 1 !important;
+}

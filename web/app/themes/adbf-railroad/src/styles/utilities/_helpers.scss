@@ -1,10 +1,7 @@
-
-// *****************************************************************************
 // =============================================================================
 // Utilities: Helpers
 // =============================================================================
 // This file contains utilities for helpers
-// *****************************************************************************
 
 // Layout
 // =============================================================================
@@ -18,7 +15,7 @@
     @include u-truncate;
 }
 
-//  Visibility / Display
+// Visibility / Display
 // =============================================================================
 [hidden][aria-hidden="false"] {
     position: absolute;
@@ -30,18 +27,17 @@
     clip: auto;
 }
 
-.u-block {
-    display: block;
-}
-
 // /**
-//  * 1. Fix for Firefox bug: an image styled `max-width:100%` within an
-//  * inline-block will display at its default size, and not limit its width to
-//  * 100% of an ancestral container.
+//  * 1.
 //  */
+
+// .u-block {
+//     display: block !important;
+// }
+
 // .u-inline-block {
 //     display: inline-block !important;
-//     max-width: 100%; /* 1 */
+//     max-width: 100%; // Firefox bug: an image styled `max-width:100%` within an inline-block will display at its default size, and not limit its width to 100% of an ancestral container.
 // }
 
 // .u-inline {
@@ -60,19 +56,11 @@
 //     display: table-row !important;
 // }
 
-//
 // Completely remove from the flow but leave available to screen readers.
 .u-screen-reader-text {
     @include u-accessibly-hidden;
 }
 
-@media not print {
-    .u-screen-reader-text\@screen {
-        @include u-accessibly-hidden;
-    }
-}
-
-//
 // Extends the `.screen-reader-text` class to allow the element
 // to be focusable when navigated to via the keyboard.
 //
@@ -80,4 +68,10 @@
 // @todo Define styles when focused.
 .u-screen-reader-text.-focusable {
     @include u-accessibly-focusable;
+}
+
+@media not print {
+    .u-screen-reader-text\@screen {
+        @include u-accessibly-hidden;
+    }
 }

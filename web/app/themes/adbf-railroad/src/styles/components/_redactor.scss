@@ -1,0 +1,106 @@
+// =============================================================================
+// Components: Redactor
+// =============================================================================
+// This file styles the elements inside of a Redactor field
+
+// Component Frame
+// =============================================================================
+
+.c-redactor {
+    position: relative;
+}
+
+// Component Modifiers
+// =============================================================================
+
+// .c-redactor--large {
+// }
+
+// Component Elements
+// =============================================================================
+.c-redactor {
+
+    // All headings
+    // =========================================================================
+    @for $i from 2 through 6 {
+        h#{$i} {
+            margin-top: 1.25em;
+            margin-bottom: 0.75em;
+            // no top-margin if its the first element
+            @include first(1) {
+                margin-top: 0;
+            }
+        }
+    }
+
+    // Headlines
+    // =========================================================================
+    h2 {}
+
+    // Subheadlines
+    // =========================================================================
+    h3 {}
+    h4 {}
+
+    // Ordered & unordered lists
+    // =========================================================================
+    ul, ol {
+        display: block;
+        padding-left: 1em;
+        margin-bottom: $line-height;
+
+        // space list items a bit
+        li {
+            display: list-item;
+            margin-bottom: math.div($line-height, 2);
+        }
+    }
+    ul {
+        list-style-type: disc;
+
+        // custom <li> dots
+        li::marker {}
+    }
+    ol {
+        list-style-type: decimal;
+
+        // custom <li> dots
+        li::marker {}
+    }
+
+    // Text
+    // =========================================================================
+    p {
+        margin: 0 0 math.div($line-height, 2);
+        line-height: $line-height;
+
+        @include last(1) {
+            margin-bottom: 0
+        }
+    }
+
+    figure {
+        margin-bottom: $line-height;
+    }
+
+    blockquote {
+        margin-top: $line-height;
+        margin-bottom: $line-height;
+        font-size: rem($font-h5);
+        line-height: $heading-height;
+    }
+
+    // Links
+    // =========================================================================
+    a {
+        @include u-inline-link(true);
+    }
+
+    // Typogrify classes
+    // =========================================================================
+
+    // set all caps to just slightly smaller
+    .caps {
+        font-size: 0.95em;
+    }
+}
