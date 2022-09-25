@@ -5,10 +5,9 @@
 
 // Import dependencies
 // =============================================================================
-import svg4everybody from 'svg4everybody';
 
 // Set default function
 // =============================================================================
 export default function() {
-  svg4everybody();
+  // globals here...
 }

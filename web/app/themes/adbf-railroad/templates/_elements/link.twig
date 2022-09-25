@@ -1,16 +1,16 @@
 {# -- Component Variables -- #}
 
 {% set this = {
-    isButton: params.button ??? false,
-    isExternal: params.external ??? false,
-    hasIcon: params.icon ??? false,
-    linkFieldUrl: params.linkUrl ??? 'javascript:;',
-    linkFieldText: params.linkText ??? 'Learn More',
-    linkFieldTitle: params.linkTitle ??? params.linkText ??? 'Learn More',
-    linkFieldIcon: params.icon ??? 'caret--right',
-    id: id ??? null,
-    classes: class ??? null,
-    attributes: attr ??? null,
+    isButton: params.button ?? false,
+    isExternal: params.external ?? false,
+    hasIcon: params.icon ?? false,
+    linkFieldUrl: params.linkUrl ?? 'javascript:;',
+    linkFieldText: params.linkText ?? 'Learn More',
+    linkFieldTitle: params.linkTitle ?? params.linkText ?? 'Learn More',
+    linkFieldIcon: params.icon ?? 'caret--right',
+    id: id ?? null,
+    classes: class ?? null,
+    attributes: attr ?? null,
 } %}
 
 {# -- Component Template -- #}
