@@ -109,6 +109,20 @@ class StarterSite extends Timber\Site {
         add_theme_support( 'post-thumbnails' );
 
         /**
+         * Enable the use of a custom logo in your theme.
+         *
+         * @link https://developer.wordpress.org/themes/functionality/custom-logo/
+         */
+        add_theme_support( 'custom-logo' );
+
+        /**
+         * Supports editor style in page & post editor backend
+         *
+         * @link https://developer.wordpress.org/reference/functions/add_editor_style/
+         */
+        add_editor_style( 'css/editor-style.css' );
+
+        /**
          * Switch default core markup for search form, comment form, and comments
          * to output valid HTML5.
          */
