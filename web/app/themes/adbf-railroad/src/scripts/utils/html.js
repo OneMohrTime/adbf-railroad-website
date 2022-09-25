@@ -1,15 +1,11 @@
+// =============================================================================
+// Utilities: HTML
+// =============================================================================
+// A collection of html escape-related functions
 
-// *****************************************************************************
-// =============================================================================
-// Utilities: Html
-// =============================================================================
-// A collection of html related functions
-// *****************************************************************************
-
-// Escape html
-// =============================================================================
-// @param  {String} str - html to escape
-// @return {String}     - escaped html
+/**
+ * @see  https://github.com/ractivejs/ractive/blob/dev/src/utils/html.js
+ */
 export function escapeHtml(str) {
     return str
         .replace(/&/g, '&amp;')
@@ -17,10 +13,11 @@ export function escapeHtml(str) {
         .replace(/>/g, '&gt;');
 }
 
-// Unescape html
-// =============================================================================
-// @param  {String} str - html to unescape
-// @return {String}     - unescaped html
+/**
+ * Prepare HTML content that contains mustache characters for use with Ractive
+ * @param  {string} str
+ * @return {string}
+ */
 export function unescapeHtml(str) {
     return str
         .replace(/&lt;/g, '<')
@@ -28,23 +25,22 @@ export function unescapeHtml(str) {
         .replace(/&amp;/g, '&');
 }
 
-// Get node data
-// =============================================================================
-// @param  {DOMElement} node - target node
-// @return {Array}           - node data
+/**
+ * Get element data attributes
+ * @param   {DOMElement}  node
+ * @return  {Array}       data
+ */
 export function getNodeData(node) {
-    // Get all attriutes from target node
+    // All attributes
     const attributes = node.attributes;
 
-    // Search for attributes starting with 'data-'
+    // Regex Pattern
     const pattern = /^data\-(.+)$/;
 
-    // Establish output data object
+    // Output
     const data = {};
 
-    // Loop all attributes and build out the return array
     for (let i in attributes) {
-        // If not found, continue
         if (!attributes[i]) {
             continue;
         }
@@ -52,47 +48,42 @@ export function getNodeData(node) {
         // Attributes name (ex: data-module)
         let name = attributes[i].name;
 
-        // If no name, continue
+        // This happens.
         if (!name) {
             continue;
         }
 
-        // Ensure attribute follows our 'data-' pattern
         let match = name.match(pattern);
-
-        // If no match, continue
         if (!match) {
             continue;
         }
 
-        // If this throws an error, you have some serious problems in your HTML.
+        // If this throws an error, you have some
+        // serious problems in your HTML.
         data[match[1]] = getData(node.getAttribute(name));
     }
 
-    // Return final data array
     return data;
 }
 
-// Establish rbrace
-// =============================================================================
 const rbrace = /^(?:\{[\w\W]*\}|\[[\w\W]*\])$/;
 
-// Get data
-// =============================================================================
-// @param  {String} data - value to convert
-// @return {Mixed}       - returns value in its natural data type
+/**
+ * Parse value to data type.
+ *
+ * @link   https://github.com/jquery/jquery/blob/3.1.1/src/data.js
+ * @param  {string} data - A value to convert.
+ * @return {mixed}  Returns the value in its natural data type.
+ */
 export function getData(data) {
-    // Return true
     if (data === 'true') {
         return true;
     }
 
-    // Return false
     if (data === 'false') {
         return false;
     }
 
-    // Return null
     if (data === 'null') {
         return null;
     }
@@ -102,20 +93,18 @@ export function getData(data) {
         return +data;
     }
 
-    // Return array
-    if (rbrace.test(data)) {
-        return JSON.parse(data);
+    if (rbrace.test( data )) {
+        return JSON.parse( data );
     }
 
-    // Return in original state
     return data;
 }
 
-// Get parents
-// =============================================================================
-// Returns an array containing all the parent nodes of the given node
-// @param  {Object} node - child node
-// @return {Array}       - parent nodes
+/**
+ * Returns an array containing all the parent nodes of the given node
+ * @param  {object} node
+ * @return {array} parent nodes
+ */
 export function getParents(elem) {
     // Set up a parent array
     let parents = [];
@@ -129,11 +118,7 @@ export function getParents(elem) {
     return parents;
 }
 
-// Query closest parent
-// =============================================================================
-// @param  {Object} elem     - child node
-// @param  {String} selector - element selector
-// @return {Array}           - closest parent
+// https://gomakethings.com/how-to-get-the-closest-parent-element-with-a-matching-selector-using-vanilla-javascript/
 export function queryClosestParent(elem, selector) {
 
     // Element.matches() polyfill
@@ -153,10 +138,9 @@ export function queryClosestParent(elem, selector) {
     }
 
     // Get the closest matching element
-    for (; elem && elem !== document; elem = elem.parentNode) {
-        if (elem.matches(selector)) return elem;
+    for ( ; elem && elem !== document; elem = elem.parentNode ) {
+        if ( elem.matches( selector ) ) return elem;
     }
-
-    // If no closest parent was found, return null
     return null;
-}
+
+};

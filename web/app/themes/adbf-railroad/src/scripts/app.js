@@ -1,26 +1,21 @@
-
-// *****************************************************************************
 // =============================================================================
 // App
 // =============================================================================
 // This file is the centerpiece of the javascript front end and kicks it all of
 // on load.
-// *****************************************************************************
 
 // Import dependencies
 // =============================================================================
-import { default as MightyModular } from './core/MightyModular';
+import modular from 'modujs';
 import * as modules from './modules';
 import globals from './globals';
 import { html } from './utils/environment';
 
-// Run a new instance of 'Mighty Modules'
+// Run a new modular instance
 // =============================================================================
-// Mighty Modular watches for modules coming and going within the frontend and
-// deploys the process of init or destroy as they're moving in and out
-const app = new MightyModular({
-    // Set to the modules imported above
-    modules: modules
+const app = new modular({
+  // Set to the modules imported above
+  modules: modules
 });
 
 // Init our app
@@ -33,10 +28,10 @@ app.init(app);
 // =========================================================================
 globals();
 
-// Set frontend as no longer 'loading'
+// Set frontend
 // =========================================================================
+html.classList.add('-is-loaded');
+html.classList.add('-is-ready');
+html.classList.remove('-is-loading');
+html.classList.remove('-no-js');
 html.classList.add('-has-js');
-
-// Set frontend as 'ready'
-// =========================================================================
-//html.classList.add('-is-ready');

@@ -1,19 +1,14 @@
-// *****************************************************************************
 // =============================================================================
 // Globals
 // =============================================================================
 // Set and run functions globally throughout our app
-// *****************************************************************************
 
 // Import dependencies
 // =============================================================================
-import { breakEmailVsContainer } from "./globals/breakEmailVsContainer";
+import svg4everybody from 'svg4everybody';
 
 // Set default function
 // =============================================================================
 export default function() {
-  breakEmailVsContainer(
-    "#global-footer-email",
-    "#global-footer-email-container"
-  );
+  svg4everybody();
 }
