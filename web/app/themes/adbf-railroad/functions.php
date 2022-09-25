@@ -134,24 +134,6 @@ class StarterSite extends Timber\Site {
             )
         );
 
-        /**
-         * Enable support for Post Formats.
-         *
-         * See: https://codex.wordpress.org/Post_Formats
-         */
-        add_theme_support(
-            'post-formats',
-            array(
-                'aside',
-                'image',
-                'video',
-                'quote',
-                'link',
-                'gallery',
-                'audio',
-            )
-        );
-
         add_theme_support( 'menus' );
     }
 
