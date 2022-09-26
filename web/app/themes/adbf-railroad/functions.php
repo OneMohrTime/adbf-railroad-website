@@ -137,15 +137,6 @@ class StarterSite extends Timber\Site {
         add_theme_support( 'menus' );
     }
 
-    /** This Would return 'foo bar!'.
-     *
-     * @param string $text being 'foo', then returned 'foo bar!'.
-     */
-    public function myfoo( $text ) {
-        $text .= ' bar!';
-        return $text;
-    }
-
     /** This is where you can add your own functions to twig.
      *
      * @param string $twig get extension.

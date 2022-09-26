@@ -19,9 +19,9 @@
     "IE 10-11"
   ],
   "scripts": {
-    "production:css-app": "cross-env NODE_ENV=development tailwindcss -i ./web/app/themes/adbf-railroad/src/styles/app-tailwind.css -o ./web/app/themes/adbf-railroad/css/app.css --postcss --minify",
-    "production:css-editor": "cross-env NODE_ENV=development tailwindcss -i ./web/app/themes/adbf-railroad/src/styles/editor-style.css -o ./web/app/themes/adbf-railroad/css/editor-style.css --postcss --minify",
-    "production:js": "cross-env NODE_ENV=development ./node_modules/.bin/esbuild ./web/app/themes/adbf-railroad/src/scripts/app.js --bundle --outfile=./web/app/themes/adbf-railroad/js/app.js --minify",
+    "production:css-app": "cross-env NODE_ENV=production tailwindcss -i ./web/app/themes/adbf-railroad/src/styles/app-tailwind.css -o ./web/app/themes/adbf-railroad/css/app.css --postcss --minify",
+    "production:css-editor": "cross-env NODE_ENV=production tailwindcss -i ./web/app/themes/adbf-railroad/src/styles/editor-style.css -o ./web/app/themes/adbf-railroad/css/editor-style.css --postcss --minify",
+    "production:js": "cross-env NODE_ENV=production ./node_modules/.bin/esbuild ./web/app/themes/adbf-railroad/src/scripts/app.js --bundle --outfile=./web/app/themes/adbf-railroad/js/app.js --minify",
     "dev:css-app": "cross-env NODE_ENV=development tailwindcss -i ./web/app/themes/adbf-railroad/src/styles/app-tailwind.css -o ./web/app/themes/adbf-railroad/css/app.css --postcss",
     "dev:css-editor": "cross-env NODE_ENV=development tailwindcss -i ./web/app/themes/adbf-railroad/src/styles/editor-style.css -o ./web/app/themes/adbf-railroad/css/editor-style.css --postcss",
     "dev:js": "cross-env NODE_ENV=development ./node_modules/.bin/esbuild ./web/app/themes/adbf-railroad/src/scripts/app.js --bundle --outfile=./web/app/themes/adbf-railroad/js/app.js",
