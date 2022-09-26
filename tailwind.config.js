@@ -1,5 +1,4 @@
-const theme     = require('./web/app/themes/adbf-railroad/theme.json');
-const tailpress = require("@jeffreyvr/tailwindcss-tailpress");
+const theme = require('./web/app/themes/adbf-railroad/theme.json');
 
 module.exports = {
   prefix: 'u-',

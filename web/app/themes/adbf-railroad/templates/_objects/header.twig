@@ -1,17 +1,24 @@
+{# Tailwind Stylesheet #}
+<link rel="stylesheet" href="{{ site.theme.link }}/css/header.css" />
+
+{# Template #}
 {# <header class="o-header js-menu" data-module-navigation data-scroll> #}
 <header class="o-header js-menu">
 
     {# Main logo #}
     <a href="{{ siteUrl }}" class="o-header__logo">
-        {% include '_base/svg/logo.twig' %}
+        {# {% if function(the_custom_logo) %} #}
+            {# {{ function(the_custom_logo) }} #}
+        {# {% else %} #}
+            {% include '_base/svg/logo.twig' %}
+        {# {% endif %} #}
     </a>
 
     {# Hamburger menu #}
     <div class="o-header__trigger">
         <button type="button" class="c-hamburger js-nav-trigger -not-active">
-            <span class="c-hamburger__line"></span>
-            <span class="c-hamburger__line"></span>
-            <span class="c-hamburger__line"></span>
+            {% include '_base/svg/icon-caret-down.twig' %}
+            Menu
         </button>
     </div>
 
