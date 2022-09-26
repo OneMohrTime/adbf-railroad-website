@@ -5,15 +5,32 @@
 {% block content %}
 
     <section class="o-section -full-width">
-        {% include '_components/banner.twig' %}
+        {% include '_components/banner.twig' with {
+            banner: post
+        } only %}
     </section>
 
-    {% for section in post.meta('page_builder') %}
-        <section class="o-section -is-{{ section.acf_fc_layout }}">
-            {% include '_components/module--' ~ section.acf_fc_layout ~ '.twig' with {
-                params: section
-            } only %}
-        </section>
-    {% endfor %}
+    <section class="o-section">
+        <article class="c-redactor">
+            {{ post.content }}
+        </article>
+    </section>
+
+    <section class="o-section">
+        {% if post.children %}
+            <ul class="c-related-posts">
+                {% for child in post.children %}
+                    <li class="c-related-posts__post">
+                        <div class="c-card">
+                            <h2 class="c-card__headline">{{ child.title }}</h2>
+                            <div class="c-card__body">
+                                {{ child.excerpt ?? child.conent }}
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </section>
 
 {% endblock %}

@@ -1,19 +1,20 @@
 const mix = require('laravel-mix');
 const dotenv = require('dotenv');
-const tailwindcss = require('tailwindcss');
+// const tailwindcss = require('tailwindcss');
 require('mix-tailwindcss');
 
 mix
     .disableSuccessNotifications()
     .js('web/app/themes/adbf-railroad/src/scripts/app.js', 'web/app/themes/adbf-railroad/js')
     .sass('web/app/themes/adbf-railroad/src/styles/app.scss', 'css')
-    .sass('web/app/themes/adbf-railroad/src/styles/header.scss', 'css')
+    // .sass('web/app/themes/adbf-railroad/src/styles/objects/_header.scss', 'css')
     .sass('web/app/themes/adbf-railroad/src/styles/noscript.scss', 'css')
+    .postCss('web/app/themes/adbf-railroad/src/styles/app-tailwind.css', 'css')
+    .tailwind('./tailwind.config.js')
     .setPublicPath('web/app/themes/adbf-railroad')
     // .copyDirectory('src/images', 'public/assets/img')
     .options({
         processCssUrls: false,
-        postCss: [ tailwindcss('./tailwind.config.js') ],
     });
 
 if (!mix.inProduction()) {
