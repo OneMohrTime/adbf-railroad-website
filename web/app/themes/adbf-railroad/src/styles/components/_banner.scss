@@ -1,0 +1,32 @@
+// =============================================================================
+// Components: Banner
+// =============================================================================
+// This file styles the page banners
+
+// Component Frame
+// =============================================================================
+
+.c-banner {
+    position: relative;
+    margin-bottom: $gutter-sm;
+}
+
+// Component Modifiers
+// =============================================================================
+
+// Component Elements
+// =============================================================================
+
+.c-banner__headline {
+    display: inline-block;
+    margin: $gutter $gutter-xs;
+    padding: math.div($gutter-xs, 2) $gutter-xs;
+    line-height: 1.25em;
+    background-color: $white;
+    color: $black;
+
+    // below 600px
+    @include media("<small") {
+        font-size: rem($font-h4);
+    }
+}

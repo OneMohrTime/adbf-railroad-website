@@ -7,6 +7,9 @@
 // =============================================================================
 
 .o-header {
+    border-bottom: 1px solid $gray;
+    background-color: $white;
+
     // at or above 600px
     @include media(">=small") {
         display: flex;
@@ -15,30 +18,47 @@
     }
 }
 
+// Object modifiers
+// =============================================================================
+
+// Object elements
+// =============================================================================
+
+.o-header__nav {
+    background-color: $red;
+    color: $white;
+}
 
 .o-header__logo {
     display: block;
     max-width: 500px;
-    padding: 16px 24px;
+    padding: $gutter-xs;
+    border-bottom: 1px solid $gray;
 
     svg {
         display: block;
         height: auto;
         max-width: 100%;
         max-height: 100%;
-        fill: #e00000;
+        fill: $red;
     }
 }
 
-// Object modifiers
-// =============================================================================
-.o-header__trigger .c-hamburger {
+.o-header__trigger {
     display: flex;
-    align-items: center;
-}
 
-// Object elements
-// =============================================================================
-.o-header__nav {
-    background-color: #e00000;
+    .c-hamburger {
+        flex: 0 0 100%;
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 0.5em;
+        padding: 12px $gutter-xs;
+    }
+
+    .-svg {
+        flex: 0 0 14px;
+        max-width: 14px;
+    }
 }

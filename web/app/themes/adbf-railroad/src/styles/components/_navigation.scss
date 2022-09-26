@@ -1,24 +1,18 @@
 // =============================================================================
-// Objects: Footer
+// Components: Navigation
 // =============================================================================
-// Styles for the global site footer
+// This file styles the main/primary navigation menu
 
-// Object frame
+// Component Frame
 // =============================================================================
 
-.o-footer {
-    padding: $gutter-sm $gutter-xs;
-    text-align: center;
-    background-color: $dark;
-    color: $white;
-
-    // at or above 900px
-    @include media(">=medium") {
-    }
+.c-navigation {
+    display: none;
+    padding: math.div($gutter-xs, 2) $gutter-xs;
 }
 
-// Object modifiers
+// Component Modifiers
 // =============================================================================
 
-// Object elements
+// Component Elements
 // =============================================================================

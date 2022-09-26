@@ -1,24 +1,22 @@
 // =============================================================================
-// Objects: Footer
+// Components: Cards
 // =============================================================================
-// Styles for the global site footer
+// This file styles the related post cards
 
-// Object frame
+// Component Frame
 // =============================================================================
 
-.o-footer {
-    padding: $gutter-sm $gutter-xs;
-    text-align: center;
-    background-color: $dark;
-    color: $white;
-
-    // at or above 900px
-    @include media(">=medium") {
-    }
+.c-card {
+    background-color: $white;
+    color: $black;
 }
 
-// Object modifiers
+// Component Modifiers
 // =============================================================================
 
-// Object elements
+// Component Elements
 // =============================================================================
+
+.c-card__content {
+    margin-top: $gutter-xs;
+}

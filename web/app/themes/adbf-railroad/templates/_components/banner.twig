@@ -2,14 +2,14 @@
 
 {% set bannerEyebrow  = banner.banner_eyebrow %}
 {% set bannerImage    = Image(banner.banner_image) %}
-{% set bannerHeadline = banner.banner_headline %}
+{% set bannerHeadline = banner.banner_headline ? banner.banner_headline : banner.title %}
 
 {# -- Component Template -- #}
 
 <div class="c-banner">
 
     <div class="c-banner__content"{% if bannerImage is defined and bannerImage is not empty %} style="background-image: url({{ bannerImage.src('medium') }})"{% endif %}>
-        <h1 class="c-banner__headline">{{ bannerHeadline ?? post.title }}</h1>
+        <h1 class="c-banner__headline c-headline u-font-size-h2">{{ bannerHeadline }}</h1>
     </div>
 
 </div>

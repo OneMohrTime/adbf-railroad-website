@@ -58,11 +58,16 @@
 
 // Components
 // =============================================================================
+@import "components/banner";
+@import "components/cards";
+@import "components/image";
+@import "components/navigation";
 @import "components/redactor";
+@import "components/related-posts";
 
 // Templates
 // =============================================================================
-// @import "templates/home";
+@import "templates/page";
 
 // Utilities
 // =============================================================================

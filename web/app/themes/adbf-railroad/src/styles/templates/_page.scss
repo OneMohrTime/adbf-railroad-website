@@ -1,13 +1,13 @@
 // =============================================================================
-// Templates: Home
+// Templates: Page
 // =============================================================================
-// This file contains the home page properties
+// This file contains the page properties
 
 // Template Class
 // =============================================================================
 // Unlike most of our code, let's wrap all internal classes with our template
 // class which will allow for easy overrides
-.t-home {
+.t-page {
 
     // Headline
     // =========================================================================
@@ -15,4 +15,17 @@
     // Body
     // =========================================================================
 
+    .-is-content{
+        .c-redactor {
+            padding: $gutter-xs;
+            background-color: $white;
+            color: $black;
+
+            h2 {
+                margin-top: 1em;
+                margin-bottom: 0.25em;
+                font-weight: $font-bold;
+            }
+        }
+    }
 }

@@ -1,24 +1,24 @@
 // =============================================================================
-// Objects: Footer
+// Components: Related Posts
 // =============================================================================
-// Styles for the global site footer
+// This file styles the related post cards
 
-// Object frame
+// Component Frame
 // =============================================================================
 
-.o-footer {
-    padding: $gutter-sm $gutter-xs;
-    text-align: center;
-    background-color: $dark;
-    color: $white;
-
-    // at or above 900px
-    @include media(">=medium") {
-    }
+.c-related-posts {
+    margin-top: $gutter-xs;
+    margin-bottom: $gutter-xs;
+    background-color: $white;
+    color: $black;
 }
 
-// Object modifiers
+// Component Modifiers
 // =============================================================================
 
-// Object elements
+// Component Elements
 // =============================================================================
+
+.c-related-posts__post {
+    padding: $gutter-xs;
+}
