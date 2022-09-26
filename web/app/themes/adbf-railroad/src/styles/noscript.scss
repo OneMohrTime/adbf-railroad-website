@@ -14,9 +14,16 @@ html {
 
 // Loader component
 // =============================================================================
+// Show navigation always
+.c-navigation {
+    display: block !important;
+}
+
+// Loader component
+// =============================================================================
 // Set to hidden
 .c-loader {
-  display: none;
+    display: none;
 }
 
 // Parallax elements

@@ -3,17 +3,42 @@
 {% extends "_base/html/_base.twig" %}
 
 {% block content %}
-{# <pre>
-    {{ dump(is_front_page) }}
-</pre> #}
-    <div class="content-wrapper">
-        <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-            <section class="article-content">
-                <h1 class="article-h1">{{post.title}}</h1>
-                <div class="article-body">
-                    {{post.content}}
-                </div>
-            </section>
-        </article>
-    </div><!-- /content-wrapper -->
+    {# <pre> #}
+        {# {{ dump(is_front_page) }} #}
+        {# {{ dump(post.type.slug) }} #}
+    {# </pre> #}
+
+    <section class="o-section -full-width -is-banner">
+        {% include '_components/banner.twig' with {
+            banner: post
+        } only %}
+    </section>
+
+    <section class="o-section -is-content">
+        <div class="c-redactor">
+            {{ post.content }}
+        </div>
+    </section>
+
+    <section class="o-section -is-card-deck">
+        {% if post.children %}
+            <ul class="c-related-posts">
+                {% for child in post.children %}
+                    <li class="c-related-posts__post">
+                        <div class="c-card">
+                            {% set thumbnail = Image(child.banner_image) %}
+                            <img src="{{ thumbnail.src('medium') }}" class="c-card__image" />
+                            <div class="c-card__content">
+                                <h2 class="c-card__headline">{{ child.title }}</h2>
+                                <div class="c-card__body">
+                                    {{ child.excerpt ?? child.conent }}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </section>
+
 {% endblock %}

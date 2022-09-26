@@ -16,8 +16,9 @@
 .o-container {
     position: relative;
 
-    // DOM loaded
-    .-is-ready & {}
+    .t-page & {
+        background-color: $light;
+    }
 }
 
 // Content

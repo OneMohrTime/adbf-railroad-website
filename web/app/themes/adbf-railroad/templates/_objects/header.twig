@@ -10,7 +10,9 @@
         {# {% if function(the_custom_logo) %} #}
             {# {{ function(the_custom_logo) }} #}
         {# {% else %} #}
-            {% include '_base/svg/logo.twig' %}
+            {% include '_base/svg/logo.twig' with {
+                svgClass: '-is-dark'
+            } only %}
         {# {% endif %} #}
     </a>
 
