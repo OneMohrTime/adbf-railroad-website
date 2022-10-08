@@ -1,0 +1,46 @@
+{# -- Component Variables -- #}
+
+{% set bannerEyebrow  = banner.banner_eyebrow %}
+{% set bannerImage    = Image(banner.banner_image) %}
+{% set bannerHeadline = banner.banner_headline ? banner.banner_headline : banner.title %}
+{% set bannerBody     = banner.banner_description %}
+{% set bannerLinks    = banner.meta('banner_links') %}
+
+{# -- Component Template -- #}
+
+<div class="c-banner -is-primary">
+
+    <div class="c-banner__content">
+        <h1 class="c-banner__headline u-font-size-h1">{{ bannerHeadline }}</h1>
+        <div class="c-banner__body c-wysiwyg">
+            {{ bannerBody }}
+        </div>
+        {% if bannerLinks is defined and bannerLinks is not empty %}
+            <div class="c-banner__links">
+                {% for link in bannerLinks %}
+                    {% set button = link.banner_link %}
+                    {% include '_elements/link.twig' with {
+                        params: {
+                            button: true,
+                            isExternal: (button.target == '_blank'),
+                            linkUrl: button.url,
+                            linkText: button.title
+                        },
+                        class: '-is-primary'
+                    } only %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <figure class="c-banner__media">
+        {% include '_elements/picture.twig' with {
+            params: {
+                src: bannerImage,
+                background: true
+            }
+        } %}
+        <figcaption></figcaption>
+    </figure>
+
+</div>

@@ -42,6 +42,16 @@
         max-height: 100%;
         fill: $red;
     }
+
+    // at or above 600px
+    @include media(">=small") {
+        border-bottom: 0;
+    }
+
+    // at or above 900px
+    @include media(">=medium") {
+        padding: $gutter-sm;
+    }
 }
 
 .o-header__trigger {
