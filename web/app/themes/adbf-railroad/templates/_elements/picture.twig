@@ -1,0 +1,92 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    src: params.src ?? null,
+    alt: params.alt ?? params.src.altText ?? params.src.title ?? 'web image',
+    classes: params.classes ?? null,
+    optimization: params.src.optimization ?? null,
+    ratio: params.ratio ?? null,
+    background: params.background ?? null,
+    lazy: (params.lazy is defined ? params.lazy : true),
+    blur: (params.blur is defined ? params.blur : true),
+    attr: params.attr ?? null
+} %}
+
+{# -- Component Template -- #}
+
+{% if this.src is not empty %}
+
+    {# Frame can be set to relative/absolute image ratio-ing #}
+    <picture class="c-media
+        {# Custom ratio #}
+        {% if this.ratio %} o-ratio u-{{ this.ratio }}{% endif %}"
+        {# Custom data-attributes #}
+        {% if this.attr %}{{ this.attr }}{% endif %}
+    >
+
+        {# If there is WebP support, use it first #}
+        {# {% if this.optimization and craft.imageOptimize.serverSupportsWebP() %}
+
+            <source type="image/webp"
+                {# Add `data-` attribute to lazyloaded images #
+                {% if this.lazy %}
+                    data-srcset="{{ this.optimization.srcsetWebP() }}"
+                {% else %}
+                    srcset="{{ this.optimization.srcsetWebP() }}"
+                {% endif %}/>
+
+        {# Window size media queries #
+        {% elseif not craft.imageOptimize.serverSupportsWebP()
+            and (this.optimization and this.optimization.variantSourceWidths) %}
+            {% for source in this.optimization.variantSourceWidths|reverse %}
+
+                <source media="(min-width: {{ source }}px)"
+                    {# Add `data-` attribute to lazyloaded images #
+                    {% if this.lazy %}
+                        data-srcset="{{ this.optimization.srcsetWidth(source) }}"
+                    {% else %}
+                        srcset="{{ this.optimization.srcsetWidth(source) }}"
+                    {% endif %}/>
+
+            {% endfor %}
+        {% endif %} #}
+
+        {# img tag for browsers that do not support picture element #}
+        <img src="{{ this.src }}"
+
+            {# Alt text should never be empty, or contain tags, or be too long #}
+            alt="{{ this.alt|striptags|slice(0, 120) }}"
+
+            {# Semantic HTML width & height values #}
+            width="{{ params.src.width }}"
+            height="{{ params.src.height }}"
+
+            {# Default class #}
+            class="c-media__image
+
+            {# If this is meant to be a background image #}
+            {% if this.background %}-background{% endif %}
+
+            {# Lazyloaded & blurred by default #}
+            {% if this.lazy %}u-lazyload{% endif %}
+            {% if this.lazy and this.blur %}u-blur-up{% endif %}
+
+            {# Additional custom classes #}
+            {% if this.classes %}{{ this.classes }}{% endif %}"
+
+            {# If the image is lazyloaded, use data-src & data-srcset #}
+            {% if this.optimization and this.lazy %}
+                data-src="{{ this.optimization.src() }}"
+                data-sizes="auto"
+                data-srcset="{{ this.optimization.srcset() }}"
+                data-width="{{ this.optimization.placeholderWidth }}"
+                data-height="{{ this.optimization.placeholderHeight }}"
+            {# Otherwise use typical srcset #}
+            {% elseif this.optimization and not this.lazy %}
+                srcset="{{ this.optimization.srcset() }}"
+            {% endif %}
+        />
+
+    </picture>
+
+{% endif %}

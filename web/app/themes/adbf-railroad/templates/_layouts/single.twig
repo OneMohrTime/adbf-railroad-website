@@ -5,13 +5,13 @@
 {% block content %}
 
     <section class="o-section -full-width">
-        {% include '_components/banner.twig' with {
+        {% include '_components/banner--secondary.twig' with {
             banner: post
         } only %}
     </section>
 
     <section class="o-section">
-        <article class="c-redactor">
+        <article class="c-wysiwyg">
             {{ post.content }}
         </article>
     </section>

@@ -1,0 +1,27 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    src: params.src ?? null,
+    poster: params.poster ?? null,
+    classes: params.classes ?? null,
+} %}
+
+{# -- Component Template -- #}
+
+{% if this.src is not empty %}
+
+    <video class="c-video -background" playsinline muted autoplay preload="auto" loop{% if this.poster %} poster="{{ this.poster }}{% endif %}" data-module-video>
+        <source src="{{ this.src.url }}" type="video/{{ this.src.extension }}"/>
+        Sorry, your browser doesn't support embedded videos.
+    </video>
+
+    <aside class="c-video__toggle -playing js-video-controls">
+        <button class="u-pause js-pause">
+            {% include '_base/svg/icon-pause' %}
+        </button>
+        <button class="u-play js-play">
+            {% include '_base/svg/icon-play' %}
+        </button>
+    </aside>
+
+{% endif %}

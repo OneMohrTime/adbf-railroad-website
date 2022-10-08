@@ -23,6 +23,13 @@
 
 $context = Timber::context();
 
-$timber_post     = new Timber\Post();
-$context['post'] = $timber_post;
-Timber::render( array( '_layouts/page-' . $timber_post->post_name . '.twig', '_layouts/page.twig' ), $context );
+$timber_post      = new Timber\Post();
+$context['post']  = $timber_post;
+$context['posts'] = new Timber\PostQuery();
+$templates        = array( '_layouts/page-' . $timber_post->post_name . '.twig', '_layouts/page.twig' );
+
+if ( is_front_page() ) {
+    array_unshift( $templates, '_views/front-page.twig' );
+}
+
+Timber::render( $templates, $context );

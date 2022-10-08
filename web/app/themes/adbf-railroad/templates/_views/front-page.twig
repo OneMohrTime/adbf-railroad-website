@@ -2,10 +2,70 @@
 {# ----------------------------------------------------------------- #}
 {% extends "_base/html/_base.twig" %}
 
+{# -- Page Variables -- #}
+
+{% set relatedPages = post.meta('related_pages') %}
+{% set railMaps     = post.meta('rail_maps') %}
+{% set featuredPage = post.meta('featured_page') %}
+
+{# -- Page Template -- #}
+
 {% block content %}
-<pre>
-    {{ dump(is_front_page) }}
-</pre>
-    <div class="o-section">
-    </div>
+
+    <section class="o-section -full-width -is-banner">
+        {% include '_components/banner--primary.twig' with {
+            banner: post
+        } only %}
+    </section>
+
+    <section class="o-section -is-content">
+        <div class="c-wysiwyg">
+
+            {{ post.content }}
+
+            {% if relatedPages is defined and relatedPages is not empty %}
+            <ul class="c-list">
+                {% for item in relatedPages %}
+                    <li class="c-list__item">
+                        {% include '_elements/link.twig' with {
+                            params: {
+                                isExternal: (item.target == '_blank'),
+                                linkUrl: item.link,
+                                linkText: item.title
+                            },
+                            class: 'c-list__link'
+                        } only %}
+                    </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+        </div>
+    </section>
+
+    {% if railMaps %}
+    <section class="o-section -is-locations">
+        <h2 class="u-font-size-h2">Maps</h2>
+        <ul class="c-featured-maps">
+            {% for map in railMaps %}
+                <li class="c-featured-maps__map u-ratio u-1:1">
+                    <a href="{{ map.link }}" class="c-featured-maps__link">{{ map.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+    {% endif %}
+
+    {% if featuredPage %}
+    <section class="o-section -is-featured">
+        <aside class="c-feature">
+            <h2 class="c-feature__title">{{ featuredPage.title }}</h2>
+        </aside>
+    </section>
+    {% endif %}
+
+{% endblock %}
+
+{% block cta %}
+front_page
 {% endblock %}

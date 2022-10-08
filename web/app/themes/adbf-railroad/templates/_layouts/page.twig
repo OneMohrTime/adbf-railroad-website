@@ -3,19 +3,15 @@
 {% extends "_base/html/_base.twig" %}
 
 {% block content %}
-    {# <pre> #}
-        {# {{ dump(is_front_page) }} #}
-        {# {{ dump(post.type.slug) }} #}
-    {# </pre> #}
 
     <section class="o-section -full-width -is-banner">
-        {% include '_components/banner.twig' with {
+        {% include '_components/banner--secondary.twig' with {
             banner: post
         } only %}
     </section>
 
     <section class="o-section -is-content">
-        <div class="c-redactor">
+        <div class="c-wysiwyg">
             {{ post.content }}
         </div>
     </section>
