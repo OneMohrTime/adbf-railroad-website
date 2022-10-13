@@ -84,6 +84,11 @@
 
 .c-banner.-is-secondary {
 
+    .c-banner__content {
+        background-position: center center;
+        background-size: cover;
+    }
+
     .c-banner__headline {
         margin-top: $gutter;
         margin-left: $gutter-xs;
@@ -100,11 +105,15 @@
             margin-right: $gutter-xs;
         }
 
-        // at or above 600px
-        @include media(">=large") {
-            max-width: 800px;
+        // at or above 900px
+        @include media(">=medium") {
             margin-left: $gutter-sm;
             margin-right: 0;
+        }
+
+        // at or above 1200px
+        @include media(">=large") {
+            max-width: 800px;
         }
 
         // // below 600px

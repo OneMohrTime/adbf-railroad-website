@@ -7,19 +7,42 @@
 // =============================================================================
 
 .o-header {
+    position: relative;
     border-bottom: 1px solid $gray;
     background-color: $white;
+    z-index: 100;
 
     // at or above 600px
     @include media(">=small") {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
+        border-bottom: 0;
     }
 }
 
 // Object modifiers
 // =============================================================================
+
+// -- Menu open -- //
+.c-hamburger.-is-active {
+    // background-color: $gray-dark;
+
+    .-svg {
+        transform: rotate(180deg);
+    }
+
+    // at or above 600px
+    @include media(">=small") {
+        background-color: transparent;
+        color: $gray-dark;
+
+        .-svg {
+            fill: $red;
+        }
+    }
+}
 
 // Object elements
 // =============================================================================
@@ -27,15 +50,31 @@
 .o-header__nav {
     background-color: $red;
     color: $white;
+
+    // at or above 600px
+    @include media(">=small") {
+        order: 3;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    // at or above 900px
+    @include media(">=medium") {
+        order: 2;
+        flex: 1 0 auto;
+        max-width: percentage(2/3);
+        background-color: $white;
+        color: $dark;
+    }
 }
 
 .o-header__logo {
     display: block;
-    max-width: 500px;
+    max-width: 100%;
     padding: $gutter-xs;
     border-bottom: 1px solid $gray;
 
-    svg {
+    .-svg {
         display: block;
         height: auto;
         max-width: 100%;
@@ -45,11 +84,14 @@
 
     // at or above 600px
     @include media(">=small") {
+        order: 1;
+        max-width: percentage(2/3);
         border-bottom: 0;
     }
 
     // at or above 900px
     @include media(">=medium") {
+        max-width: 500px;
         padding: $gutter-sm;
     }
 }
@@ -57,6 +99,7 @@
 .o-header__trigger {
     display: flex;
 
+    // -- Menu closed -- //
     .c-hamburger {
         flex: 0 0 100%;
         max-width: 100%;
@@ -65,10 +108,23 @@
         align-items: center;
         column-gap: 0.5em;
         padding: 12px $gutter-xs;
+        transition: color $speed-reveal $bezier-slide;
     }
-
     .-svg {
         flex: 0 0 14px;
         max-width: 14px;
+        transition: transform $speed-reveal $bezier-back,
+                    fill $speed-reveal $bezier-slide;
+        transform: rotate(0);
+    }
+
+    // at or above 600px
+    @include media(">=small") {
+        order: 2;
+    }
+
+    // at or above 900px
+    @include media(">=medium") {
+        display: none;
     }
 }

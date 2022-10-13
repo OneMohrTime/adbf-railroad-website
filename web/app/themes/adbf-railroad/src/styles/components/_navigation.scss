@@ -9,6 +9,16 @@
 .c-navigation {
     display: none;
     padding: math.div($gutter-xs, 2) $gutter-xs;
+
+    // at or above 900px
+    @include media(">=medium") {
+        display: flex;
+        justify-content: flex-end;
+        align-items: baseline;
+        column-gap: 1em;
+        margin-right: $gutter-xs;
+        padding: 0;
+    }
 }
 
 // Component Modifiers
@@ -16,3 +26,11 @@
 
 // Component Elements
 // =============================================================================
+
+.c-navigation__item {
+
+    .c-link {
+        display: inline-block;
+        padding: 0.5em 0;
+    }
+}

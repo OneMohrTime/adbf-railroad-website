@@ -1,20 +1,21 @@
-{# TODO: Tailwind Stylesheet #}
-{# <link rel="stylesheet" href="{{ site.theme.link }}/css/header.css" /> #}
+{# -- Site Header -- #}
+{# ----------------------------------------------------------------- #}
 
-{# Template #}
-{# <header class="o-header js-menu" data-module-navigation data-scroll> #}
-<header class="o-header js-menu">
+<header class="o-header" data-module-navigation data-scroll>
 
     {# Main logo #}
-    <a href="{{ siteUrl }}" class="o-header__logo">
-        {# {% if function(the_custom_logo) %} #}
-            {# {{ function(the_custom_logo) }} #}
-        {# {% else %} #}
-            {% include '_base/svg/logo.twig' with {
-                svgClass: '-is-dark'
-            } only %}
-        {# {% endif %} #}
+    <a href="{{ site.link }}" class="o-header__logo">
+        {% include '_base/svg/logo.twig' with {
+            svgClass: '-is-dark'
+        } only %}
     </a>
+
+    {# Primary navigation #}
+    <nav class="o-header__nav">
+        {% include '_components/navigation.twig' with {
+            'items': menu.get_items
+        } %}
+    </nav>
 
     {# Hamburger menu #}
     <div class="o-header__trigger">
@@ -23,12 +24,5 @@
             Menu
         </button>
     </div>
-
-    {# Primary navigation #}
-    <nav class="o-header__nav">
-        {% include '_components/navigation.twig' with {
-            'items': menu.get_items
-        } %}
-    </nav>
 
 </header>

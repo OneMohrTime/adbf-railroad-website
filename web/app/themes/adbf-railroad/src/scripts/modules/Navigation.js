@@ -35,37 +35,39 @@ export default class extends mightyModule {
     this.menuItems = Array.from(this.menuItems);
     this.menuLinks = this.menu.querySelectorAll('.c-link');
     this.trigger   = html.querySelector('.js-nav-trigger');
-    this.close     = html.querySelector('.js-nav-close');
+    // this.close     = html.querySelector('.js-nav-close');
     this.overlay   = html.querySelector('.js-nav-overlay');
 
     // When trigger is clicked
     this.trigger.addEventListener('click', () => {
+      console.log(this.trigger.classList);
       // Activate menu state
       this.menu.classList.remove('-not-active');
       this.menu.classList.add('-is-active');
-      this.menu.classList.remove('js-nav-trigger');
-      this.menu.classList.add('js-nav-close');
+      // Toggle caret
+      this.trigger.classList.toggle('-not-active');
+      this.trigger.classList.toggle('-is-active');
       // Activate overlay state
-      this.overlay.classList.remove('-not-active');
-      this.overlay.classList.add('-is-active');
+      this.overlay.classList.toggle('-not-active');
+      this.overlay.classList.toggle('-is-active');
       // Show menu
-      fadeIn(this.menu);
+      slideToggle(this.menu);
     });
 
-    // When "close" is clicked
-    this.close.addEventListener('click', () => {
+    // When "overlay" is clicked
+    this.overlay.addEventListener('click', () => {
       // Remove menu state
       this.menu.classList.remove('-is-active');
       this.menu.classList.add('-not-active');
-      this.menu.classList.remove('js-nav-close');
-      this.menu.classList.add('js-nav-trigger');
+      // Toggle caret
+      this.trigger.classList.toggle('-not-active');
+      this.trigger.classList.toggle('-is-active');
       // Remove overlay state
       this.overlay.classList.remove('-is-active');
       this.overlay.classList.add('-not-active');
-      // Hide menu
-      fadeOut(this.menu);
+      // Hide menu (it should already be visible)
+      slideToggle(this.menu);
     });
-
   }
 
   // Destroy
