@@ -1,24 +1,24 @@
 // =============================================================================
-// Components: Redactor
+// Components: WYSIWYG
 // =============================================================================
-// This file styles the elements inside of a Redactor field
+// This file styles the elements inside of a wysiwyg field
 
 // Component Frame
 // =============================================================================
 
-.c-redactor {
+.c-wysiwyg {
     position: relative;
 }
 
 // Component Modifiers
 // =============================================================================
 
-// .c-redactor--large {
+// .c-wysiwyg--large {
 // }
 
 // Component Elements
 // =============================================================================
-.c-redactor {
+.c-wysiwyg {
 
     // All headings
     // =========================================================================
@@ -49,6 +49,11 @@
         padding-left: 1em;
         margin-bottom: $line-height;
 
+        ul, ol {
+            margin-top: math.div($line-height, 2);
+            margin-bottom: math.div($line-height, 2);
+        }
+
         // space list items a bit
         li {
             display: list-item;
@@ -59,13 +64,13 @@
         list-style-type: disc;
 
         // custom <li> dots
-        li::marker {}
+        // li::marker {}
     }
     ol {
         list-style-type: decimal;
 
         // custom <li> dots
-        li::marker {}
+        // li::marker {}
     }
 
     // Text

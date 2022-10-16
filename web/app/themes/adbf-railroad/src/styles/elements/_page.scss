@@ -97,3 +97,11 @@ a {
         text-decoration: none;
     }
 }
+
+.c-link {
+    @include u-inline-link();
+
+    .c-wysiwyg & {
+        @include u-inline-link(true);
+    }
+}

@@ -16,6 +16,7 @@
     // =========================================================================
 
     .-is-content {
+
         .c-wysiwyg {
             padding: $gutter-xs;
             background-color: $white;
@@ -27,5 +28,23 @@
                 font-weight: $font-bold;
             }
         }
+
+        // at or above 600px
+        @include media(">=small") {
+            display: flex;
+            // align-items: flex-start;
+
+            .c-wysiwyg {
+                flex: 0 0 percentage(2/3);
+            }
+        }
+
+        // at or above 1200px
+        @include media(">=large") {
+            .c-wysiwyg {
+                padding: $gutter-sm;
+            }
+        }
+
     }
 }

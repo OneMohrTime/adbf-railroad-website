@@ -6,35 +6,46 @@
 
     <section class="o-section -full-width -is-banner">
         {% include '_components/banner--secondary.twig' with {
-            banner: post
+            params: {
+                eyebrow: post.banner_eyebrow,
+                image: Image(post.banner_image),
+                headline: post.banner_headline ? post.banner_headline : post.title,
+            }
         } only %}
     </section>
 
-    <section class="o-section -is-content">
+    <article class="o-section -is-content">
+
         <div class="c-wysiwyg">
             {{ post.content }}
         </div>
-    </section>
 
-    <section class="o-section -is-card-deck">
+        {% include '_components/sidebar.twig' %}
+
+    </article>
+
+    <aside class="o-section -is-card-deck">
         {% if post.children %}
             <ul class="c-related-posts">
                 {% for child in post.children %}
                     <li class="c-related-posts__post">
-                        <div class="c-card">
-                            {% set thumbnail = Image(child.banner_image) %}
-                            <img src="{{ thumbnail.src('medium') }}" class="c-card__image" />
-                            <div class="c-card__content">
-                                <h2 class="c-card__headline">{{ child.title }}</h2>
-                                <div class="c-card__body">
-                                    {{ child.excerpt ?? child.conent }}
-                                </div>
-                            </div>
-                        </div>
+                        {% if child.excerpt is defined and child.excerpt is not empty %}
+                            {% set content = child.excerpt %}
+                        {% else %}
+                            {% set content = (child.post_content|slice(0, 180)) ~ '...' %}
+                        {% endif %}
+                        {% include '_components/card.twig' with {
+                            params: {
+                                thumbnail: Image(child.banner_image),
+                                title: child.title,
+                                text: content,
+                                link: child.link
+                            }
+                        } only %}
                     </li>
                 {% endfor %}
             </ul>
         {% endif %}
-    </section>
+    </aside>
 
 {% endblock %}

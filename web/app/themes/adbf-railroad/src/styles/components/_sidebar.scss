@@ -1,0 +1,56 @@
+// =============================================================================
+// Components: Featured Maps
+// =============================================================================
+// This file styles the featured map grids
+
+// Component Frame
+// =============================================================================
+
+.c-sidebar {
+    padding: $gutter-xs;
+    background-color: $gray-light;
+    color: $black;
+
+    // at or above 600px
+    @include media(">=small") {
+        margin-top: $gutter-xs;
+        margin-bottom: $gutter-xs;
+        flex: 0 0 percentage(1/3);
+    }
+
+    // at or above 1200px
+    @include media(">=large") {
+        padding: $gutter-sm;
+    }
+}
+
+// Component Modifiers
+// =============================================================================
+
+// Component Elements
+// =============================================================================
+
+.c-sidebar__menu {
+    font-weight: $font-semibold;
+
+    .-title {
+        margin-bottom: 12px;
+        font-size: rem(14px);
+        text-transform: uppercase;
+        color: $dark;
+    }
+}
+
+.c-sidebar__menu-item {
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+    & + & {
+        border-top: 1px solid $gray-dark;
+    }
+
+    // at or above 900px
+    @include media(">=medium") {
+        font-size: rem($font-h4);
+    }
+}
