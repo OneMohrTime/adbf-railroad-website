@@ -1,0 +1,27 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    img: params.thumbnail ?? null,
+    title: params.title ?? null,
+    body: params.text ?? null,
+    link: params.link ?? null,
+} %}
+
+{# -- Component Template -- #}
+
+<figure class="c-card">
+
+    <div class="c-card__image u-ratio u-4:3">
+        <img src="{{ this.img.src('medium') }}" alt="{{ this.img.alt ?? this.img.title }}" class="c-image -background" />
+    </div>
+
+    <div class="c-card__content">
+        <h2 class="c-card__headline u-font-size-h3">{{ this.title }}</h2>
+        <div class="c-card__body">
+            {{ this.body|slice(0, 140) ~ '...' }}
+        </div>
+    </div>
+
+    <a href="{{ this.link }}" class="c-card__link">Visit {{ this.title }}</a>
+
+</figure>

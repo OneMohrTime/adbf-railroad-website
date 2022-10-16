@@ -1,14 +1,14 @@
 // =============================================================================
-// Components: Related Posts
+// Components: Featured Maps
 // =============================================================================
-// This file styles the related post cards
+// This file styles the featured map grids
 
 // Component Frame
 // =============================================================================
 
-.c-related-posts {
-    margin-top: $gutter-xs;
-    margin-bottom: $gutter-xs;
+.c-featured-maps {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 // Component Modifiers
@@ -17,4 +17,13 @@
 // Component Elements
 // =============================================================================
 
-// .c-related-posts__post {}
+.c-featured-maps__map {
+    flex: 0 0 50%;
+    max-width: 50%;
+
+    // at or above 900px
+    @include media(">=medium") {
+        flex-basis: 25%;
+        max-width: 25%;
+    }
+}

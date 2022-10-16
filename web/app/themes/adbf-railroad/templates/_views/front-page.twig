@@ -14,33 +14,39 @@
 
     <section class="o-section -full-width -is-banner">
         {% include '_components/banner--primary.twig' with {
-            banner: post
+            params: {
+                eyebrow: post.banner_eyebrow,
+                image: Image(post.banner_image),
+                headline: post.banner_headline ? post.banner_headline : post.title,
+                body: post.banner_description,
+                links: post.meta('banner_links'),
+            }
         } only %}
     </section>
 
     <section class="o-section -is-content">
+
         <div class="c-wysiwyg">
-
             {{ post.content }}
-
-            {% if relatedPages is defined and relatedPages is not empty %}
-            <ul class="c-list">
-                {% for item in relatedPages %}
-                    <li class="c-list__item">
-                        {% include '_elements/link.twig' with {
-                            params: {
-                                isExternal: (item.target == '_blank'),
-                                linkUrl: item.link,
-                                linkText: item.title
-                            },
-                            class: 'c-list__link'
-                        } only %}
-                    </li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-
         </div>
+
+        {% if relatedPages is defined and relatedPages is not empty %}
+        <ul class="c-list">
+            {% for item in relatedPages %}
+                <li class="c-list__item">
+                    {% include '_elements/link.twig' with {
+                        params: {
+                            isExternal: (item.target == '_blank'),
+                            linkUrl: item.link,
+                            linkText: item.title
+                        },
+                        class: 'c-list__link'
+                    } only %}
+                </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
     </section>
 
     {% if railMaps %}
@@ -58,9 +64,19 @@
 
     {% if featuredPage %}
     <section class="o-section -is-featured">
-        <aside class="c-feature">
-            <h2 class="c-feature__title">{{ featuredPage.title }}</h2>
-        </aside>
+        {% if featuredPage.excerpt is defined and featuredPage.excerpt is not empty %}
+            {% set content = featuredPage.excerpt %}
+        {% else %}
+            {% set content = (featuredPage.post_content|slice(0, 180)) ~ '...' %}
+        {% endif %}
+        {% include '_components/card.twig' with {
+            params: {
+                thumbnail: Image(featuredPage.banner_image),
+                title: featuredPage.title,
+                text: content,
+                link: featuredPage.link
+            }
+        } only %}
     </section>
     {% endif %}
 

@@ -1,0 +1,62 @@
+// =============================================================================
+// Templates: Home
+// =============================================================================
+// This file contains the home page properties
+
+// Template Class
+// =============================================================================
+// Unlike most of our code, let's wrap all internal classes with our template
+// class which will allow for easy overrides
+.t-page.-is-home {
+
+    // Headline
+    // =========================================================================
+
+    // Body
+    // =========================================================================
+
+    .o-section.-is-content {
+
+        // at or above 600px
+        @include media(">=small") {
+            display: block; // revert "flex" on normal page
+        }
+
+        // at or above 900px
+        @include media(">=medium") {
+            margin-top: $gutter-lg;
+        }
+
+        .c-wysiwyg {
+            padding: 0;
+            background-color: transparent;
+
+            // at or above 600px
+            @include media(">=small") {
+                max-width: 75%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            // at or above 900px
+            @include media(">=medium") {
+                max-width: 50%;
+            }
+        }
+
+        .c-list {
+            margin-top: $gutter-sm;
+            // at or above 600px
+            @include media(">=small") {
+                max-width: 75%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            // at or above 900px
+            @include media(">=medium") {
+                max-width: 50%;
+            }
+        }
+    }
+}

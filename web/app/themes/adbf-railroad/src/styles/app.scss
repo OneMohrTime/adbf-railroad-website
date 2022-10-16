@@ -61,6 +61,7 @@
 @import "components/banner";
 @import "components/button";
 @import "components/cards";
+@import "components/featured-maps";
 @import "components/image";
 @import "components/list";
 @import "components/navigation";
@@ -70,11 +71,12 @@
 
 // Templates
 // =============================================================================
+@import "templates/home";
 @import "templates/page";
 
 // Utilities
 // =============================================================================
 // @import "utilities/helpers";
 // @import "utilities/print";
-// @import "utilities/ratio";
+@import "utilities/ratio";
 // @import "utilities/states";
