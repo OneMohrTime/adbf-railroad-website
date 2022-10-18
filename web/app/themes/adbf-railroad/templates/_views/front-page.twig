@@ -55,7 +55,20 @@
         <ul class="c-featured-maps">
             {% for map in railMaps %}
                 <li class="c-featured-maps__map u-ratio u-1:1">
-                    <a href="{{ map.link }}" class="c-featured-maps__link">{{ map.title }}</a>
+                    {% include '_elements/picture.twig' with {
+                        params: {
+                            src: Image(map.banner_image),
+                            ratio: '1:1',
+                        }
+                    } only %}
+                    {% include '_elements/link.twig' with {
+                        params: {
+                            isExternal: (map.target == '_blank'),
+                            linkUrl: map.link,
+                            linkText: map.title
+                        },
+                        class: 'c-featured-maps__link'
+                    } only %}
                 </li>
             {% endfor %}
         </ul>

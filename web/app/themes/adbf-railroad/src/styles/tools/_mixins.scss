@@ -233,7 +233,7 @@
     position: relative;
     transition: color $speed-hover $easing;
     text-decoration: none !important;
-    color: $color;
+    color: inherit;
 
     // Faux underline
     &::after {
@@ -264,7 +264,6 @@
 
     // Hover, focus
     @include u-hocus {
-        color: $color;
 
         // Faux underline
         &::after {

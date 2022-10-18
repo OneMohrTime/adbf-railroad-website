@@ -11,8 +11,13 @@
 
 <figure class="c-card">
 
-    <div class="c-card__image u-ratio u-4:3">
-        <img src="{{ this.img.src('medium') }}" alt="{{ this.img.alt ?? this.img.title }}" class="c-image -background" />
+    <div class="c-card__image">
+        {% include '_elements/picture.twig' with {
+            params: {
+                src: this.img,
+                ratio: '4:3'
+            }
+        } only %}
     </div>
 
     <div class="c-card__content">
