@@ -24,6 +24,11 @@
             margin-top: $gutter-lg;
         }
 
+        // at or above 1200px
+        @include media(">=large") {
+            margin-top: $gutter-xxl;
+        }
+
         .c-wysiwyg {
             padding: 0;
             background-color: transparent;
@@ -62,6 +67,16 @@
 
     .o-section.-is-locations {
         margin-top: $gutter-sm;
+
+        // at or above 900px
+        @include media(">=medium") {
+            margin-top: $gutter;
+        }
+
+        // at or above 1200px
+        @include media(">=large") {
+            margin-top: $gutter-xl;
+        }
     }
 
     // Featured Page
@@ -69,5 +84,19 @@
 
     .o-section.-is-featured {
         margin-top: $gutter-sm;
+
+        // at or above 900px
+        @include media(">=medium") {
+            margin-top: $gutter;
+            padding-left: $gutter;
+            padding-right: $gutter;
+        }
+
+        // at or above 1200px
+        @include media(">=large") {
+            margin-top: $gutter-xl;
+            padding-left: $padding;
+            padding-right: $padding;
+        }
     }
 }

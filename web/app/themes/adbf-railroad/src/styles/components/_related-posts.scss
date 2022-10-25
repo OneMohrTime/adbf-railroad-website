@@ -9,6 +9,12 @@
 .c-related-posts {
     margin-top: $gutter-xs;
     margin-bottom: $gutter-xs;
+
+
+    // at or above 900px
+    @include media(">=medium") {
+        max-width: percentage(2/3);
+    }
 }
 
 // Component Modifiers

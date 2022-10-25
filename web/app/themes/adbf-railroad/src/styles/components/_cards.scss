@@ -17,6 +17,11 @@
         display: flex;
         align-items: center;
     }
+
+    // at or above 1200px
+    @include media(">=large") {
+        padding: $gutter-sm;
+    }
 }
 
 // Component Modifiers

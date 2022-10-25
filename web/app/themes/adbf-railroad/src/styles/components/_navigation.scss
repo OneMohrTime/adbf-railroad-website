@@ -19,6 +19,12 @@
         margin-right: $gutter-xs;
         padding: 0;
     }
+
+    // at or above 1200px
+    @include media(">=large") {
+        column-gap: 2em;
+        margin-right: $gutter-sm;
+    }
 }
 
 // Component Modifiers
