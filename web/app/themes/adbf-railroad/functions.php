@@ -65,13 +65,18 @@ class StarterSite extends Timber\Site {
         add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
         add_action( 'init', array( $this, 'register_post_types' ) );
         add_action( 'init', array( $this, 'register_taxonomies' ) );
+        add_filter( 'wpseo_metabox_prio', array( $this, 'yoast_to_bottom' ) );
         parent::__construct();
     }
-    /** This is where you can register custom post types. */
+    /**
+     * This is where you can register custom post types
+     */
     public function register_post_types() {
 
     }
-    /** This is where you can register custom taxonomies. */
+    /**
+     * This is where you can register custom taxonomies
+     */
     public function register_taxonomies() {
 
     }
@@ -82,9 +87,16 @@ class StarterSite extends Timber\Site {
      */
     public function add_to_context( $context ) {
         $context['site']    = $this;
-        $context['menu']    = new Timber\Menu('primary-menu');
+        $context['menu']    = new Timber\Menu('primary');
         $context['sidebar'] = new Timber\Menu('sidebar');
         return $context;
+    }
+
+    /**
+     * Move Yoast to bottom
+     */
+    public function yoast_to_bottom() {
+        return 'low';
     }
 
     public function theme_supports() {

@@ -13,7 +13,7 @@
 <div class="c-banner -is-primary">
 
     <div class="c-banner__content">
-        <h1 class="c-banner__headline u-font-size-h1">{{ this.headline }}</h1>
+        <h1 class="c-banner__headline u-text-h1">{{ this.headline }}</h1>
         <div class="c-banner__body c-wysiwyg">
             {{ this.body }}
         </div>
@@ -39,7 +39,6 @@
         {% include '_elements/picture.twig' with {
             params: {
                 src: this.image,
-                background: true
             }
         } %}
         <figcaption></figcaption>
