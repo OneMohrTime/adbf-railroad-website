@@ -18,6 +18,8 @@
 
     {# Frame can be set to relative/absolute image ratio-ing #}
     <picture class="c-media
+        {# If this is meant to be a background image #}
+        {% if this.background %}-is-background{% endif %}
         {# Custom ratio #}
         {% if this.ratio %} u-ratio u-{{ this.ratio }}{% endif %}"
         {# Custom data-attributes #}

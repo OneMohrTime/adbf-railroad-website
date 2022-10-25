@@ -30,9 +30,21 @@
                 {% block content %}
                     Sorry, no content
                 {% endblock %}
-            </main>
 
-            {% include '_components/call-to-action.twig' %}
+                {% set callToAction = Post(post.cta_embed) %}
+                {% if callToAction is defined and callToAction is not empty %}
+                    <section class="o-section -is-cta">
+                        {% include '_components/call-to-action.twig' with {
+                            params: {
+                                headline: callToAction[0].post_title,
+                                body: callToAction[0].post_content,
+                                image: callToAction[0].cta_background,
+                                url: callToAction[0].cta_link,
+                            }
+                        } only %}
+                    </section>
+                {% endif %}
+            </main>
 
             {% include '_objects/footer.twig' %}
 

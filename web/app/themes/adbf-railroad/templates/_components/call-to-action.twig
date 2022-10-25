@@ -1,9 +1,28 @@
 {# -- Component Variables -- #}
 
-{% set callToAction = params %}
+{% set this = {
+    headline: params.headline,
+    body: params.body,
+    background: Image(params.image),
+    link: params.url,
+} %}
 
 {# -- Component Template -- #}
 
-{% block cta %}
-cta
-{% endblock %}
+<div class="c-cta">
+
+    <a href="{{ this.link.url }}" class="c-cta__content">
+        <h2 class="c-cta__headline u-text-h3">{{ this.headline }}</h2>
+        <div class="c-cta__body">
+            {{ this.body }}
+        </div>
+    </a>
+
+    {% include '_elements/picture.twig' with {
+        params: {
+            src: this.background,
+            background: true
+        }
+    } %}
+
+</div>

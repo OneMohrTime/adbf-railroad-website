@@ -16,7 +16,6 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        font-family: 'object-fit: cover;';
     }
 
     // Background images
@@ -28,7 +27,6 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        font-family: 'object-fit: cover;';
         pointer-events: none;
     }
 
@@ -46,6 +44,18 @@
     }
 }
 
+// Component Modifiers
+// =============================================================================
+
+.c-media.-is-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
 
 // Component Elements
 // =============================================================================
