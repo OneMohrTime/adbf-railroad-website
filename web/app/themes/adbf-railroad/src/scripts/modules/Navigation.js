@@ -7,7 +7,7 @@
 // =============================================================================
 import { module as mightyModule } from 'modujs';
 import { html } from '../utils/environment';
-import { fadeOut, fadeIn, slideToggle } from '../utils/jquery';
+import { fadeOut, fadeIn, fadeToggle, slideUp, slideDown, slideToggle } from '../utils/jquery';
 
 // Set default function and extend it ontop of our imported 'module'
 // =============================================================================
@@ -20,10 +20,10 @@ export default class extends mightyModule {
     // Vars
     this.menu      = null;
     this.menuItems = [];
+    this.menuLinks = [];
+    this.subNavs   = [];
     this.trigger   = null;
-    this.close     = null;
     this.overlay   = null;
-    this.caret     = null;
   }
 
   // Init module
@@ -34,13 +34,27 @@ export default class extends mightyModule {
     this.menuItems = this.menu.querySelectorAll('.c-navigation__item');
     this.menuItems = Array.from(this.menuItems);
     this.menuLinks = this.menu.querySelectorAll('.c-link');
+    this.subNavs   = this.menu.querySelectorAll('.js-dropdown');
     this.trigger   = html.querySelector('.js-nav-trigger');
-    // this.close     = html.querySelector('.js-nav-close');
     this.overlay   = html.querySelector('.js-nav-overlay');
+
+    // Slide up dropdowns
+    this.subNavs.forEach(dropdown => {
+      let caret  = dropdown.parentElement.querySelector('.js-caret');
+      let subnav = dropdown.parentElement.querySelector('.js-dropdown');
+      // Hide subnavs by default
+      slideUp(dropdown);
+      // When caret is clicked
+      caret.addEventListener('click', () => {
+        // Show only this subnav
+        slideToggle(subnav);
+        // Rotate caret
+        caret.classList.toggle('-is-open');
+      });
+    });
 
     // When trigger is clicked
     this.trigger.addEventListener('click', () => {
-      console.log(this.trigger.classList);
       // Activate menu state
       this.menu.classList.remove('-not-active');
       this.menu.classList.add('-is-active');

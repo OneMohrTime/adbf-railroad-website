@@ -8,7 +8,7 @@
 
 .c-navigation {
     display: none;
-    padding: math.div($gutter-xs, 2) $gutter-xs;
+    // padding: math.div($gutter-xs, 2) $gutter-xs;
 
     // at or above 900px
     @include media(">=medium") {
@@ -27,6 +27,11 @@
     }
 }
 
+.c-subnav {
+    flex: 0 0 100%;
+    background-color: shade($red, 20%);
+}
+
 // Component Modifiers
 // =============================================================================
 
@@ -34,14 +39,77 @@
 // =============================================================================
 
 .c-navigation__item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-bottom: 1px solid shade($red, 10%);
 
     .c-link {
-        display: inline-block;
-        padding: 0.5em 0;
+        flex: 1 0 auto;
+        transition: background $speed-reveal $bezier-slide,
+                    color $speed-reveal $bezier-slide;
+        background-image: none;
+
+        // hover or focus
+        @include u-hocus {
+            background-color: $white;
+            color: $dark;
+        }
+
+        // below 900px
+        @include media("<medium") {
+            display: block;
+            padding: math.div($gutter-xs, 2) $gutter-xs;
+        }
 
         // at or above 900px
         @include media(">=medium") {
+            display: inline-block;
             padding: 0.2em 0;
+        }
+    }
+
+    // dropdown arrow
+    .c-button.-caret {
+        flex: 0 1 auto;
+        padding: math.div($gutter-xs, 2) $gutter-sm;
+        border-left: 1px solid shade($red, 20%);
+
+        // make sure button element is only clickable target
+        .c-image.-svg {
+            transition: transform $speed-reveal $bezier-back;
+            pointer-events: none;
+        }
+
+        // when clicked
+        &.-is-open {
+            .c-image.-svg {
+                transform: rotate(180deg);
+            }
+        }
+
+        // hover or focus
+        @include u-hocus {
+            box-shadow: none;
+        }
+    }
+}
+
+.c-subnav__item {
+
+    // below 900px
+    @include media("<medium") {
+        display: block;
+        border-bottom: 1px solid shade($red, 20%);
+
+        .c-link {
+            padding-left: $gutter-sm;
+
+            // hover or focus
+            @include u-hocus {
+                background-color: $light;
+                color: $dark;
+            }
         }
     }
 }
