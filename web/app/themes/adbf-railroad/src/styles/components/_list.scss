@@ -42,15 +42,4 @@
     @include odd() {
         border-right: 1px solid $gray;
     }
-
-    .c-link {
-        // display: block;
-        // padding-top: 12px;
-        // padding-bottom: 12px;
-        // // remove "text-decoration"
-        // &::before,
-        // &::after {
-        //     display: none;
-        // }
-    }
 }
