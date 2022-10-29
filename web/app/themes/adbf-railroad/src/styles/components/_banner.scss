@@ -83,10 +83,12 @@
 }
 
 .c-banner.-is-secondary {
+    background-color: $gray;
 
     .c-banner__content {
         background-position: center center;
         background-size: cover;
+        z-index: 1;
     }
 
     .c-banner__headline {

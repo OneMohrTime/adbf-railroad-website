@@ -4,7 +4,7 @@
 
 {% block content %}
 
-    <section class="o-section -full-width -is-banner">
+    <section class="o-section -is-banner">
         {% include '_components/banner--secondary.twig' with {
             params: {
                 eyebrow: post.banner_eyebrow,
@@ -24,11 +24,11 @@
 
     </article>
 
-    {% if post.children %}
+    {% if post.children('page') %}
         <aside class="o-section -is-card-deck">
             <ul class="c-related-posts">
 
-                {% for child in post.children %}
+                {% for child in post.children('page') %}
                     <li class="c-related-posts__post">
 
                         {% if child.excerpt is defined and child.excerpt is not empty %}

@@ -32,7 +32,7 @@
                 {% endblock %}
 
                 {% set callToAction = Post(post.cta_embed) %}
-                {% if callToAction is defined and callToAction is not empty and callToAction.title != 'Auto Draft' %}
+                {% if callToAction is defined and callToAction[0] is not empty and callToAction.title != 'Auto Draft' %}
                     <section class="o-section -is-cta">
                         {% include '_components/call-to-action.twig' with {
                             params: {

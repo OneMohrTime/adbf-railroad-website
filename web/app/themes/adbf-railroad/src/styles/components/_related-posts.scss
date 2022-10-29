@@ -7,9 +7,7 @@
 // =============================================================================
 
 .c-related-posts {
-    margin-top: $gutter-xs;
     margin-bottom: $gutter-xs;
-
 
     // at or above 900px
     @include media(">=medium") {

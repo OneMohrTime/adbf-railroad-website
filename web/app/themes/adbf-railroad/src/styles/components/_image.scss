@@ -18,18 +18,6 @@
         object-fit: cover;
     }
 
-    // Background images
-    // =========================================================================
-    &.-background {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        pointer-events: none;
-    }
-
     // Vector images
     // =========================================================================
     &.-svg {
@@ -62,4 +50,16 @@
 
 .c-media__image {
     object-fit: cover;
+
+    // Background images
+    // =========================================================================
+    &.-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        pointer-events: none;
+    }
 }

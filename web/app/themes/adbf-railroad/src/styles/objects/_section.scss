@@ -10,12 +10,6 @@
     padding-left: $gutter-xs;
     padding-right: $gutter-xs;
 
-    // Edge-to-edge
-    &.-full-width {
-        padding-left: 0;
-        padding-right: 0;
-    }
-
     // at or above 900px
     @include media(">=medium") {
         padding-left: $gutter-sm;
@@ -25,6 +19,21 @@
 
 // Object modifiers
 // =============================================================================
+
+// Edge-to-edge
+.o-section.-is-banner,
+.o-section.-is-cta {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.o-section.-is-content {
+    margin-bottom: $gutter-xs;
+}
+
+.o-section.-is-card-deck {
+    margin-top: $gutter-xs;
+}
 
 // Object elements
 // =============================================================================
