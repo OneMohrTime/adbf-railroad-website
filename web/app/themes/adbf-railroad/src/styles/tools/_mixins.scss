@@ -242,12 +242,12 @@
         background-size: 100% 1px;
         // Hover, focus
         @include u-hocus {
-            background-size: 0 2px;
+            background-size: 0 1px;
         }
 
     } @else {
         background-position: 0 100%;
-        background-size: 0 2px;
+        background-size: 0 1px;
         // Hover, focus
         @include u-hocus {
             background-size: 100% 1px;

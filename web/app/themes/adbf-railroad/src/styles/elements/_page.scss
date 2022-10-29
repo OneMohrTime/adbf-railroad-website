@@ -23,6 +23,11 @@ html {
     line-height: $line-height; /* [1] */
     color: $font-color;
 
+    // at or above 1200px
+    @include media(">=large") {
+        font-size: rem(18px);
+    }
+
     // Is loading
     &.-is-loading {
         cursor: wait;

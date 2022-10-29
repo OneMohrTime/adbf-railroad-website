@@ -23,10 +23,19 @@
 
 $context = Timber::context();
 
-$timber_post      = new Timber\Post();
-$context['post']  = $timber_post;
-$context['posts'] = new Timber\PostQuery();
-$templates        = array( '_layouts/page-' . $timber_post->post_name . '.twig', '_layouts/page.twig' );
+$galleries = array(
+    'post_type' => 'photo_album',
+    'posts_per_page' => -1,
+    // 'orderby' => array(
+    //     'date' => 'DESC'
+    // )
+);
+
+$timber_post          = new Timber\Post();
+$context['post']      = $timber_post;
+$context['posts']     = new Timber\PostQuery();
+$context['galleries'] = Timber::get_posts($galleries);
+$templates            = array( '_layouts/page-' . $timber_post->post_name . '.twig', '_layouts/page.twig' );
 
 if ( is_front_page() ) {
     array_unshift( $templates, '_views/front-page.twig' );
