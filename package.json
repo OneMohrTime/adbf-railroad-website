@@ -55,6 +55,7 @@
     "modujs": "^1.4.2",
     "modularload": "^1.2.8",
     "modularscroll": "^1.0.7",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "swiper": "^8.4.4"
   }
 }
