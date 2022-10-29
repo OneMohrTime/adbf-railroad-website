@@ -15,9 +15,11 @@
     </section>
 
     <section class="o-section -is-photos">
-        {% for album in galleries %}
-            {{ album }}
-        {% endfor %}
+        {% include '_components/swiper.twig' with {
+            params: {
+                swiper: galleries
+            }
+        } only %}
     </section>
 
     <article class="o-section -is-content">

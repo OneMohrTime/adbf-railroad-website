@@ -88,7 +88,7 @@
     .c-banner__content {
         background-position: center center;
         background-size: cover;
-        z-index: 1;
+        // z-index: 1;
     }
 
     .c-banner__headline {
@@ -100,6 +100,7 @@
         line-height: 1.25em;
         background-color: $white;
         color: $black;
+        z-index: 1;
 
         // at or above 600px
         @include media(">=small") {

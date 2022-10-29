@@ -1,0 +1,38 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    slides: params.swiper
+} %}
+
+{# -- Component Template -- #}
+
+<nav class="swiper" data-module-swiper>
+
+  <ul class="c-featured-maps swiper-wrapper">
+    {% for slide in this.slides %}
+        <li class="c-featured-maps__map swiper-slide u-ratio u-1:1">
+            {% include '_elements/picture.twig' with {
+                params: {
+                    src: slide.thumbnail ? Image(slide.thumbnail) : Image(slide.banner_image),
+                    ratio: '1:1',
+                }
+            } only %}
+            {% include '_elements/link.twig' with {
+                params: {
+                    linkUrl: slide.link,
+                    linkText: slide.title
+                },
+                class: 'c-featured-maps__link'
+            } only %}
+        </li>
+    {% endfor %}
+  </ul>
+
+  <div class="swiper-pagination"></div>
+
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+  <div class="swiper-scrollbar"></div>
+
+</nav>

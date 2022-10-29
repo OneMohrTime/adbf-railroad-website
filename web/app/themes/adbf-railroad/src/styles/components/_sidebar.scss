@@ -7,6 +7,8 @@
 // =============================================================================
 
 .c-sidebar {
+    margin-left: $gutter-xs;
+    margin-right: $gutter-xs;
     padding: $gutter-xs;
     background-color: $gray-light;
     color: $black;
@@ -14,6 +16,8 @@
     // at or above 600px
     @include media(">=small") {
         margin-top: $gutter-xs;
+        margin-left: 0;
+        margin-right: 0;
         margin-bottom: $gutter-xs;
         flex: 0 0 percentage(1/3);
     }

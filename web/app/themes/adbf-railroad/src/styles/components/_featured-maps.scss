@@ -7,9 +7,12 @@
 // =============================================================================
 
 .c-featured-maps {
-    display: flex;
-    flex-wrap: wrap;
-    gap: $gutter-xs;
+    padding-left: $gutter-xs;
+
+    // at or above 900px
+    @include media(">=medium") {
+        padding-left: $gutter-sm;
+    }
 }
 
 // Component Modifiers
@@ -20,20 +23,6 @@
 
 .c-featured-maps__map {
     position: relative;
-    flex: 0 1 50%;
-    max-width: calc(50% - #{$gutter-xs / 2});
-
-    // at or above 600px
-    @include media(">=small") {
-        flex-basis: percentage(1/3);
-        max-width: calc(#{percentage(1/3)} - #{$gutter-xs / 4 * 3});
-    }
-
-    // at or above 900px
-    @include media(">=medium") {
-        flex-basis: 25%;
-        max-width: calc(25% - #{$gutter-xs * 3 / 4});
-    }
 
     .c-media {
         position: absolute;
@@ -48,7 +37,6 @@
     position: absolute;
     top: 0;
     left: 0;
-    // right: 0;
     display: flex;
     align-items: flex-end;
     width: 100%;
@@ -66,12 +54,14 @@
     }
 
     .c-link__text {
+        max-width: calc(100% - 1em);
         margin-left: 0.5em;
         margin-bottom: 0.5em;
         color: $white;
 
         // at or above 900px
         @include media(">=medium") {
+            max-width: calc(100% - 2em);
             margin-left: 1em;
             margin-bottom: 1em;
         }
