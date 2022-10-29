@@ -16,21 +16,33 @@
         </article>
     </section>
 
-    <section class="o-section">
-        {% if post.children %}
+    {% if post.children %}
+        <aside class="o-section -is-card-deck">
             <ul class="c-related-posts">
+
                 {% for child in post.children %}
                     <li class="c-related-posts__post">
-                        <div class="c-card">
-                            <h2 class="c-card__headline">{{ child.title }}</h2>
-                            <div class="c-card__body">
-                                {{ child.excerpt ?? child.conent }}
-                            </div>
-                        </div>
+
+                        {% if child.excerpt is defined and child.excerpt is not empty %}
+                            {% set content = child.excerpt %}
+                        {% else %}
+                            {% set content = (child.post_content|slice(0, 180)) ~ '...' %}
+                        {% endif %}
+
+                        {% include '_components/card.twig' with {
+                            params: {
+                                thumbnail: Image(child.banner_image),
+                                title: child.title,
+                                text: content,
+                                link: child.link
+                            }
+                        } only %}
+
                     </li>
                 {% endfor %}
+
             </ul>
-        {% endif %}
-    </section>
+        </aside>
+    {% endif %}
 
 {% endblock %}

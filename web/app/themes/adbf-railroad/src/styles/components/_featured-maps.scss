@@ -69,5 +69,11 @@
         margin-left: 0.5em;
         margin-bottom: 0.5em;
         color: $white;
+
+        // at or above 900px
+        @include media(">=medium") {
+            margin-left: 1em;
+            margin-bottom: 1em;
+        }
     }
 }

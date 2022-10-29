@@ -23,4 +23,9 @@
 // Component Elements
 // =============================================================================
 
-// .c-related-posts__post {}
+.c-related-posts__post {
+
+    & + & {
+        margin-top: $gutter-xs;
+    }
+}

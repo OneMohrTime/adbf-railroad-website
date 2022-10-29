@@ -33,6 +33,11 @@
             padding: 0;
             background-color: transparent;
 
+            h2 {
+                margin-top: 0;
+                margin-bottom: $heading-height;
+            }
+
             // at or above 600px
             @include media(">=small") {
                 max-width: 75%;

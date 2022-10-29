@@ -38,5 +38,10 @@
     .c-link {
         display: inline-block;
         padding: 0.5em 0;
+
+        // at or above 900px
+        @include media(">=medium") {
+            padding: 0.2em 0;
+        }
     }
 }

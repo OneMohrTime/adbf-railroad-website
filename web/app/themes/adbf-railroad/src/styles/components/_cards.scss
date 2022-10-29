@@ -39,6 +39,7 @@
 }
 
 .c-card__content {
+    max-width: 75ch;
     margin-top: $gutter-xs;
 
     // at or above 600px

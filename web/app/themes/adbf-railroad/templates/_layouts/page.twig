@@ -24,16 +24,19 @@
 
     </article>
 
-    <aside class="o-section -is-card-deck">
-        {% if post.children %}
+    {% if post.children %}
+        <aside class="o-section -is-card-deck">
             <ul class="c-related-posts">
+
                 {% for child in post.children %}
                     <li class="c-related-posts__post">
+
                         {% if child.excerpt is defined and child.excerpt is not empty %}
                             {% set content = child.excerpt %}
                         {% else %}
                             {% set content = (child.post_content|slice(0, 180)) ~ '...' %}
                         {% endif %}
+
                         {% include '_components/card.twig' with {
                             params: {
                                 thumbnail: Image(child.banner_image),
@@ -42,10 +45,12 @@
                                 link: child.link
                             }
                         } only %}
+
                     </li>
                 {% endfor %}
+
             </ul>
-        {% endif %}
-    </aside>
+        </aside>
+    {% endif %}
 
 {% endblock %}

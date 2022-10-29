@@ -47,6 +47,7 @@
 
 .c-cta__content {
     display: block;
+    max-width: calc(#{$gutter-sm} + 75ch);
     padding: $gutter-xs;
     background-color: $white;
     color: $black;
