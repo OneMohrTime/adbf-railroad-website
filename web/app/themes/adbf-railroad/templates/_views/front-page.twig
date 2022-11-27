@@ -54,7 +54,10 @@
         <h2 class="u-text-h2">Maps</h2>
         {% include '_components/swiper.twig' with {
             params: {
-                swiper: railMaps
+                swiper: railMaps,
+                arrows: true,
+                pagination: true,
+                scrollbar: true,
             }
         } only %}
     </section>

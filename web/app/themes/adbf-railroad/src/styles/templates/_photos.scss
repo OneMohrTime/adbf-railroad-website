@@ -1,5 +1,5 @@
 // =============================================================================
-// Templates: Page
+// Templates: Photo Page & Photo Gallery
 // =============================================================================
 // This file contains the page properties
 
@@ -14,6 +14,36 @@
 
     .o-section.-is-photos {
         margin-bottom: $gutter-sm;
+    }
+
+}
+
+.t-photo_album {
+
+    // Photo Grid
+    // =========================================================================
+
+    .o-section.-is-gallery {
+        margin-top: $gutter-xs;
+        margin-bottom: $gutter-sm;
+    }
+
+    // Google Map
+    // =========================================================================
+
+    .o-section.-is-content {
+        margin-bottom: $gutter;
+
+        .c-wysiwyg {
+            max-width: 75ch;
+        }
+    }
+
+    // Google Map
+    // =========================================================================
+
+    .o-section.-is-map {
+        margin-bottom: $gutter;
     }
 
 }

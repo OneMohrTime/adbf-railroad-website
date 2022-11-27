@@ -7,13 +7,13 @@
 
 // Import dependencies
 // =============================================================================
-import { module as mightyModule } from 'modujs';
+import { module as adbfModule } from 'modujs';
 import LocomotiveScroll from 'locomotive-scroll';
 import { html } from '../utils/environment';
 
 // Set default function and extend it ontop of our imported 'module'
 // =============================================================================
-export default class extends mightyModule {
+export default class extends adbfModule {
   // Set initial values
   // =========================================================================
   constructor(m) {

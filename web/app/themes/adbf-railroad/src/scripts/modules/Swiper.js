@@ -41,7 +41,7 @@ export default class extends adbfModule {
       // Options
       preloadImages: false,
       rewind: true,
-      slidesPerView: 1.5,
+      slidesPerView: 2,
       spaceBetween: 24,
 
       // Accessibility
@@ -78,7 +78,7 @@ export default class extends adbfModule {
       // Media queries
       breakpoints: {
         600: {
-          slidesPerView: 2.5
+          slidesPerView: 2.75
         },
         900: {
           slidesPerView: 3.5
