@@ -5,7 +5,7 @@
 {% if menu %}
     <ul class="c-navigation js-menu">
         {% for item in items %}
-            <li class="c-navigation__item">
+            <li class="c-navigation__item{% if item.children %} -with-dropdown{% endif %}">
                 <a target="{{ item.target }}" href="{{ item.link }}" class="c-link">
                     <span class="c-link__text">{{ item.title }}</span>
                 </a>

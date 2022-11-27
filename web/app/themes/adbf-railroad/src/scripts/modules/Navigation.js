@@ -5,53 +5,79 @@
 
 // Import dependencies
 // =============================================================================
-import { module as mightyModule } from 'modujs';
+import { module as adbfModule } from 'modujs';
 import { html } from '../utils/environment';
 import { fadeOut, fadeIn, fadeToggle, slideUp, slideDown, slideToggle } from '../utils/jquery';
 
 // Set default function and extend it ontop of our imported 'module'
 // =============================================================================
-export default class extends mightyModule {
+export default class extends adbfModule {
   // Set initial values
   // =========================================================================
   constructor(m) {
     super(m);
 
     // Vars
-    this.menu      = null;
-    this.menuItems = [];
-    this.menuLinks = [];
-    this.subNavs   = [];
-    this.trigger   = null;
-    this.overlay   = null;
+    this.menu       = null;
+    this.menuItems  = [];
+    this.menuLinks  = [];
+    this.subNavs    = [];
+    this.trigger    = null;
+    this.overlay    = null;
+    this.mediaQuery = null;
   }
 
   // Init module
   // =========================================================================
   init() {
     // Vars
-    this.menu      = html.querySelector('.js-menu');
-    this.menuItems = this.menu.querySelectorAll('.c-navigation__item');
-    this.menuItems = Array.from(this.menuItems);
-    this.menuLinks = this.menu.querySelectorAll('.c-link');
-    this.subNavs   = this.menu.querySelectorAll('.js-dropdown');
-    this.trigger   = html.querySelector('.js-nav-trigger');
-    this.overlay   = html.querySelector('.js-nav-overlay');
+    this.menu       = html.querySelector('.js-menu');
+    this.menuItems  = this.menu.querySelectorAll('.c-navigation__item.-with-dropdown');
+    this.menuItems  = Array.from(this.menuItems);
+    this.menuLinks  = this.menu.querySelectorAll('.c-link');
+    this.subNavs    = this.menu.querySelectorAll('.js-dropdown');
+    this.trigger    = html.querySelector('.js-nav-trigger');
+    this.overlay    = html.querySelector('.js-nav-overlay');
+    this.mediaQuery = window.matchMedia('(max-width: 899px)') ;
 
-    // Slide up dropdowns
-    this.subNavs.forEach(dropdown => {
-      let caret  = dropdown.parentElement.querySelector('.js-caret');
-      let subnav = dropdown.parentElement.querySelector('.js-dropdown');
-      // Hide subnavs by default
-      slideUp(dropdown);
-      // When caret is clicked
-      caret.addEventListener('click', () => {
-        // Show only this subnav
-        slideToggle(subnav);
-        // Rotate caret
-        caret.classList.toggle('-is-open');
+    // When caret is clicked on mobile
+    if (this.mediaQuery.matches) {
+      // Slide up dropdowns
+      this.subNavs.forEach(dropdown => {
+        let caret  = dropdown.parentElement.querySelector('.js-caret');
+        let subnav = dropdown.parentElement.querySelector('.js-dropdown');
+        // Hide subnavs by default
+        slideUp(dropdown);
+        caret.addEventListener('click', () => {
+          // Show only this subnav
+          slideToggle(subnav);
+          // Rotate caret
+          caret.classList.toggle('-is-open');
+        });
       });
-    });
+    }
+
+    // When menu item is hovered on desktop
+    if (!this.mediaQuery.matches) {
+      this.menuItems.forEach(navItem => {
+        // Find nav links
+        let link   = navItem.querySelector('.c-link');
+        let subnav = navItem.querySelector('.js-dropdown');
+        fadeOut(subnav);
+        navItem.addEventListener('mouseover', () => {
+          // navItem.classList.add('-is-open');
+          fadeIn(subnav);
+        });
+        navItem.addEventListener('mouseout', () => {
+          // navItem.classList.remove('-is-open');
+          fadeOut(subnav);
+        });
+        // if (navItem.classList.contains('-is-open')) {
+        // }
+        // if (!navItem.classList.contains('-is-open')) {
+        // }
+      });
+    }
 
     // When trigger is clicked
     this.trigger.addEventListener('click', () => {
