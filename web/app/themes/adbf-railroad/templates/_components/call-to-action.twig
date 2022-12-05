@@ -9,20 +9,30 @@
 
 {# -- Component Template -- #}
 
-<div class="c-cta">
+<figure class="c-cta">
 
-    <a href="{{ this.link.url }}" class="c-cta__content">
+    <figcaption href="{{ this.link.url }}" class="c-cta__content">
         <h2 class="c-cta__headline u-text-h3">{{ this.headline }}</h2>
         <div class="c-cta__body">
             {{ this.body }}
         </div>
-    </a>
+        {% include '_elements/link.twig' with {
+            params: {
+                button: true,
+                isExternal: (this.link.target == '_blank'),
+                linkUrl: this.link.url,
+                linkText: 'Learn More'
+            },
+            class: 'c-cta__link'
+        } only %}
+    </figcaption>
 
     {% include '_elements/picture.twig' with {
         params: {
             src: this.background,
-            background: true
+            background: true,
+            classes: 'c-cta__media'
         }
     } %}
 
-</div>
+</figure>
