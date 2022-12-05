@@ -1,0 +1,114 @@
+// =============================================================================
+// Components: Swiper
+// =============================================================================
+// This file styles a repeatable Swiper component
+
+// Component Frame
+// =============================================================================
+
+.c-swiper {
+    position: relative;
+    margin-bottom: 44px;
+}
+
+// Component Modifiers
+// =============================================================================
+
+// Component Elements
+// =============================================================================
+
+.c-swiper__controls {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 44px;
+
+    // at or above 600px
+    @include media(">=small") {
+        left: 50%;
+        max-width: 500px;
+        transform: translateX(-50%);
+    }
+}
+
+.c-swiper__pagination {
+    position: absolute;
+    transition: 300ms opacity;
+    transform: translate3d(0, 0, 0);
+    text-align: center;
+    z-index: 10;
+
+    &.swiper-pagination-horizontal {
+        bottom: calc(50% - 4px) !important;
+    }
+
+    .swiper-pagination-bullet.swiper-pagination-bullet-active {
+        background-color: $red;
+    }
+}
+
+.c-swiper__prev,
+.c-swiper__next {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 27px;
+    height: 44px;
+    margin-top: -22px;
+    color: inherit;
+    cursor: pointer;
+    z-index: 10;
+
+    // Arrow SVG
+    &::after {
+        font-family: swiper-icons;
+        font-size: 44px;
+        text-transform: none !important;
+        letter-spacing: 0;
+        font-variant: initial;
+        line-height: 1;
+    }
+}
+
+.c-swiper__prev {
+    left: 0;
+    right: auto;
+
+    // Arrow SVG
+    &::after {
+        content: "prev";
+    }
+}
+
+.c-swiper__next {
+    left: auto;
+    right: 0;
+
+    // Arrow SVG
+    &::after {
+        content: "next";
+    }
+}
+
+.c-swiper__scrollbar {
+    position: relative;
+    background-color: $gray-light;
+    border-radius: 10px;
+
+    &.swiper-scrollbar-horizontal {
+        position: absolute;
+        left: 50%;
+        bottom: calc(50% - 3px);
+        width: calc(100% - (44px * 2 + 22px));
+        height: 6px;
+        transform: translateX(-50%);
+        z-index: 50;
+    }
+
+    .swiper-scrollbar-drag {
+        background-color: $gray-dark;
+    }
+}

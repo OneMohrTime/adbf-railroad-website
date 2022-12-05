@@ -3,17 +3,18 @@
 {% set this = {
     slides: params.swiper,
     arrows: (params.arrows == true) ? true : null,
-    pagination: (params.arrpaginationows == true) ? true : null,
+    pagination: (params.pagination == true) ? true : null,
     scrollbar: (params.scrollbar == true) ? true : null,
+    class: classes
 } %}
 
 {# -- Component Template -- #}
 
-<nav class="swiper" data-module-swiper>
+<nav class="c-swiper swiper" data-module-swiper>
 
-    <ul class="c-featured-maps swiper-wrapper">
+    <ul class="swiper-wrapper{% if this.class %} {{ this.class }}{% endif %}">
         {% for slide in this.slides %}
-            <li class="c-featured-maps__map swiper-slide u-ratio u-1:1">
+            <li class="{% if this.class %} {{ this.class }}{% endif %}__map swiper-slide u-ratio u-1:1">
                 {% include '_elements/picture.twig' with {
                     params: {
                         src: slide.thumbnail ? Image(slide.thumbnail) : Image(slide.banner_image),
@@ -25,21 +26,36 @@
                         linkUrl: slide.link,
                         linkText: slide.title
                     },
-                    class: 'c-featured-maps__link'
+                    class: this.class ? (this.class ~ '__link') : null
                 } only %}
             </li>
         {% endfor %}
+        <li class="{% if this.class %} {{ this.class }}{% endif %}__map swiper-slide u-ratio u-1:1">
+            {% include '_elements/link.twig' with {
+                params: {
+                    linkUrl: '#',
+                    linkText: 'See All'
+                },
+                class: this.class ? (this.class ~ '__link') : null
+            } only %}
+        </li>
     </ul>
 
-    {% if this.pagination is defined and this.pagination is not null %}
-        <div class="swiper-pagination"></div>
-    {% endif %}
+    <div class="c-swiper__controls">
 
-    {% if this.arrows is defined and this.arrows is not null %}
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-    {% endif %}
+        {% if this.pagination is defined and this.pagination is not null %}
+            <div class="c-swiper__pagination"></div>
+        {% endif %}
 
-  <div class="swiper-scrollbar"></div>
+        {% if this.arrows is defined and this.arrows is not null %}
+            <div class="c-swiper__prev"></div>
+            <div class="c-swiper__next"></div>
+        {% endif %}
+
+        {% if this.scrollbar is defined and this.scrollbar is not null %}
+            <div class="c-swiper__scrollbar"></div>
+        {% endif %}
+
+    </div>
 
 </nav>
