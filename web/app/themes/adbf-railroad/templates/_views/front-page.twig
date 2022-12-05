@@ -26,12 +26,12 @@
 
     <section class="o-section -is-content">
 
-        <div class="c-wysiwyg">
+        <div class="c-wysiwyg u-text-center">
             {{ post.content }}
         </div>
 
         {% if relatedPages is defined and relatedPages is not empty %}
-        <ul class="c-list">
+        <ul class="c-list u-text-center">
             {% for item in relatedPages %}
                 <li class="c-list__item">
                     {% include '_elements/link.twig' with {
@@ -57,8 +57,8 @@
                 swiper: railMaps,
                 arrows: true,
                 pagination: true,
-                scrollbar: true,
-            }
+            },
+            classes: 'c-featured-maps'
         } only %}
     </section>
     {% endif %}

@@ -6,14 +6,14 @@
 // Component Frame
 // =============================================================================
 
-.c-featured-maps {
-    padding-left: $gutter-xs;
+// .c-featured-maps {
+//     padding-left: $gutter-xs;
 
-    // at or above 900px
-    @include media(">=medium") {
-        padding-left: $gutter-sm;
-    }
-}
+//     // at or above 900px
+//     @include media(">=medium") {
+//         padding-left: $gutter-sm;
+//     }
+// }
 
 // Component Modifiers
 // =============================================================================
@@ -23,6 +23,7 @@
 
 .c-featured-maps__map {
     position: relative;
+    background-color: $gray;
 
     .c-media {
         position: absolute;
@@ -41,8 +42,9 @@
     align-items: flex-end;
     width: 100%;
     height: 100%;
-    transition: background-image $speed-reveal $bezier-slide;
-    background-image: linear-gradient(to bottom, transparent 0, fade-out($black, 0.2) 100%);
+    transition: background $speed-reveal $bezier-slide;
+    background-image: linear-gradient(to bottom, transparent 0, fade-out($black, 0.55) 100%);
+    background-size: 100% 130px;
 
     &::before,
     &::after {
@@ -50,13 +52,18 @@
     }
 
     @include u-hocus {
-        background-image: linear-gradient(to bottom, fade-out($black, 0.2) 50%, fade-out($black, 0.2) 100%);
+        background-image: linear-gradient(to bottom, transparent 0, fade-out($black, 0.33) 100%);
+        background-size: 100% 80%;
     }
 
     .c-link__text {
+        position: absolute;
+        left: 0;
+        bottom: 0;
         max-width: calc(100% - 1em);
         margin-left: 0.5em;
         margin-bottom: 0.5em;
+        text-shadow: 1px 1px 3px fade-out($black, 0.65);
         color: $white;
 
         // at or above 900px

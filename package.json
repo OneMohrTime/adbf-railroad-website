@@ -51,6 +51,7 @@
   "dependencies": {
     "bourbon": "^7.2.0",
     "include-media": "^1.4.10",
+    "jquery": "^3.6.1",
     "locomotive-scroll": "^4.1.4",
     "modujs": "^1.4.2",
     "modularload": "^1.2.8",

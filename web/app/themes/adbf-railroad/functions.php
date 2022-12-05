@@ -65,7 +65,10 @@ class StarterSite extends Timber\Site {
         add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
         add_action( 'init', array( $this, 'register_post_types' ) );
         add_action( 'init', array( $this, 'register_taxonomies' ) );
+        // add_action( 'init', array( $this, 'add_acf_fields' ) );
         add_filter( 'wpseo_metabox_prio', array( $this, 'yoast_to_bottom' ) );
+        add_action( 'acf/init', array( $this, 'acf_api_update' ) );
+        // add_filter('acf/fields/google_map/api', array( $this, 'my_acf_google_map_api' ) );
         parent::__construct();
     }
     /**
@@ -97,6 +100,17 @@ class StarterSite extends Timber\Site {
      */
     public function yoast_to_bottom() {
         return 'low';
+    }
+
+    /**
+     * Add Google Maps API
+     */
+    // public function my_acf_google_map_api( $api ){
+    //     $api['key'] = 'AIzaSyAxfcDIvD4cHnrr_hzk7wJpMfTDXY3H810';
+    //     return $api;
+    // }
+    public function acf_api_update() {
+        acf_update_setting('google_api_key', 'AIzaSyAxfcDIvD4cHnrr_hzk7wJpMfTDXY3H810');
     }
 
     public function theme_supports() {

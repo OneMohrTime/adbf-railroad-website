@@ -57,7 +57,7 @@
         // space list items a bit
         li {
             display: list-item;
-            margin-bottom: math.div($line-height, 2);
+            // margin-bottom: math.div($line-height, 2);
         }
     }
     ul {
@@ -76,7 +76,7 @@
     // Text
     // =========================================================================
     p {
-        margin: 0 0 math.div($line-height, 2);
+        margin: 0 0 $line-height;
         line-height: $line-height;
 
         @include last(1) {

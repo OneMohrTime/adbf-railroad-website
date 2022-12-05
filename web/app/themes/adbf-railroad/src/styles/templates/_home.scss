@@ -72,10 +72,24 @@
 
     .o-section.-is-locations {
         margin-top: $gutter-sm;
+        padding-left: $gutter-xs;
+        padding-right: $gutter-xs;
+        // overflow-x: hidden;
+        // overflow-y: visible;
+
+        .u-text-h2 {
+            margin-bottom: 0.75em;
+        }
+
+        .swiper {
+            overflow: visible;
+        }
 
         // at or above 900px
         @include media(">=medium") {
             margin-top: $gutter;
+            padding-left: $gutter-sm;
+            padding-right: $gutter-sm;
         }
 
         // at or above 1200px

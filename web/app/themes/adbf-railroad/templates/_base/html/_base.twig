@@ -3,7 +3,7 @@
 {# ----------------------------------------------------------------- #}
 
 <!doctype html>
-<html {{ site.language_attributes }} class="-no-js -is-loading" data-page="{{ post.link }}">
+<html {{ site.language_attributes }} class="-no-js -is-loading" data-page="{{ post.slug }}">
 
 {# -- HTML Head -- #}
 {# ----------------------------------------------------------------- #}
@@ -20,7 +20,7 @@
     {{ function('wp_body_open') }}
 
     <div class="o-scroll" data-module-scroll="main" data-scroll-container>
-        <div class="o-container">
+        <div class="o-container" data-module-load data-load-container>
 
             <a class="skip-link screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a>
 

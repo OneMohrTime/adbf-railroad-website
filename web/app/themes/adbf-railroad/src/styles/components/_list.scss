@@ -34,10 +34,8 @@
 .c-list__item {
     flex: 0 0 50%;
     max-width: 50%;
-    text-align: center;
     border-bottom: 1px solid $gray;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding: 12px;
 
     @include odd() {
         border-right: 1px solid $gray;

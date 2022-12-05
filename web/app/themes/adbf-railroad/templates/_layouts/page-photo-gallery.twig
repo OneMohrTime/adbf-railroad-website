@@ -17,8 +17,11 @@
     <section class="o-section -is-photos">
         {% include '_components/swiper.twig' with {
             params: {
-                swiper: galleries
-            }
+                swiper: galleries,
+                arrows: true,
+                scrollbar: true
+            },
+            classes: 'c-featured-maps'
         } only %}
     </section>
 
