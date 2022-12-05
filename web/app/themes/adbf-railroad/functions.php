@@ -132,11 +132,11 @@ class StarterSite extends Timber\Site {
      * Add Google Maps API
      */
     // public function my_acf_google_map_api( $api ){
-    //     $api['key'] = 'AIzaSyAxfcDIvD4cHnrr_hzk7wJpMfTDXY3H810';
+    //     $api['key'] = '';
     //     return $api;
     // }
     public function acf_api_update() {
-        acf_update_setting('google_api_key', 'AIzaSyAxfcDIvD4cHnrr_hzk7wJpMfTDXY3H810');
+        acf_update_setting('google_api_key', '');
     }
 
     public function theme_supports() {
