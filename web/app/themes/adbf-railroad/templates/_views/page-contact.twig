@@ -1,0 +1,30 @@
+{# -- Base page layout -- #}
+{# ----------------------------------------------------------------- #}
+{% extends "_base/html/_base.twig" %}
+
+{% block content %}
+
+    <section class="o-section -is-banner">
+        {% include '_components/banner--secondary.twig' with {
+            params: {
+                eyebrow: post.banner_eyebrow,
+                image: Image(post.banner_image),
+                headline: post.banner_headline ? post.banner_headline : post.title,
+            }
+        } only %}
+    </section>
+
+    <article class="o-section -is-content">
+
+        <div class="c-wysiwyg c-form">
+            {{ post.content }}
+            {% filter shortcodes %}
+                {{ post.wp_shortcode }}
+            {% endfilter %}
+        </div>
+
+        {% include '_components/sidebar.twig' %}
+
+    </article>
+
+{% endblock %}
