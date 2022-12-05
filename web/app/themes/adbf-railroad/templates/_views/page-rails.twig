@@ -17,7 +17,9 @@
     <article class="o-section -is-content">
 
         <div class="c-wysiwyg">
-            {{ post.content }}
+            {% if post.content %}
+                {{ post.content }}
+            {% endif %}
             {% if post.children('page') %}
                 <ul class="c-related-posts">
 

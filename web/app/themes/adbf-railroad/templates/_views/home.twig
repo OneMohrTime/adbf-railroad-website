@@ -2,7 +2,57 @@
 {# ----------------------------------------------------------------- #}
 {% extends "_base/html/_base.twig" %}
 
+{% set post = Post(post) %}
+
 {% block content %}
-    <div class="o-section">
-    </div>
+
+    <section class="o-section -is-banner">
+        {% include '_components/banner--secondary.twig' with {
+            params: {
+                eyebrow: post.banner_eyebrow,
+                image: Image(post.banner_image),
+                headline: post.banner_headline ? post.banner_headline : post.title,
+            }
+        } only %}
+    </section>
+
+    <article class="o-section -is-content">
+
+        {% if post.content %}
+            <div class="c-wysiwyg">
+                {{ post.content }}
+            </div>
+        {% endif %}
+
+        {% if posts %}
+            <ul class="c-related-posts">
+
+                {% for child in posts %}
+                    <li class="c-related-posts__post">
+
+                        {% if child.excerpt is defined and child.excerpt is not empty %}
+                            {% set content = child.excerpt %}
+                        {% else %}
+                            {% set content = (child.post_content|slice(0, 180)) ~ '...' %}
+                        {% endif %}
+
+                        {% include '_components/card.twig' with {
+                            params: {
+                                thumbnail: Image(child.banner_image),
+                                title: child.title,
+                                text: content,
+                                link: child.link
+                            }
+                        } only %}
+
+                    </li>
+                {% endfor %}
+
+            </ul>
+        {% endif %}
+
+        {% include '_components/sidebar.twig' %}
+
+    </article>
+
 {% endblock %}

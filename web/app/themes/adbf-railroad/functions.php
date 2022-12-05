@@ -66,22 +66,23 @@ class StarterSite extends Timber\Site {
         add_action( 'init', array( $this, 'register_post_types' ) );
         add_action( 'init', array( $this, 'register_taxonomies' ) );
         // add_action( 'init', array( $this, 'add_acf_fields' ) );
+        add_action( 'init', array( $this, 'disable_emojis' ) );
         add_filter( 'wpseo_metabox_prio', array( $this, 'yoast_to_bottom' ) );
         add_action( 'acf/init', array( $this, 'acf_api_update' ) );
         // add_filter('acf/fields/google_map/api', array( $this, 'my_acf_google_map_api' ) );
         parent::__construct();
     }
+
     /**
      * This is where you can register custom post types
      */
     public function register_post_types() {
-
     }
+
     /**
      * This is where you can register custom taxonomies
      */
     public function register_taxonomies() {
-
     }
 
     /** This is where you add some context
@@ -93,6 +94,31 @@ class StarterSite extends Timber\Site {
         $context['menu']    = new Timber\Menu('primary');
         $context['sidebar'] = new Timber\Menu('sidebar');
         return $context;
+    }
+
+    /**
+     * Disable the emoji's
+     */
+    public function disable_emojis() {
+        remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+        remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+        remove_action( 'wp_print_styles', 'print_emoji_styles' );
+        remove_action( 'admin_print_styles', 'print_emoji_styles' );
+        remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+        remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+        remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+        add_filter( 'wp_resource_hints', function( $urls ) {
+
+            foreach ($urls as $key => $url) {
+                // Remove dns-prefetch for w.org (we really don't need it)
+                // See https://core.trac.wordpress.org/ticket/40426 for details
+                if ( 'https://s.w.org/images/core/emoji/13.0.0/svg/' === $url ) {
+                    unset( $urls[ $key ] );
+                }
+            }
+
+            return $urls;
+        } );
     }
 
     /**
