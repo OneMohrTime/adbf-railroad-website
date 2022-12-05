@@ -59,23 +59,17 @@ export default class extends adbfModule {
 
     // When menu item is hovered on desktop
     if (!this.mediaQuery.matches) {
-      this.menuItems.forEach(navItem => {
-        // Find nav links
-        let link   = navItem.querySelector('.c-link');
-        let subnav = navItem.querySelector('.js-dropdown');
-        fadeOut(subnav);
-        navItem.addEventListener('mouseover', () => {
-          // navItem.classList.add('-is-open');
-          fadeIn(subnav);
+      // Slide up dropdowns
+      this.subNavs.forEach(dropdown => {
+        let caret  = dropdown.parentElement.querySelector('.js-caret');
+        let subnav = dropdown.parentElement.querySelector('.js-dropdown');
+        // Activate subnavs by keyboard
+        caret.addEventListener('click', () => {
+          // Show only this subnav
+          subnav.classList.toggle('-is-open');
+          // Rotate caret
+          caret.classList.toggle('-is-open');
         });
-        navItem.addEventListener('mouseout', () => {
-          // navItem.classList.remove('-is-open');
-          fadeOut(subnav);
-        });
-        // if (navItem.classList.contains('-is-open')) {
-        // }
-        // if (!navItem.classList.contains('-is-open')) {
-        // }
       });
     }
 
