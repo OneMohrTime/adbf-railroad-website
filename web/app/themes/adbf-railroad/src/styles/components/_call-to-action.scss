@@ -8,7 +8,7 @@
 
 .c-cta {
     position: relative;
-    margin-top: $gutter-xs;
+    margin: $gutter-xs 0 0;
     padding: $gutter-xs;
     overflow: hidden;
     z-index: 1;
@@ -82,6 +82,7 @@
     grid-column: 1 / 2;
     grid-row: 1 / 2;
     margin-bottom: 15px;
+    font-weight: $font-semibold;
 
     // at or above 600px
     @include media(">=small") {

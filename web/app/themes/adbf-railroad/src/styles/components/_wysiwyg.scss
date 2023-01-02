@@ -35,7 +35,20 @@
 
     // Headlines
     // =========================================================================
-    h2 {}
+    h2 {
+        font-size: $font-h4;
+        font-weight: $font-semibold;
+
+        // at or above 600px
+        @include media(">=small") {
+            font-size: $font-h3;
+        }
+
+        // at or above 900px
+        @include media(">=medium") {
+            font-size: $vw-h3;
+        }
+    }
 
     // Subheadlines
     // =========================================================================

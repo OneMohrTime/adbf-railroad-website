@@ -19,13 +19,18 @@ $line-height-heading: 1.2em;
 // Sizes & weights
 // =============================================================================
 
-// Headings
+// Headings in px
 $font-h1: 54px;
 $font-h2: 48px;
 $font-h3: 36px;
 $font-h4: 21px;
 $font-h5: 15px;
 $font-h6: 12px;
+
+// Headings in vw
+$vw-h1: 3.75vw;
+$vw-h2: 3.33vw;
+$vw-h3: 2.5vw;
 
 // Weights
 $font-hairline: 100;

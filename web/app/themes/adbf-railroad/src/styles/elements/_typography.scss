@@ -89,16 +89,24 @@ ul, ol {
 // Text classes
 // =============================================================================
 
-.c-title {
+.u-text-h1,
+.u-title {
     font-size: $font-h2;
+    font-weight: $font-semibold;
 
     // at or above 600px
     @include media(">=small") {
         font-size: $font-h1;
     }
+
+    // at or above 900px
+    @include media(">=medium") {
+        font-size: $vw-h1;
+    }
 }
 
-.c-headline {
+.u-text-h2,
+.u-headline {
     font-size: $font-h3;
     font-weight: $font-semibold;
 
@@ -106,15 +114,30 @@ ul, ol {
     @include media(">=small") {
         font-size: $font-h2;
     }
+
+    // at or above 900px
+    @include media(">=medium") {
+        font-size: $vw-h2;
+    }
 }
 
-.c-subheadline {
+.u-text-h3,
+.u-subheadline {
     font-size: $font-h4;
 
     // at or above 600px
     @include media(">=small") {
         font-size: $font-h3;
     }
+
+    // at or above 900px
+    @include media(">=medium") {
+        font-size: $vw-h3;
+    }
+}
+
+.u-text-center {
+    text-align: center;
 }
 
 // .c-copy {

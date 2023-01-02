@@ -69,6 +69,17 @@
     justify-content: space-between;
     border-bottom: 1px solid shade($red, 10%);
 
+    // items with submenus
+    &.-with-dropdown {
+
+        & > .c-link {
+            // at or above 900px
+            @include media(">=medium") {
+                background-image: none;
+            }
+        }
+    }
+
     // at or above 900px
     @include media(">=medium") {
         position: relative;
@@ -90,14 +101,6 @@
                 pointer-events: auto;
             }
         }
-
-        // .c-link {
-        //     // hover, focus
-        //     @include u-hocus {
-        //         background-color: transparent !important;
-        //         color: $white !important;
-        //     }
-        // }
     }
 
     .c-link {

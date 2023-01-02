@@ -9,9 +9,6 @@
 // class which will allow for easy overrides
 .t-page {
 
-    // Headline
-    // =========================================================================
-
     // Body
     // =========================================================================
 
@@ -22,9 +19,10 @@
             background-color: $white;
             color: $black;
 
-            h2 {
+            h2, h3, h4 {
                 margin-top: 1em;
                 margin-bottom: 0.25em;
+                font-size: $font-h4;
                 font-weight: $font-bold;
             }
         }
@@ -53,7 +51,6 @@
         // at or above 600px
         @include media(">=small") {
             display: flex;
-            // align-items: flex-start;
             margin-bottom: $gutter-sm;
 
             .c-wysiwyg {

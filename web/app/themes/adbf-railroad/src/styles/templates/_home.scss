@@ -35,7 +35,7 @@
 
             h2 {
                 margin-top: 0;
-                margin-bottom: $heading-height;
+                margin-bottom: $gutter-sm;
             }
 
             // at or above 600px
@@ -53,6 +53,7 @@
 
         .c-list {
             margin-top: $gutter-sm;
+
             // at or above 600px
             @include media(">=small") {
                 max-width: 75%;
