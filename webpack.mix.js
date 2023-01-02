@@ -12,7 +12,7 @@ mix
     // .postCss('web/app/themes/adbf-railroad/src/styles/app-tailwind.css', 'css')
     // .tailwind('./tailwind.config.js')
     .setPublicPath('web/app/themes/adbf-railroad')
-    // .copyDirectory('src/images', 'public/assets/img')
+    .copyDirectory('web/app/themes/adbf-railroad/src/images', 'web/app/themes/adbf-railroad/img')
     .options({
         processCssUrls: false,
     });
