@@ -83,9 +83,9 @@ export default class extends adbfModule {
         900: {
           slidesPerView: 3.5
         },
-        1200: {
-          slidesPerView: 4.5
-        },
+        // 1200: {
+        //   slidesPerView: 4.5
+        // },
       }
     });
   }

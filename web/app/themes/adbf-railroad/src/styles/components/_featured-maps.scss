@@ -6,14 +6,9 @@
 // Component Frame
 // =============================================================================
 
-// .c-featured-maps {
-//     padding-left: $gutter-xs;
-
-//     // at or above 900px
-//     @include media(">=medium") {
-//         padding-left: $gutter-sm;
-//     }
-// }
+.c-featured-maps {
+    height: auto;
+}
 
 // Component Modifiers
 // =============================================================================
@@ -23,6 +18,7 @@
 
 .c-featured-maps__map {
     position: relative;
+    height: auto;
     background-color: $gray;
 
     .c-media {
