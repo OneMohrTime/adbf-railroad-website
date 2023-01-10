@@ -50,6 +50,7 @@
   },
   "dependencies": {
     "bourbon": "^7.2.0",
+    "glightbox": "^3.2.0",
     "include-media": "^1.4.10",
     "jquery": "^3.6.1",
     "locomotive-scroll": "^4.1.4",
