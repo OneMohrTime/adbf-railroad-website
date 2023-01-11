@@ -136,6 +136,15 @@ ul, ol {
     }
 }
 
+.u-text-h4 {
+    font-size: $font-h5;
+
+    // at or above 900px
+    @include media(">=medium") {
+        font-size: $font-h4;
+    }
+}
+
 .u-text-center {
     text-align: center;
 }

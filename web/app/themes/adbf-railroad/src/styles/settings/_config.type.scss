@@ -6,8 +6,8 @@
 // Font stacks: https://css-tricks.com/snippets/css/font-stacks/
 // =============================================================================
 
-$font-body: sans-serif;
-$font-heading: serif;
+$font-body: "Readex Pro", Futura, "Trebuchet MS", Arial, sans-serif;
+$font-heading: $font-body;
 
 // Defaults
 // =============================================================================

@@ -7,11 +7,13 @@
 {% block content %}
 
     <section class="o-section -is-banner">
-        {% include '_components/banner--secondary.twig' with {
+        {% include '_components/banner--primary.twig' with {
             params: {
                 eyebrow: post.banner_eyebrow,
                 image: Image(post.banner_image),
                 headline: post.banner_headline ? post.banner_headline : post.title,
+                body: post.banner_description,
+                links: post.meta('banner_links'),
             }
         } only %}
     </section>
@@ -24,6 +26,11 @@
             </div>
         {% endif %}
 
+        {% include '_components/sidebar.twig' %}
+
+    </article>
+
+    <aside class="o-section -is-card-deck">
         {% if posts %}
             <ul class="c-related-posts">
 
@@ -39,7 +46,6 @@
                         {% include '_components/card.twig' with {
                             params: {
                                 thumbnail: Image(child.banner_image),
-                                eyebrow: child.category,
                                 title: child.title,
                                 text: content,
                                 link: child.link
@@ -51,9 +57,6 @@
 
             </ul>
         {% endif %}
-
-        {% include '_components/sidebar.twig' %}
-
-    </article>
+    </aside>
 
 {% endblock %}

@@ -1,0 +1,40 @@
+// =============================================================================
+// Templates: News Blog
+// =============================================================================
+// This file contains the page properties
+
+// Template Class
+// =============================================================================
+// Unlike most of our code, let's wrap all internal classes with our template
+// class which will allow for easy overrides
+.t-page.-is-blog {
+
+    // Body
+    // =========================================================================
+
+    .o-section.-is-content {
+
+        .c-related-posts {
+            margin-bottom: 0;
+            padding: 0;
+            list-style: none;
+
+            .c-related-posts__post {
+                @include last(1) {
+                    .c-card {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            .c-card {
+                margin-bottom: $gutter-xs;
+                padding-top: $gutter-xs;
+                padding-left: $gutter-xs;
+                padding-right: $gutter-xs;
+            }
+        }
+
+    }
+
+}
