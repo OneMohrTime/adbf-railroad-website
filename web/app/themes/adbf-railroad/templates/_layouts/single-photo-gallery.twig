@@ -11,7 +11,7 @@
 
             <h1 class="u-text-h1">{{ post.title }}</h1>
 
-            <ul class="c-photo-gallery">
+            <ul class="c-photo-gallery" data-module-zoom>
                 {% for photo in photoGallery %}
                     <li class="c-photo-gallery__photo">
                         {% include '_elements/picture.twig' with {
@@ -20,7 +20,8 @@
                                 ratio: '1:1',
                             }
                         } only %}
-                        <h3>{{photo.title}}</h3>
+                        <h3>{{ photo.title }}</h3>
+                        <a href="{{ Image(photo).src }}" class="c-photo-gallery__zoom js-zoom">Click to Zoom</a>
                     </li>
                 {% endfor %}
             </ul>
@@ -31,14 +32,15 @@
         <article class="c-wysiwyg">
 
             {# <h1 class="u-text-h1">{{ post.title }}</h1> #}
-
             {{ post.content }}
 
         </article>
     </section>
 
+    {# https://stackoverflow.com/questions/49632914/passing-acf-map-data-to-a-twig-loop-in-timber-theme #}
     <section class="o-section -is-map">
-        <figure class="c-map" data-zoom="16" height="400px" data-module-google-map>
+        <figure class="c-map" data-zoom="16" height="400px">
+        {# <figure class="c-map" data-zoom="16" height="400px" data-module-google-map> #}
             <div class="c-map__marker" data-lat="{{ post.location['lat'] }}" data-lng="{{ post.location['lng'] }}"></div>
         </figure>
     </section>

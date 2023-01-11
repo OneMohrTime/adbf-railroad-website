@@ -23,9 +23,15 @@
 
 $context = Timber::context();
 
+// $galleries = array(
+//     'post_type' => 'photo_album',
+//     'posts_per_page' => -1,
+// );
+
 $galleries = array(
-    'post_type' => 'photo_album',
+    'post_type' => 'post',
     'posts_per_page' => -1,
+    'category_name' => 'photo-album',
     // 'orderby' => array(
     //     'date' => 'DESC'
     // )

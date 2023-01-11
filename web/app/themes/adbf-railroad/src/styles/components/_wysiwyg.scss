@@ -26,6 +26,7 @@
         h#{$i} {
             margin-top: 1.25em;
             margin-bottom: 0.75em;
+
             // no top-margin if its the first element
             @include first(1) {
                 margin-top: 0;
@@ -63,8 +64,10 @@
         margin-bottom: $line-height;
 
         ul, ol {
-            margin-top: math.div($line-height, 2);
-            margin-bottom: math.div($line-height, 2);
+            // margin-top: math.div($line-height, 2);
+            // margin-bottom: math.div($line-height, 2);
+            margin-top: 0;
+            margin-bottom: 0;
         }
 
         // space list items a bit

@@ -16,8 +16,8 @@
 
 {# -- HTML Body -- #}
 {# ----------------------------------------------------------------- #}
-<body class="t-{{ bodyClass ?? post.type.slug ?? 'default' }} -is-{{ post.slug }} -id-{{ post.id }}">
-    {{ function('wp_body_open') }}
+<body class="t-{{ bodyClass ?? post.category.slug ?? post.type.slug ?? 'default' }}{% if post.category %}{% endif %} -is-{{ post.slug }} -id-{{ post.id }}">
+    {# {{ function('wp_body_open') }} #}
 
     <div class="o-scroll" data-module-scroll="main" data-scroll-container>
         <div class="o-container" data-module-load data-load-container>

@@ -16,5 +16,11 @@ $context['post'] = $timber_post;
 if ( post_password_required( $timber_post->ID ) ) {
     Timber::render( '_layouts/single-password.twig', $context );
 } else {
-    Timber::render( array( '_layouts/single-' . $timber_post->ID . '.twig', '_layouts/single-' . $timber_post->post_type . '.twig', '_layouts/single-' . $timber_post->slug . '.twig', '_layouts/single.twig' ), $context );
+    Timber::render( array(
+        '_layouts/single-' . $timber_post->ID . '.twig',
+        '_layouts/single-' . $timber_post->post_type . '.twig',
+        '_layouts/single-' . $timber_post->category->slug . '.twig',
+        '_layouts/single-' . $timber_post->slug . '.twig',
+        '_layouts/single.twig'
+    ), $context );
 }

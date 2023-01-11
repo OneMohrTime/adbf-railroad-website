@@ -13,19 +13,35 @@
     // =========================================================================
 
     .o-section.-is-photos {
+        margin-left: $gutter-xs;
+        margin-right: $gutter-xs;
         margin-bottom: $gutter-sm;
+
+        // at or above 900px
+        @include media(">=medium") {
+            margin-left: $gutter-sm;
+            margin-right: $gutter-sm;
+        }
     }
 
 }
 
-.t-photo_album {
+.t-photo_album,
+.t-photo-gallery {
+
+    // Body
+    // =========================================================================
+
+    a:where(:not(.wp-element-button)) {
+        text-decoration: none;
+    }
 
     // Photo Grid
     // =========================================================================
 
     .o-section.-is-gallery {
-        margin-top: $gutter-xs;
-        margin-bottom: $gutter-sm;
+        margin-top: $gutter-sm;
+        margin-bottom: $gutter-lg;
     }
 
     // Google Map

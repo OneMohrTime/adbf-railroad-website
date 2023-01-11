@@ -2,5 +2,6 @@
     "/js/app.js": "/js/app.js",
     "/css/noscript.css": "/css/noscript.css",
     "/css/app.css": "/css/app.css",
-    "/img/logo.svg": "/img/logo.svg"
+    "/img/logo.svg": "/img/logo.svg",
+    "/img/missing.png": "/img/missing.png"
 }
