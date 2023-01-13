@@ -50,12 +50,47 @@
     padding-top: 12px;
     padding-bottom: 12px;
 
+    @include first(1) {
+        padding-top: 0;
+    }
+
+    @include last(1) {
+        padding-bottom: 0;
+    }
+
     & + & {
         border-top: 1px solid $gray-dark;
+    }
+
+    &.-has-submenu {
+        margin-bottom: $gutter-xs;
+        padding-top: 0;
+        padding-bottom: 0;
+        border-top: 0;
+
+        & + .c-sidebar__menu-item {
+            padding-top: 0;
+            border-top: 0;
+        }
     }
 
     // at or above 900px
     @include media(">=medium") {
         font-size: rem($font-h4);
+    }
+}
+
+.c-sidebar__submenu {}
+
+.c-sidebar__submenu-item {
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+    @include first(1) {
+        padding-top: 0;
+    }
+
+    & + & {
+        border-top: 1px solid $gray-dark;
     }
 }

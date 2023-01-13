@@ -2,7 +2,7 @@
     <ul class="c-sidebar__menu">
 
         {% for item in sidebar.items %}
-            <li class="c-sidebar__menu-item">
+            <li class="c-sidebar__menu-item{% if item.children %} -has-submenu{% endif %}">
 
                 <a href="{{ item.link }}" class="c-link{% if item.children %} -title{% endif %}">{{ item.title }}</a>
 
