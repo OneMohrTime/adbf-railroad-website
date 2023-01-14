@@ -115,6 +115,10 @@
             margin-top: $gutter-xl;
             padding-left: $padding;
             padding-right: $padding;
+
+            .c-card__headline {
+                font-size: $vw-h3;
+            }
         }
     }
 

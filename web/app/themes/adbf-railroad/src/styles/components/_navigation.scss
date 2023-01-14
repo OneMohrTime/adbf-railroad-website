@@ -107,6 +107,7 @@
         flex: 1 0 auto;
         transition: background $speed-reveal $bezier-slide,
                     color $speed-reveal $bezier-slide;
+        text-decoration: none;
 
         // hover or focus
         @include u-hocus {

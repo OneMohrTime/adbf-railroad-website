@@ -26,4 +26,8 @@
     & + & {
         margin-top: $gutter-xs;
     }
+
+    .c-card__headline {
+        font-size: $font-h4;
+    }
 }
