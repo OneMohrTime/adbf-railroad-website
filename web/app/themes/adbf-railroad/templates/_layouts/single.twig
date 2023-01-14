@@ -6,11 +6,15 @@
 
     <section class="o-section -is-banner">
         {% include '_components/banner--secondary.twig' with {
-            banner: post
+            params: {
+                eyebrow: post.banner_eyebrow,
+                image: Image(post.banner_image),
+                headline: post.banner_headline ? post.banner_headline : post.title,
+            }
         } only %}
     </section>
 
-    <section class="o-section">
+    <section class="o-section -is-content">
         <article class="c-wysiwyg">
             {{ post.content }}
         </article>
