@@ -23,15 +23,17 @@
 
 $context = Timber::context();
 
-// $galleries = array(
-//     'post_type' => 'photo_album',
-//     'posts_per_page' => -1,
-// );
+$news = array(
+    'post_type' => 'post',
+    'posts_per_page' => -1,
+    'cat' => '4',
+);
 
 $galleries = array(
     'post_type' => 'post',
     'posts_per_page' => -1,
-    'category_name' => 'photo-album',
+    // 'category_name' => 'photo-album',
+    'cat' => '5',
     // 'orderby' => array(
     //     'date' => 'DESC'
     // )
@@ -40,8 +42,13 @@ $galleries = array(
 $timber_post          = new Timber\Post();
 $context['post']      = $timber_post;
 $context['posts']     = new Timber\PostQuery();
+$context['news']      = Timber::get_posts($news);
 $context['galleries'] = Timber::get_posts($galleries);
-$templates            = array( '_views/page-' . $timber_post->post_name . '.twig', '_layouts/page.twig' );
+
+$templates = array(
+    '_views/page-' . $timber_post->post_name . '.twig',
+    '_layouts/page.twig'
+);
 
 if ( is_front_page() ) {
     array_unshift( $templates, '_views/front-page.twig' );

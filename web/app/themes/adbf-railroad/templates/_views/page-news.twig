@@ -1,5 +1,8 @@
 {# -- Base page layout -- #}
 {# ----------------------------------------------------------------- #}
+{#
+CURRENTLY UNUSED
+
 {% extends "_base/html/_base.twig" %}
 
 {% block content %}
@@ -14,35 +17,33 @@
         } only %}
     </section>
 
-    <section class="o-section -is-content">
+    <article class="o-section -is-content">
 
-        <article class="c-wysiwyg">
-            {{ post.content }}
-        </article>
+        {% if post.content %}
+            <div class="c-wysiwyg">
+                {{ post.content }}
+            </div>
+        {% endif %}
 
-        {% include '_components/sidebar.twig' %}
-
-    </section>
-
-    {# {% if post.children('page') %}
-        <aside class="o-section -is-card-deck">
+        {% if news %}
             <ul class="c-related-posts">
 
-                {% for child in post.children('page') %}
+                {% for article in news %}
                     <li class="c-related-posts__post">
 
-                        {% if child.excerpt is defined and child.excerpt is not empty %}
-                            {% set content = child.excerpt %}
+                        {% if article.excerpt is defined and article.excerpt is not empty %}
+                            {% set content = article.excerpt %}
                         {% else %}
-                            {% set content = (child.post_content|slice(0, 180)) ~ '...' %}
+                            {% set content = (article.post_content|slice(0, 180)) ~ '...' %}
                         {% endif %}
 
                         {% include '_components/card.twig' with {
                             params: {
-                                thumbnail: Image(child.banner_image),
-                                title: child.title,
+                                thumbnail: article.banner_image ? Image(article.banner_image) : article.thumbnail('large'),
+                                eyebrow: article.category,
+                                title: article.title,
                                 text: content,
-                                link: child.link
+                                link: article.link
                             }
                         } only %}
 
@@ -50,7 +51,10 @@
                 {% endfor %}
 
             </ul>
-        </aside>
-    {% endif %} #}
+        {% endif %}
 
-{% endblock %}
+        {% include '_components/sidebar.twig' %}
+
+    </article>
+
+{% endblock %} #}

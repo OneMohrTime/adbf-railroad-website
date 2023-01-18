@@ -13,18 +13,30 @@
 
             <ul class="c-photo-gallery" data-module-zoom>
                 {% for photo in photoGallery %}
+                    {% set photo = Image(photo) %}
                     <li class="c-photo-gallery__photo">
+
                         {% include '_elements/picture.twig' with {
                             params: {
-                                src: Image(photo),
+                                src: photo,
                                 ratio: '1:1',
                             }
                         } only %}
-                        <h3>{{ photo.title }}</h3>
-                        <a href="{{ Image(photo).src }}" class="c-photo-gallery__zoom js-zoom">Click to Zoom</a>
+
+                        <a href="{{ Image(photo).src('large') }}" class="c-photo-gallery__zoom js-zoom">Click to Zoom</a>
+
+                        {% if photo.caption is not empty %}
+                            <h3 class="c-photo-gallery__title">{{ photo.caption }}</h3>
+                        {% endif %}
+
+                        {% include '_base/svg/icon-search.twig' with {
+                            svgClass: 'c-photo-gallery__zoom-icon'
+                        } only %}
+
                     </li>
                 {% endfor %}
             </ul>
+
         </section>
     {% endif %}
 

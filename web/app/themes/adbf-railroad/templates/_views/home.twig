@@ -10,7 +10,7 @@
         {% include '_components/banner--secondary.twig' with {
             params: {
                 eyebrow: post.banner_eyebrow,
-                image: Image(post.banner_image),
+                image: post.banner_image ? Image(post.banner_image) : post.thumbnail('large'),
                 headline: post.banner_headline ? post.banner_headline : post.title,
             }
         } only %}
@@ -24,10 +24,10 @@
             </div>
         {% endif %}
 
-        {% if posts %}
+        {% if news %}
             <ul class="c-related-posts">
 
-                {% for child in posts %}
+                {% for child in news %}
                     <li class="c-related-posts__post">
 
                         {% if child.excerpt is defined and child.excerpt is not empty %}
@@ -38,7 +38,7 @@
 
                         {% include '_components/card.twig' with {
                             params: {
-                                thumbnail: Image(child.banner_image),
+                                thumbnail: child.banner_image ? Image(child.banner_image) : child.thumbnail('large'),
                                 eyebrow: child.category,
                                 title: child.title,
                                 text: content,

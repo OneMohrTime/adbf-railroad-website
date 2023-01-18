@@ -16,7 +16,9 @@
 .o-container {
     position: relative;
 
-    .t-page & {
+    .t-page &,
+    .t-photo-gallery &,
+    .t-news & {
         background-color: $light;
     }
 }
