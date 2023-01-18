@@ -32,10 +32,10 @@ svg {
     max-width: 100%; /* [2] */
     height: auto;
 
-    &[width],
-    &[height] {
-        max-width: none; /* [3] */
-    }
+    // &[width],
+    // &[height] {
+    //     max-width: none; /* [3] */
+    // }
 }
 
 img {

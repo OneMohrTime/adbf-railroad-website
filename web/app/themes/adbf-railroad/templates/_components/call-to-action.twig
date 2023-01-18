@@ -27,12 +27,18 @@
         } only %}
     </figcaption>
 
-    {% include '_elements/picture.twig' with {
-        params: {
-            src: this.background,
-            background: true,
-            classes: 'c-cta__media'
-        }
-    } %}
+    {% if this.background %}
+        {% include '_elements/picture.twig' with {
+            params: {
+                src: this.background,
+                background: true,
+                classes: 'c-cta__media'
+            }
+        } %}
+    {% else %}
+        <picture class="c-cta__media c-media -is-background">
+            <img src="https://adbf-railroad-website.ddev.site/app/themes/adbf-railroad/img/missing.png" alt="Missing image" class="c-media__image -background" />
+        </picture>
+    {% endif %}
 
 </figure>

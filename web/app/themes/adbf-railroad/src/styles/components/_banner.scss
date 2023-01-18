@@ -32,10 +32,6 @@
         max-width: calc(100% - #{$gutter-sm});
     }
 
-    // .c-banner__headline {
-    //     font-size: rem($font-h1);
-    // }
-
     // at or above 600px
     @include media(">=small") {
         .c-banner__content {
@@ -118,11 +114,6 @@
         @include media(">=large") {
             max-width: 800px;
         }
-
-        // // below 600px
-        // @include media("<small") {
-        //     font-size: rem($font-h4);
-        // }
     }
 }
 

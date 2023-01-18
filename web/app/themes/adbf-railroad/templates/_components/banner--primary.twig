@@ -36,11 +36,17 @@
     </div>
 
     <figure class="c-banner__media">
-        {% include '_elements/picture.twig' with {
-            params: {
-                src: this.image,
-            }
-        } %}
+        {% if this.image is defined and this.image is not empty %}
+            {% include '_elements/picture.twig' with {
+                params: {
+                    src: this.image,
+                }
+            } %}
+        {% else %}
+            <picture class="c-media">
+                <img src="https://adbf-railroad-website.ddev.site/app/themes/adbf-railroad/img/missing.png" alt="Missing image" class="c-media__image" />
+            </picture>
+        {% endif %}
         <figcaption></figcaption>
     </figure>
 
