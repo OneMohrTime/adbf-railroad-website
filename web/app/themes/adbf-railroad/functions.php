@@ -70,6 +70,7 @@ class StarterSite extends Timber\Site {
         add_filter( 'wpseo_metabox_prio', array( $this, 'yoast_to_bottom' ) );
         add_action( 'acf/init', array( $this, 'acf_api_update' ) );
         // add_filter('acf/fields/google_map/api', array( $this, 'my_acf_google_map_api' ) );
+        add_action( 'wp_enqueue_scripts', array( $this, 'remove_wp_block_library_css' ), 100 );
         parent::__construct();
     }
 
@@ -137,6 +138,15 @@ class StarterSite extends Timber\Site {
     // }
     public function acf_api_update() {
         acf_update_setting('google_api_key', '');
+    }
+
+    /**
+     * Remove Gutenberg Block Library CSS from loading on the frontend
+     */
+    public function remove_wp_block_library_css(){
+        wp_dequeue_style( 'wp-block-library' );
+        wp_dequeue_style( 'wp-block-library-theme' );
+        // wp_dequeue_style( 'wc-blocks-style' ); // Remove WooCommerce block CSS
     }
 
     public function theme_supports() {
