@@ -121,6 +121,10 @@
 }
 
 .o-footer__social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1em;
 
     // at or above 600px
     @include media(">=small") {
