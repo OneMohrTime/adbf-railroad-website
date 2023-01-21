@@ -35,6 +35,7 @@
 
 .c-swiper__pagination {
     position: absolute;
+    height: 8px;
     transition: 300ms opacity;
     transform: translate3d(0, 0, 0);
     text-align: center;

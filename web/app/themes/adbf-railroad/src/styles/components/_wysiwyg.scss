@@ -115,6 +115,7 @@
     // =========================================================================
     a {
         @include u-inline-link(true);
+        text-decoration: none;
     }
 
     // Typogrify classes

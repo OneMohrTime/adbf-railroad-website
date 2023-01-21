@@ -109,6 +109,7 @@ a {
 
 .c-link {
     @include u-inline-link();
+    text-decoration: none;
 
     .c-wysiwyg & {
         @include u-inline-link(true);
