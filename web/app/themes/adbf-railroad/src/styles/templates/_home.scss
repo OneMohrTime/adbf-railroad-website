@@ -101,7 +101,8 @@
     // =========================================================================
 
     .o-section.-is-featured {
-        margin-top: $gutter-sm;
+        margin-top: $gutter-lg;
+        margin-bottom: $gutter-sm;
 
         // at or above 900px
         @include media(">=medium") {
@@ -115,6 +116,7 @@
             margin-top: $gutter-xl;
             padding-left: $padding;
             padding-right: $padding;
+            margin-bottom: $gutter-lg;
 
             .c-card__headline {
                 font-size: $vw-h3;

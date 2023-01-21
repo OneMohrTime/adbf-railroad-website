@@ -14,7 +14,17 @@
  */
 
 $context          = Timber::context();
+
+$news = array(
+    'post_type' => 'post',
+    'posts_per_page' => -1,
+    'cat' => '4',
+);
+
+$timber_post      = new Timber\Post();
+$context['post']  = $timber_post;
 $context['posts'] = new Timber\PostQuery();
+$context['news']  = Timber::get_posts($news);
 $templates        = array( '_layouts/index.twig' );
 
 if ( is_home() ) {
