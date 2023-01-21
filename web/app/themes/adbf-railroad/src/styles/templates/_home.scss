@@ -80,10 +80,6 @@
             margin-bottom: 0.75em;
         }
 
-        .swiper {
-            overflow: visible;
-        }
-
         // at or above 900px
         @include media(">=medium") {
             margin-top: $gutter;
@@ -94,6 +90,10 @@
         // at or above 1200px
         @include media(">=large") {
             margin-top: $gutter-xl;
+
+            .swiper {
+                overflow: visible;
+            }
         }
     }
 

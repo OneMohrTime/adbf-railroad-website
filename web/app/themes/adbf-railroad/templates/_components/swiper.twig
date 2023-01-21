@@ -6,7 +6,6 @@
     pagination: (params.pagination == true) ? true : null,
     scrollbar: (params.scrollbar == true) ? true : null,
     class: classes,
-    lastSlide: lastSlide
 } %}
 
 {# -- Component Template -- #}
@@ -31,17 +30,6 @@
                 } only %}
             </li>
         {% endfor %}
-        {% if lastSlide == 'c-featured-maps' %}
-            <li class="{% if this.class %} {{ this.class }}{% endif %}__map swiper-slide u-ratio u-1:1">
-                {% include '_elements/link.twig' with {
-                    params: {
-                        linkUrl: '/rails',
-                        linkText: 'See All'
-                    },
-                    class: this.class ? (this.class ~ '__link') : null
-                } only %}
-            </li>
-        {% endif %}
     </ul>
 
     <div class="c-swiper__controls">

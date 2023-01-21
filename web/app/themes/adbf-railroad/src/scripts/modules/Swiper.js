@@ -41,7 +41,7 @@ export default class extends adbfModule {
       // Options
       preloadImages: false,
       rewind: true,
-      slidesPerView: 2,
+      slidesPerView: 2.2,
       spaceBetween: 24,
 
       // Accessibility
@@ -59,7 +59,7 @@ export default class extends adbfModule {
       pagination: {
         el: '.c-swiper__pagination',
         clickable: true,
-        // dynamicBullets: true,
+        dynamicBullets: true,
       },
 
       // Navigation arrows
