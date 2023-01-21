@@ -26,9 +26,12 @@ if (!mix.inProduction()) {
             files: [
                 'web/app/themes/adbf-railroad/templates/*.twig',
                 'web/app/themes/adbf-railroad/templates/**/*.twig',
-                'web/app/themes/adbf-railroad/src/styles/*.css',
+                'web/app/themes/adbf-railroad/css/*.css',
                 'web/app/themes/adbf-railroad/src/styles/*.scss',
+                'web/app/themes/adbf-railroad/src/styles/**/*.scss',
+                'web/app/themes/adbf-railroad/js/*.js',
                 'web/app/themes/adbf-railroad/src/scripts/*.js',
+                'web/app/themes/adbf-railroad/src/scripts/**/*.js',
             ]
         });
 }
