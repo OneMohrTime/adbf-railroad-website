@@ -1,0 +1,44 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    headline: params.headline,
+    body: params.body,
+    background: Image(params.image),
+    link: params.url,
+} %}
+
+{# -- Component Template -- #}
+
+<figure class="c-cta">
+
+    <figcaption href="{{ this.link.url }}" class="c-cta__content">
+        <h2 class="c-cta__headline u-text-h3">{{ this.headline }}</h2>
+        <div class="c-cta__body">
+            {{ this.body }}
+        </div>
+        {% include '_elements/link.twig' with {
+            params: {
+                button: true,
+                isExternal: (this.link.target == '_blank'),
+                linkUrl: this.link.url,
+                linkText: 'Learn More'
+            },
+            class: 'c-cta__link'
+        } only %}
+    </figcaption>
+
+    {% if this.background %}
+        {% include '_elements/picture.twig' with {
+            params: {
+                src: this.background,
+                background: true,
+                classes: 'c-cta__media'
+            }
+        } %}
+    {% else %}
+        <picture class="c-cta__media c-media -is-background">
+            <img src="https://adbf-railroad-website.ddev.site/app/themes/adbf-railroad/img/missing.png" alt="Missing image" class="c-media__image -background" />
+        </picture>
+    {% endif %}
+
+</figure>

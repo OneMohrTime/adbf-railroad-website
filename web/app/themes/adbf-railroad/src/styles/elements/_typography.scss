@@ -1,0 +1,153 @@
+// =============================================================================
+// Elements: Typography
+// =============================================================================
+// This file contains base typographic styles
+
+// Headings
+// =============================================================================
+
+// H1 — H6
+@for $i from 1 through 6 {
+    h#{$i} {
+        position: relative;
+        display: block;
+        margin: 0;
+        line-height: $heading-height;
+
+        // headline links
+        a {
+            font-family: inherit;
+            line-height: inherit;
+            color: inherit;
+        }
+    }
+}
+
+// Individual heading styles
+h1 {
+    font-size: $font-h2;
+
+    // at or above 600px
+    @include media(">=small") {
+        font-size: $font-h1;
+    }
+}
+
+h2 {
+    font-size: $font-h3;
+
+    // at or above 600px
+    @include media(">=small") {
+        font-size: $font-h2;
+    }
+}
+
+h3 {
+    font-size: $font-h4;
+
+    // at or above 600px
+    @include media(">=small") {
+        font-size: $font-h3;
+    }
+}
+
+h4 {
+    font-size: $font-h5;
+
+    // at or above 600px
+    @include media(">=small") {
+        font-size: $font-h4;
+    }
+}
+
+h5 {
+    font-size: $font-h5;
+}
+
+h6 {
+    font-size: $font-h6;
+}
+
+// Body copy
+// =============================================================================
+
+p {
+    margin: 0 0 math.div($line-height, 2);
+    font-size: inherit;
+    line-height: $line-height;
+
+    &:last-child,
+    &:only-child {
+        margin-bottom: 0;
+    }
+}
+
+ul, ol {
+    line-height: $line-height;
+}
+
+// Text classes
+// =============================================================================
+
+.u-text-h1,
+.u-title {
+    font-size: $font-h2;
+    font-weight: $font-semibold;
+
+    // at or above 600px
+    @include media(">=small") {
+        font-size: $font-h1;
+    }
+
+    // at or above 900px
+    @include media(">=medium") {
+        font-size: $vw-h1;
+    }
+}
+
+.u-text-h2,
+.u-headline {
+    font-size: $font-h3;
+    font-weight: $font-semibold;
+
+    // at or above 600px
+    @include media(">=small") {
+        font-size: $font-h2;
+    }
+
+    // at or above 900px
+    @include media(">=medium") {
+        font-size: $vw-h2;
+    }
+}
+
+.u-text-h3,
+.u-subheadline {
+    font-size: $font-h4;
+
+    // at or above 600px
+    @include media(">=small") {
+        font-size: $font-h3;
+    }
+
+    // at or above 900px
+    @include media(">=medium") {
+        font-size: $vw-h3;
+    }
+}
+
+.u-text-h4 {
+    font-size: $font-h5;
+
+    // at or above 900px
+    @include media(">=medium") {
+        font-size: $font-h4;
+    }
+}
+
+.u-text-center {
+    text-align: center;
+}
+
+// .c-copy {
+// }

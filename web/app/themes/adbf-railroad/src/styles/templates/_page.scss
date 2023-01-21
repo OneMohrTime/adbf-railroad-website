@@ -1,0 +1,78 @@
+// =============================================================================
+// Templates: Page
+// =============================================================================
+// This file contains the page properties
+
+// Template Class
+// =============================================================================
+// Unlike most of our code, let's wrap all internal classes with our template
+// class which will allow for easy overrides
+.t-page {
+
+    // Body
+    // =========================================================================
+
+    .o-section.-is-content {
+
+        .c-wysiwyg {
+            padding: $gutter-xs;
+            background-color: $white;
+            color: $black;
+
+            h2, h3, h4 {
+                margin-top: 1em;
+                margin-bottom: 0.25em;
+                font-size: $font-h4;
+                font-weight: $font-bold;
+            }
+        }
+
+        .c-related-posts {
+            margin-bottom: 0;
+            padding: 0;
+            list-style: none;
+
+            .c-related-posts__post {
+                @include last(1) {
+                    .c-card {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            .c-card {
+                margin-bottom: $gutter-xs;
+                padding-top: 0;
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+
+        // at or above 600px
+        @include media(">=small") {
+            display: flex;
+            margin-bottom: $gutter-sm;
+
+            .c-wysiwyg {
+                flex: 0 0 percentage(2/3);
+            }
+        }
+
+        // at or above 900px
+        @include media(">=medium") {
+            .c-related-posts {
+                max-width: 100%;
+            }
+        }
+
+        // at or above 1200px
+        @include media(">=large") {
+            margin-bottom: $gutter;
+
+            .c-wysiwyg {
+                padding: $gutter-sm;
+            }
+        }
+
+    }
+}

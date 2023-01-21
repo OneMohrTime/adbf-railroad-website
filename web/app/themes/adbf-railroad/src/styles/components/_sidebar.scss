@@ -1,0 +1,96 @@
+// =============================================================================
+// Components: Featured Maps
+// =============================================================================
+// This file styles the featured map grids
+
+// Component Frame
+// =============================================================================
+
+.c-sidebar {
+    margin-left: $gutter-xs;
+    margin-right: $gutter-xs;
+    padding: $gutter-xs;
+    background-color: $gray-light;
+    color: $black;
+
+    // at or above 600px
+    @include media(">=small") {
+        margin-top: $gutter-xs;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: $gutter-xs;
+        flex: 0 0 percentage(1/3);
+    }
+
+    // at or above 1200px
+    @include media(">=large") {
+        padding: $gutter-sm;
+    }
+}
+
+// Component Modifiers
+// =============================================================================
+
+// Component Elements
+// =============================================================================
+
+.c-sidebar__menu {
+    font-weight: $font-semibold;
+
+    .-title {
+        display: inline-block;
+        margin-bottom: 12px;
+        font-size: rem(14px);
+        text-transform: uppercase;
+        color: $dark;
+    }
+}
+
+.c-sidebar__menu-item {
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+    @include first(1) {
+        padding-top: 0;
+    }
+
+    @include last(1) {
+        padding-bottom: 0;
+    }
+
+    & + & {
+        border-top: 1px solid $gray-dark;
+    }
+
+    &.-has-submenu {
+        margin-bottom: $gutter-xs;
+        padding-top: 0;
+        padding-bottom: 0;
+        border-top: 0;
+
+        & + .c-sidebar__menu-item {
+            padding-top: 0;
+            border-top: 0;
+        }
+    }
+
+    // at or above 900px
+    @include media(">=medium") {
+        font-size: rem($font-h4);
+    }
+}
+
+.c-sidebar__submenu {}
+
+.c-sidebar__submenu-item {
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+    @include first(1) {
+        padding-top: 0;
+    }
+
+    & + & {
+        border-top: 1px solid $gray-dark;
+    }
+}

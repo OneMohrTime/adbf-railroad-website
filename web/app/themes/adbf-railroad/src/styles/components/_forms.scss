@@ -1,0 +1,73 @@
+// =============================================================================
+// Components: Forms
+// =============================================================================
+// This file styles the contact forms (WPForms)
+
+// Component Frame
+// =============================================================================
+
+.c-form {
+
+    // at or above 600px
+    @include media(">=small") {
+    }
+
+    // at or above 1200px
+    @include media(">=large") {
+    }
+}
+
+// Component Modifiers
+// =============================================================================
+
+// Component Elements
+// =============================================================================
+
+.wpforms-field-container {
+    position: relative;
+}
+
+.wpforms-field {
+    margin-bottom: 1em;
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        padding: 0.25em 0.75em;
+        line-height: $line-height;
+        border-radius: 1px;
+        border: 1px solid $gray-dark;
+
+        &::placeholder {
+            color: $gray;
+        }
+
+        &:focus {
+            // border-color: $dark;
+            outline-color: $dark;
+            outline-offset: 4px;
+        }
+    }
+}
+
+.wpforms-field-label {
+    display: inline-block;
+    font-weight: $font-semibold;
+}
+
+.wpforms-required-label {
+    color: $red;
+}
+
+.wpforms-field-row {
+    display: flex;
+    column-gap: $gutter-xs;
+}
+
+.wpforms-field-row-block {
+    flex: 0 1 100%;
+}
+
+.wpforms-submit {
+    @extend %button;
+}

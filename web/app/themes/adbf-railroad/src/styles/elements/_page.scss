@@ -1,0 +1,117 @@
+// =============================================================================
+// Elements: Page
+// =============================================================================
+// This file contains the page element properties
+//
+// Simple page-level setup.
+// 1. Set the default `font-size` and `line-height` for the entire project,
+//    sourced from our default variables.
+// 2. Force scrollbars to always be visible to prevent awkward ‘jumps’ when
+//    navigating between pages that do/do not have enough content to produce
+//    scrollbars naturally.
+// 3. Ensure the page always fills at least the entire height of the viewport.
+
+// Html
+// =============================================================================
+
+html {
+    min-height: 100%; /* [3] */
+    overflow: hidden;
+    font-family: $font-family;
+    font-size: $font-size; /* [1] */
+    font-weight: $font-regular;
+    line-height: $line-height; /* [1] */
+    color: $font-color;
+
+    // at or above 1200px
+    @include media(">=large") {
+        font-size: rem(18px);
+    }
+
+    // Is loading
+    &.-is-loading {
+        cursor: wait;
+    }
+
+    &.-is-ready {
+        overflow-y: scroll; /* [2] */
+    }
+
+    // Has smooth scroll
+    &.-has-scroll-smooth {
+        overflow: hidden;
+    }
+
+    // Scroll is being dragged
+    &.-has-scroll-dragging {
+        user-select: none;
+    }
+
+    // Has menu open
+    &.-has-menu-open {
+        // below 900px
+        @include media("<medium") {
+            overflow: hidden;
+        }
+    }
+
+    // Fix web fonts in Chrome, Safari, Firefox
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+
+// Body
+// =============================================================================
+
+body {
+    position: relative;
+    background-color: $white;
+    color: $black;
+
+    // Hide overflow when smooth scrolling is enabled
+    .-has-scroll-smooth & {
+        overflow: hidden;
+    }
+
+    // Has menu open
+    &.-has-menu-open {
+        // below 900px
+        @include media("<medium") {
+            overflow: hidden;
+        }
+    }
+}
+
+// Selection
+// =============================================================================
+::selection {
+    background-color: $selection-background;
+    color: $selection-text;
+    text-shadow: none;
+}
+
+// Links
+// =============================================================================
+a {
+    text-decoration: underline;
+    color: inherit;
+
+    &:where(:not(.wp-element-button)) {
+        text-decoration: none;
+    }
+
+    // Generate hover and focus states
+    @include u-hocus {
+        text-decoration: none;
+    }
+}
+
+.c-link {
+    @include u-inline-link();
+    text-decoration: none;
+
+    .c-wysiwyg & {
+        @include u-inline-link(true);
+    }
+}

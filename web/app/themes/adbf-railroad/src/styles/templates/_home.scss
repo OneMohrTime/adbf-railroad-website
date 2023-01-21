@@ -1,0 +1,143 @@
+// =============================================================================
+// Templates: Home
+// =============================================================================
+// This file contains the home page properties
+
+// Template Class
+// =============================================================================
+// Unlike most of our code, let's wrap all internal classes with our template
+// class which will allow for easy overrides
+.t-page.-is-home {
+
+    // Body
+    // =========================================================================
+
+    .o-section.-is-content {
+
+        // at or above 600px
+        @include media(">=small") {
+            display: block; // revert "flex" on normal page
+        }
+
+        // at or above 900px
+        @include media(">=medium") {
+            margin-top: $gutter-lg;
+        }
+
+        // at or above 1200px
+        @include media(">=large") {
+            margin-top: $gutter-xxl;
+        }
+
+        .c-wysiwyg {
+            padding: 0;
+            background-color: transparent;
+
+            h2 {
+                margin-top: 0;
+                margin-bottom: $gutter-sm;
+            }
+
+            // at or above 600px
+            @include media(">=small") {
+                max-width: 75%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            // at or above 900px
+            @include media(">=medium") {
+                max-width: 50%;
+            }
+        }
+
+        .c-list {
+            margin-top: $gutter-sm;
+
+            // at or above 600px
+            @include media(">=small") {
+                max-width: 75%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            // at or above 900px
+            @include media(">=medium") {
+                max-width: 50%;
+            }
+        }
+    }
+
+    // Featured Maps/Rails
+    // =========================================================================
+
+    .o-section.-is-locations {
+        margin-top: $gutter-sm;
+        padding-left: $gutter-xs;
+        padding-right: $gutter-xs;
+
+        .u-text-h2 {
+            margin-bottom: 0.75em;
+        }
+
+        .swiper {
+            overflow: visible;
+        }
+
+        // at or above 900px
+        @include media(">=medium") {
+            margin-top: $gutter;
+            padding-left: $gutter-sm;
+            padding-right: $gutter-sm;
+        }
+
+        // at or above 1200px
+        @include media(">=large") {
+            margin-top: $gutter-xl;
+        }
+    }
+
+    // Featured Page
+    // =========================================================================
+
+    .o-section.-is-featured {
+        margin-top: $gutter-sm;
+
+        // at or above 900px
+        @include media(">=medium") {
+            margin-top: $gutter;
+            padding-left: $gutter;
+            padding-right: $gutter;
+        }
+
+        // at or above 1200px
+        @include media(">=large") {
+            margin-top: $gutter-xl;
+            padding-left: $padding;
+            padding-right: $padding;
+
+            .c-card__headline {
+                font-size: $vw-h3;
+            }
+        }
+    }
+
+    // Call to Action
+    // =========================================================================
+
+    .o-section.-is-cta {
+        margin-top: $gutter-sm;
+        padding-left: 0;
+        padding-right: 0;
+
+        // at or above 900px
+        @include media(">=medium") {
+            margin-top: $gutter;
+        }
+
+        // at or above 1200px
+        @include media(">=large") {
+            margin-top: $gutter-xl;
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{# -- Base page layout -- #}
+{# ----------------------------------------------------------------- #}
+{% extends "_base/html/_base.twig" %}
+
+{% set photoGallery = post.photos %}
+
+{% block content %}
+
+    {% if photoGallery is defined and photoGallery is not empty %}
+        <section class="o-section -is-gallery">
+
+            <h1 class="u-text-h1">{{ post.title }}</h1>
+
+            <ul class="c-photo-gallery" data-module-zoom>
+                {% for photo in photoGallery %}
+                    {% set photo = Image(photo) %}
+                    <li class="c-photo-gallery__photo">
+
+                        {% include '_elements/picture.twig' with {
+                            params: {
+                                src: photo,
+                                ratio: '1:1',
+                            }
+                        } only %}
+
+                        <a href="{{ Image(photo).src('large') }}" class="c-photo-gallery__zoom js-zoom">Click to Zoom</a>
+
+                        {% if photo.caption is not empty %}
+                            <h3 class="c-photo-gallery__title">{{ photo.caption }}</h3>
+                        {% endif %}
+
+                        {% include '_base/svg/icon-search.twig' with {
+                            svgClass: 'c-photo-gallery__zoom-icon'
+                        } only %}
+
+                    </li>
+                {% endfor %}
+            </ul>
+
+        </section>
+    {% endif %}
+
+    <section class="o-section -is-content">
+        <article class="c-wysiwyg">
+
+            {# <h1 class="u-text-h1">{{ post.title }}</h1> #}
+            {{ post.content }}
+
+        </article>
+    </section>
+
+    {# https://stackoverflow.com/questions/49632914/passing-acf-map-data-to-a-twig-loop-in-timber-theme #}
+    <section class="o-section -is-map">
+        <figure class="c-map" data-zoom="16" height="400px">
+        {# <figure class="c-map" data-zoom="16" height="400px" data-module-google-map> #}
+            <div class="c-map__marker" data-lat="{{ post.location['lat'] }}" data-lng="{{ post.location['lng'] }}"></div>
+        </figure>
+    </section>
+
+{% endblock %}

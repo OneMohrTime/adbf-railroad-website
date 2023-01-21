@@ -1,0 +1,60 @@
+{# -- Base page layout -- #}
+{# ----------------------------------------------------------------- #}
+{#
+CURRENTLY UNUSED
+
+{% extends "_base/html/_base.twig" %}
+
+{% block content %}
+
+    <section class="o-section -is-banner">
+        {% include '_components/banner--secondary.twig' with {
+            params: {
+                eyebrow: post.banner_eyebrow,
+                image: post.banner_image ? Image(post.banner_image) : post.thumbnail('large'),
+                headline: post.banner_headline ? post.banner_headline : post.title,
+            }
+        } only %}
+    </section>
+
+    <article class="o-section -is-content">
+
+        {% if post.content %}
+            <div class="c-wysiwyg">
+                {{ post.content }}
+            </div>
+        {% endif %}
+
+        {% if news %}
+            <ul class="c-related-posts">
+
+                {% for article in news %}
+                    <li class="c-related-posts__post">
+
+                        {% if article.excerpt is defined and article.excerpt is not empty %}
+                            {% set content = article.excerpt %}
+                        {% else %}
+                            {% set content = (article.post_content|slice(0, 180)) ~ '...' %}
+                        {% endif %}
+
+                        {% include '_components/card.twig' with {
+                            params: {
+                                thumbnail: article.banner_image ? Image(article.banner_image) : article.thumbnail('large'),
+                                eyebrow: article.category,
+                                title: article.title,
+                                text: content,
+                                link: article.link
+                            }
+                        } only %}
+
+                    </li>
+                {% endfor %}
+
+            </ul>
+        {% endif %}
+
+        {% include '_components/sidebar.twig' %}
+
+    </article>
+
+{% endblock %} #}

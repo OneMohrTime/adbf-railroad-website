@@ -1,0 +1,68 @@
+// =============================================================================
+// Settings: Config
+// =============================================================================
+// This file contains the config setting(s) properties
+
+// Context
+// =============================================================================
+
+// Path is relative to the stylesheets directory.
+$assets-path: "../" !default;
+
+// Transitions
+// =============================================================================
+
+$speed-transition: 400ms;
+$speed-reveal:     400ms;
+$speed-hover:      150ms;
+$speed:            $speed-transition;
+
+// cubic bezier options
+$easing:       cubic-bezier(0.645, 0.045, 0.355, 1);
+$bezier-sine:  cubic-bezier(0.39, 0.575, 0.565, 1);
+$bezier-quad:  cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$bezier-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+$bezier-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+$bezier-quint: cubic-bezier(0.23, 1, 0.32, 1);
+$bezier-expo:  cubic-bezier(0.19, 1, 0.22, 1);
+$bezier-circ:  cubic-bezier(0.075, 0.82, 0.165, 1);
+$bezier-back:  cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$bezier-slide: cubic-bezier(0, 0, 0.2, 1);
+
+// Spacing Units
+// =============================================================================
+
+// base
+$spacing-unit: 24px; // multiply by 3 to get the general `$gutter`
+
+// vars
+$gutter:         $spacing-unit * 3;
+$gutter-xs:      $spacing-unit * 1;
+$gutter-sm:      $spacing-unit * 2;
+$gutter-md:      $spacing-unit * 3;
+$gutter-lg:      $spacing-unit * 4;
+$gutter-xl:      $spacing-unit * 5;
+$gutter-xxl:     $spacing-unit * 6;
+$gutter-super:   $spacing-unit * 7;
+$gutter-massive: $spacing-unit * 8;
+
+// Container
+// =============================================================================
+
+$container-width: 1280px;
+$inner-width:     1000px;
+
+// general padding gap
+$padding: math.div($container-width - $inner-width, 2);
+
+// Media Queries (@include-media)
+// =============================================================================
+
+$breakpoints: (
+    tiny: 300px,
+    small: 600px,
+    medium: 900px,
+    large: 1200px,
+    big: 1500px,
+    huge: 1800px
+) !default;

@@ -1,0 +1,65 @@
+// =============================================================================
+// Components: Image
+// =============================================================================
+// This file contains image styles, like block-level, background covers, svgs, etc
+
+// Component Frame
+// =============================================================================
+.c-image {
+    display: block;
+    width: auto;
+    height: auto;
+
+    // Set to fill available space
+    // =========================================================================
+    &.-cover {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    // Vector images
+    // =========================================================================
+    &.-svg {
+        width: 100%;
+        height: 100%;
+
+        // if SVG is with a button, hold original proportions
+        .c-button & {
+            width: auto;
+            height: auto;
+        }
+    }
+}
+
+// Component Modifiers
+// =============================================================================
+
+.c-media.-is-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+// Component Elements
+// =============================================================================
+
+.c-media__image {
+    object-fit: cover;
+
+    // Background images
+    // =========================================================================
+    &.-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        pointer-events: none;
+    }
+}

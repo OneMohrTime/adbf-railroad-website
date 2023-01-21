@@ -1,0 +1,40 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    img: params.thumbnail ?? null,
+    eyebrow: params.eyebrow ?? null,
+    title: params.title ?? null,
+    body: params.text ?? null,
+    link: params.link ?? null,
+} %}
+
+{# -- Component Template -- #}
+
+<figure class="c-card">
+
+    <div class="c-card__image">
+        {% if this.img is not empty %}
+            {% include '_elements/picture.twig' with {
+                params: {
+                    src: this.img,
+                    ratio: '4:3'
+                }
+            } only %}
+        {% else %}
+            <img src="https://adbf-railroad-website.ddev.site/app/themes/adbf-railroad/img/missing.png" alt="Missing image" class="c-media__image" />
+        {% endif %}
+    </div>
+
+    <div class="c-card__content">
+        {% if this.eyebrow is not empty %}
+            <strong class="c-card__eyebrow u-eyebrow">{{ this.eyebrow }}</strong>
+        {% endif %}
+        <h2 class="c-card__headline u-text-h3">{{ this.title }}</h2>
+        <div class="c-card__body">
+            {{ this.body|slice(0, 140) ~ '...' }}
+        </div>
+    </div>
+
+    <a href="{{ this.link }}" class="c-card__link">Visit {{ this.title }}</a>
+
+</figure>

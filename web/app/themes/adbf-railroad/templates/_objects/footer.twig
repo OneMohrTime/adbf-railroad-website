@@ -1,0 +1,35 @@
+{# -- Site Footer -- #}
+{# ----------------------------------------------------------------- #}
+
+<footer class="o-footer">
+    <div class="o-footer--primary">
+
+        <figure class="o-footer__logo">
+            {% include '_base/svg/logo--footer.twig' with {
+                svgClass: '-is-light'
+            } only %}
+        </figure>
+
+        <address class="o-footer__address">
+            <a href="https://goo.gl/maps/B3jsyssfj6n1sGJw8" class="c-link">
+                2163 Commons Parkway<br/>Okemos, MI 48864
+            </a>
+        </address>
+
+        <a href="tel:5174091040" class="o-footer__phone c-link">(517) 409-1040</a>
+
+        <ul class="o-footer__social">
+            <li class="o-footer__social-icon">
+                <a href="https://www.facebook.com/abrailroad/" class="o-footer__social-link">
+                    {% include '_base/svg/social-facebook.twig' only %}
+                </a>
+            </li>
+        </ul>
+
+    </div>
+    <div class="o-footer--utility">
+        Copyright {{"now"|date('Y')}}. All rights reserved. Adrian &amp; Blissfield Rail Road Company.
+    </div>
+</footer>
+
+{{ function('wp_footer') }}

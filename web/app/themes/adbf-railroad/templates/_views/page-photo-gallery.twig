@@ -1,0 +1,38 @@
+{# -- Base page layout -- #}
+{# ----------------------------------------------------------------- #}
+{% extends "_base/html/_base.twig" %}
+
+{% block content %}
+
+    <section class="o-section -is-banner">
+        {% include '_components/banner--secondary.twig' with {
+            params: {
+                eyebrow: post.banner_eyebrow,
+                image: Image(post.banner_image),
+                headline: post.banner_headline ? post.banner_headline : post.title,
+            }
+        } only %}
+    </section>
+
+    <section class="o-section -is-photos">
+        {% include '_components/swiper.twig' with {
+            params: {
+                swiper: galleries,
+                arrows: true,
+                scrollbar: true
+            },
+            classes: 'c-featured-maps'
+        } only %}
+    </section>
+
+    <article class="o-section -is-content">
+
+        <div class="c-wysiwyg">
+            {{ post.content }}
+        </div>
+
+        {% include '_components/sidebar.twig' %}
+
+    </article>
+
+{% endblock %}

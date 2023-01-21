@@ -1,0 +1,47 @@
+// =============================================================================
+// Generic: Forms
+// =============================================================================
+// This file contains the generic form properties
+
+// Input, select, textarea
+// =============================================================================
+
+input,
+select,
+textarea {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+    background: none transparent;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    appearance: none;
+}
+
+// Select
+// =============================================================================
+
+select {
+    text-transform: none;
+
+    &::-ms-expand {
+        display: none;
+    }
+
+    &::-ms-value {
+        background: none;
+        color: inherit;
+    }
+}
+
+// Textarea
+// =============================================================================
+
+textarea {
+    overflow: auto;
+    resize: vertical;
+}

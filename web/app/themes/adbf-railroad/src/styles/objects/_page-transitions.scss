@@ -1,0 +1,51 @@
+// =============================================================================
+// Animations: Page Transitions
+// =============================================================================
+// This file contains the default animations for page transitions deployed via
+// the Mighty Load javascript module
+
+// Load container module
+// =============================================================================
+// Targets load container by 'data-load-container' attribute
+[data-load-container] {
+    opacity: 1;
+    transform: none;
+    transition: $speed-hover $easing;
+
+    // Is old
+    &.-is-old {
+
+        // Is loading
+        .-is-loading & {
+            opacity: 0;
+        }
+
+        // Is slideOut transition AND is loading
+        .-is-slideOut.-is-loading & {
+            opacity: 0;
+            transform: translateY(100vh);
+        }
+    }
+
+    // Is new
+    &.-is-new {
+        opacity: 0;
+
+        // Is slideOut transition AND is loading
+        .-is-slideOut.-is-loading & {
+            display: none;
+        }
+
+        // Is slideOut transition AND is loaded
+        .-is-slideOut.-is-loaded & {
+            display: block;
+            transform: translateY(-100vh);
+        }
+    }
+
+    // Is ready
+    .-is-ready & > {
+        opacity: 1;
+        transform: none;
+    }
+}

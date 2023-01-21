@@ -1,0 +1,29 @@
+{# -- Component Variables -- #}
+
+{# -- Component Template -- #}
+
+{% if menu %}
+    <ul class="c-navigation js-menu">
+        {% for item in items %}
+            <li class="c-navigation__item{% if item.children %} -with-dropdown{% endif %}">
+                <a target="{{ item.target }}" href="{{ item.link }}" class="c-link">
+                    <span class="c-link__text">{{ item.title }}</span>
+                </a>
+                {% if item.children %}
+                    <button class="c-button -caret js-caret">
+                        {% include '_base/svg/icon-caret-down.twig' only %}
+                    </button>
+                    <ul class="c-subnav js-dropdown">
+                        {% for child in item.children %}
+                            <li class="c-subnav__item">
+                                <a target="{{ child.target }}" href="{{ child.link }}" class="c-link">
+                                    <span class="c-link__text">{{ child.title }}</span>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}

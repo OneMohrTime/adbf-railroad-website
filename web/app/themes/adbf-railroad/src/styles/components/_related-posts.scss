@@ -1,0 +1,33 @@
+// =============================================================================
+// Components: Related Posts
+// =============================================================================
+// This file styles the related post cards
+
+// Component Frame
+// =============================================================================
+
+.c-related-posts {
+    margin-bottom: $gutter-xs;
+
+    // at or above 900px
+    @include media(">=medium") {
+        max-width: percentage(2/3);
+    }
+}
+
+// Component Modifiers
+// =============================================================================
+
+// Component Elements
+// =============================================================================
+
+.c-related-posts__post {
+
+    & + & {
+        margin-top: $gutter-xs;
+    }
+
+    .c-card__headline {
+        font-size: $font-h4;
+    }
+}

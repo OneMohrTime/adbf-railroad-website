@@ -1,0 +1,55 @@
+// =============================================================================
+// Settings: Typography
+// =============================================================================
+// This file contains the type setting(s) properties
+
+// Font stacks: https://css-tricks.com/snippets/css/font-stacks/
+// =============================================================================
+
+$font-body: "Readex Pro", Futura, "Trebuchet MS", Arial, sans-serif;
+$font-heading: $font-body;
+
+// Defaults
+// =============================================================================
+$font-size:           16px;
+$font-color:          $black;
+$line-height-body:    1.5em;
+$line-height-heading: 1.2em;
+
+// Sizes & weights
+// =============================================================================
+
+// Headings in px
+$font-h1: 54px;
+$font-h2: 48px;
+$font-h3: 36px;
+$font-h4: 21px;
+$font-h5: 15px;
+$font-h6: 12px;
+
+// Headings in vw
+$vw-h1: 3.75vw;
+$vw-h2: 3.33vw;
+$vw-h3: 2.5vw;
+
+// Weights
+$font-hairline: 100;
+$font-thin:     200;
+$font-light:    300;
+$font-book:     400;
+$font-regular:  400;
+$font-medium:   500;
+$font-semibold: 600;
+$font-demibold: 600;
+$font-bold:     700;
+$font-heavy:    800;
+$font-ultra:    800;
+$font-black:    900;
+
+// Body copy
+$font-family: $font-body;
+$font-weight: $font-regular;
+
+// Line heights
+$line-height:    $line-height-body;
+$heading-height: $line-height-heading;

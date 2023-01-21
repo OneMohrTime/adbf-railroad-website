@@ -1,0 +1,545 @@
+[{
+    "key": "group_635d745e88711",
+    "title": "Album Details",
+    "fields": [{
+        "key": "field_635d745f94694",
+        "label": "Location",
+        "name": "location",
+        "aria-label": "",
+        "type": "google_map",
+        "instructions": "Optional location, if all photos in the album are from the same location",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "center_lat": "41.833858544729736",
+        "center_lng": "-83.83296223409235",
+        "zoom": 8,
+        "height": ""
+      },
+      {
+        "key": "field_635d753694695",
+        "label": "Photos",
+        "name": "photos",
+        "aria-label": "",
+        "type": "gallery",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "array",
+        "library": "all",
+        "min": "",
+        "max": "",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": "",
+        "insert": "append",
+        "preview_size": "medium"
+      }
+    ],
+    "location": [
+      [{
+        "param": "post_type",
+        "operator": "==",
+        "value": "photo_album"
+      }],
+      [{
+        "param": "post_category",
+        "operator": "==",
+        "value": "category:photo-gallery"
+      }]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+  },
+  {
+    "key": "group_63391d0ba374e",
+    "title": "Banner: Primary",
+    "fields": [{
+        "key": "field_63391d0ce88b7",
+        "label": "Image",
+        "name": "banner_image",
+        "aria-label": "",
+        "type": "image",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "array",
+        "library": "all",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": "jpg, jpeg, png, gif, webp, avif, heic",
+        "preview_size": "large"
+      },
+      {
+        "key": "field_63392083e88b8",
+        "label": "Headline",
+        "name": "banner_headline",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_633920f3e88b9",
+        "label": "Description",
+        "name": "banner_description",
+        "aria-label": "",
+        "type": "wysiwyg",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "delay": 0,
+        "tabs": "all",
+        "toolbar": "full",
+        "media_upload": 0
+      },
+      {
+        "key": "field_63392140e88ba",
+        "label": "Banner Links",
+        "name": "banner_links",
+        "aria-label": "",
+        "type": "repeater",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "layout": "block",
+        "pagination": 0,
+        "min": 0,
+        "max": 2,
+        "collapsed": "",
+        "button_label": "Add Link",
+        "rows_per_page": 20,
+        "sub_fields": [{
+          "key": "field_63392150e88bb",
+          "label": "Link",
+          "name": "banner_link",
+          "aria-label": "",
+          "type": "link",
+          "instructions": "",
+          "required": 1,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "50",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "array",
+          "parent_repeater": "field_63392140e88ba"
+        }]
+      }
+    ],
+    "location": [
+      [{
+        "param": "page_type",
+        "operator": "==",
+        "value": "front_page"
+      }]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+  },
+  {
+    "key": "group_63309dca10de5",
+    "title": "Banner: Secondary",
+    "fields": [{
+        "key": "field_63309e83769e4",
+        "label": "Banner Headline",
+        "name": "banner_headline",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "maxlength": "",
+        "placeholder": "Overrides post's title",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_63309dcb0fc48",
+        "label": "Banner Image",
+        "name": "banner_image",
+        "aria-label": "",
+        "type": "image",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "array",
+        "library": "all",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": "jpg, jpeg, png, gif, webp, avif",
+        "preview_size": "medium"
+      }
+    ],
+    "location": [
+      [{
+          "param": "post_template",
+          "operator": "==",
+          "value": "default"
+        },
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "page"
+        },
+        {
+          "param": "page_type",
+          "operator": "!=",
+          "value": "front_page"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+      "discussion",
+      "comments",
+      "slug",
+      "author",
+      "format",
+      "categories",
+      "tags",
+      "send-trackbacks"
+    ],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+  },
+  {
+    "key": "group_638d2aed0702f",
+    "title": "Contact",
+    "fields": [{
+      "key": "field_638d2aeeb6d77",
+      "label": "WP Shortcode",
+      "name": "wp_shortcode",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Paste the embed code from the <code>WPForms > All Forms<\/code> tab",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "[wpforms id=\"000\"]",
+      "prepend": "",
+      "append": ""
+    }],
+    "location": [
+      [{
+        "param": "page_template",
+        "operator": "==",
+        "value": "template-contact.php"
+      }]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+  },
+  {
+    "key": "group_633f941a1cc23",
+    "title": "Home Page",
+    "fields": [{
+        "key": "field_633f941b4d458",
+        "label": "Related Pages",
+        "name": "related_pages",
+        "aria-label": "",
+        "type": "relationship",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "post_type": [
+          "page"
+        ],
+        "taxonomy": "",
+        "filters": [
+          "search",
+          "post_type"
+        ],
+        "return_format": "object",
+        "min": "",
+        "max": 8,
+        "elements": ""
+      },
+      {
+        "key": "field_633f95394d45a",
+        "label": "Rail Maps",
+        "name": "rail_maps",
+        "aria-label": "",
+        "type": "relationship",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "post_type": [
+          "page"
+        ],
+        "taxonomy": "",
+        "filters": [
+          "search",
+          "post_type",
+          "taxonomy"
+        ],
+        "return_format": "object",
+        "min": "",
+        "max": 8,
+        "elements": ""
+      },
+      {
+        "key": "field_633f95944d45b",
+        "label": "Featured Page",
+        "name": "featured_page",
+        "aria-label": "",
+        "type": "post_object",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "post_type": [
+          "page"
+        ],
+        "taxonomy": "",
+        "return_format": "object",
+        "multiple": 0,
+        "allow_null": 0,
+        "ui": 1
+      }
+    ],
+    "location": [
+      [{
+        "param": "page_type",
+        "operator": "==",
+        "value": "front_page"
+      }]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+  },
+  {
+    "key": "group_63573363ca9aa",
+    "title": "Call to Action",
+    "fields": [{
+      "key": "field_635733655650f",
+      "label": "CTA Embed",
+      "name": "cta_embed",
+      "aria-label": "",
+      "type": "relationship",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "post_type": [
+        "cta"
+      ],
+      "taxonomy": "",
+      "filters": [
+        "search"
+      ],
+      "return_format": "object",
+      "min": "",
+      "max": "",
+      "elements": ""
+    }],
+    "location": [
+      [{
+        "param": "post_type",
+        "operator": "==",
+        "value": "page"
+      }]
+    ],
+    "menu_order": 50,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+  },
+  {
+    "key": "group_635432e544073",
+    "title": "Call to Action (Fields)",
+    "fields": [{
+        "key": "field_635433dac1029",
+        "label": "Page Link",
+        "name": "cta_link",
+        "aria-label": "",
+        "type": "link",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "array"
+      },
+      {
+        "key": "field_63543378c1028",
+        "label": "Background Image",
+        "name": "cta_background",
+        "aria-label": "",
+        "type": "image",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "array",
+        "library": "all",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": "jpg, jpeg, png, gif, webp, avif",
+        "preview_size": "medium_large"
+      }
+    ],
+    "location": [
+      [{
+        "param": "post_type",
+        "operator": "==",
+        "value": "cta"
+      }]
+    ],
+    "menu_order": 50,
+    "position": "acf_after_title",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+      "permalink",
+      "excerpt",
+      "discussion",
+      "comments",
+      "slug",
+      "author",
+      "format",
+      "page_attributes",
+      "featured_image",
+      "categories",
+      "tags",
+      "send-trackbacks"
+    ],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+  }
+]

@@ -1,0 +1,53 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    eyebrow: params.eyebrow,
+    image: params.image,
+    headline: params.headline,
+    body: params.body,
+    links: params.links,
+} %}
+
+{# -- Component Template -- #}
+
+<div class="c-banner -is-primary">
+
+    <div class="c-banner__content">
+        <h1 class="c-banner__headline u-text-h1">{{ this.headline }}</h1>
+        <div class="c-banner__body c-wysiwyg">
+            {{ this.body }}
+        </div>
+        {% if this.links is defined and this.links is not empty %}
+            <div class="c-banner__links">
+                {% for link in this.links %}
+                    {% set button = link.banner_link %}
+                    {% include '_elements/link.twig' with {
+                        params: {
+                            button: true,
+                            isExternal: (button.target == '_blank'),
+                            linkUrl: button.url,
+                            linkText: button.title
+                        },
+                        class: '-is-primary'
+                    } only %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <figure class="c-banner__media">
+        {% if this.image is defined and this.image is not empty %}
+            {% include '_elements/picture.twig' with {
+                params: {
+                    src: this.image,
+                }
+            } %}
+        {% else %}
+            <picture class="c-media">
+                <img src="https://adbf-railroad-website.ddev.site/app/themes/adbf-railroad/img/missing.png" alt="Missing image" class="c-media__image" />
+            </picture>
+        {% endif %}
+        <figcaption></figcaption>
+    </figure>
+
+</div>

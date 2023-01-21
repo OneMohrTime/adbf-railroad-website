@@ -1,0 +1,51 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    isButton: params.button ?? false,
+    isExternal: params.external ?? false,
+    hasIcon: params.icon ?? false,
+    linkFieldUrl: params.linkUrl ?? 'javascript:;',
+    linkFieldText: params.linkText ?? 'Learn More',
+    linkFieldTitle: params.linkTitle ?? params.linkText ?? 'Learn More',
+    linkFieldIcon: params.icon ?? 'caret--right',
+    id: id ?? null,
+    classes: class ?? null,
+    attributes: attr ?? null,
+} %}
+
+{# -- Component Template -- #}
+
+{% spaceless %}
+<a href="{{ this.linkFieldUrl }}" class="
+
+    {# lets see if we have a link or a button #}
+    {% if this.isButton %} c-button {% else %} c-link {% endif %}
+
+    {# set display different if we need icon #}
+    {% if this.hasIcon %} -has-icon {% endif %}
+
+    {# set some additional classes based on link element's classes #}
+    {% if this.classes %} {{ this.classes }} {% endif %} "
+
+    {# if an ID has been assigned #}
+    {% if this.id %} id="{{ this.id }}" {% endif %}
+
+    {# add title attribute #}
+    title="{{ this.linkFieldTitle }}"
+
+    {# check if it opens in a new window, add properties #}
+    {% if this.isExternal %} target="_blank" rel="noopener nofollow noreferrer" {% endif %}
+
+    {# add data-* attributes easily #}
+    {% if this.attributes %} {{ this.attributes }} {% endif %}>
+
+    {# wrap actual button text with span for easier targeting #}
+    <span class="{{ this.isButton ? 'c-button__text' : 'c-link__text' }}">{{ this.linkFieldText }}</span>
+
+    {# optional icon added to the right #}
+    {% if this.hasIcon %}
+        {% include '_base/svg/' ~ this.linkFieldIcon %}
+    {% endif %}
+
+</a>
+{% endspaceless %}

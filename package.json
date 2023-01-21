@@ -1,0 +1,63 @@
+{
+  "name": "adbf-tailwind",
+  "version": "1.0.0",
+  "description": "Timber WordPress theme with Tailwind CSS.",
+  "author": {
+    "name": "Mighty in the Midwest",
+    "email": "developers@mightyinthemidwest.com",
+    "url": "https://mightyinthemidwest.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeffreyvr/tailpress"
+  },
+  "text_domain": "adbf",
+  "license": "MIT",
+  "browserslist": [
+    "last 5 versions",
+    "> 1%",
+    "IE 10-11"
+  ],
+  "scripts": {
+    "dev": "npm run development",
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "build": "npm run production",
+    "prod": "npm run production",
+    "production": "mix --production"
+  },
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.3",
+    "autoprefixer": "^10.4.0",
+    "browser-sync": "^2.26.14",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "concurrently": "^6.2.1",
+    "cross-env": "^6.0.3",
+    "dotenv": "^16.0.2",
+    "esbuild": "^0.12.24",
+    "laravel-mix": "^6.0.49",
+    "mix-tailwindcss": "^1.3.0",
+    "postcss": "^8.4.4",
+    "postcss-import": "^14.0.0",
+    "postcss-nested-ancestors": "^2.0.0",
+    "resolve-url-loader": "^3.1.2",
+    "sass": "^1.55.0",
+    "sass-loader": "^12.6.0",
+    "tailwindcss": "^3.1.0"
+  },
+  "dependencies": {
+    "bourbon": "^7.2.0",
+    "glightbox": "^3.2.0",
+    "include-media": "^1.4.10",
+    "jquery": "^3.6.1",
+    "locomotive-scroll": "^4.1.4",
+    "modujs": "^1.4.2",
+    "modularload": "^1.2.8",
+    "modularscroll": "^1.0.7",
+    "normalize.css": "^8.0.1",
+    "swiper": "^8.4.4"
+  }
+}

@@ -1,0 +1,50 @@
+// =============================================================================
+// Animations: Scroll Elements
+// =============================================================================
+// This file contains the default animations for scroll elements deployed via
+// the Mighty Scroll javascript module.
+
+// Scroll container module
+// =============================================================================
+// Targets scroll container by 'data-scroll' attribute
+[data-scroll] {
+
+    // add utility class to HTML element
+    .u-fade-in {
+        opacity: 0;
+        transform: translateY(1rem);
+        transition: opacity $speed-reveal $bezier-slide,
+                    transform $speed-reveal $bezier-slide;
+
+        // add transition delays depending on child position
+        @for $i from 1 through 20 {
+            &:nth-child(#{$i}) {
+                transition-delay: #{$i}00ms;
+            }
+        }
+
+        // add transition delays depending on type
+        // @for $i from 1 through 20 {
+        //     &:nth-of-type(#{$i}) {
+        //         transition-delay: #{$i}00ms;
+        //     }
+        // }
+
+        // when combined with a button's transitions...
+        &.c-button {
+            transition: opacity $speed-reveal $bezier-slide,
+                        transform $speed-reveal $bezier-slide,
+                        background $speed-reveal $bezier-slide,
+                        color $speed-reveal $bezier-slide;
+        }
+    }
+
+    // Scrolled into view
+    &.-in-viewport {
+
+        .u-fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}

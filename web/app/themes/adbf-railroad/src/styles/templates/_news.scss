@@ -1,0 +1,62 @@
+// =============================================================================
+// Templates: News Posts (Home)
+// =============================================================================
+// This file contains the index of news posts
+
+// Template Class
+// =============================================================================
+// Unlike most of our code, let's wrap all internal classes with our template
+// class which will allow for easy overrides
+.t-news,
+.t-page.-is-news {
+
+    // Body
+    // =========================================================================
+
+    .o-section.-is-content {
+
+        .c-wysiwyg {
+            // max-width: 75ch;
+            background-color: $white;
+            color: $black;
+        }
+
+        .c-related-posts {
+            padding: $gutter-xs;
+            background-color: $white;
+            color: $black;
+
+            .c-card {
+                margin-bottom: $gutter-xs;
+                padding-bottom: 0;
+            }
+        }
+
+        // at or above 600px
+        @include media(">=small") {
+            display: flex;
+            margin-bottom: $gutter-sm;
+
+            .c-wysiwyg {
+                flex: 0 0 percentage(2/3);
+            }
+        }
+
+        // at or above 900px
+        @include media(">=medium") {
+            .c-related-posts {
+                max-width: 100%;
+            }
+        }
+
+        // at or above 1200px
+        @include media(">=large") {
+            margin-bottom: $gutter;
+
+            .c-wysiwyg {
+                padding: $gutter-sm;
+            }
+        }
+
+    }
+}

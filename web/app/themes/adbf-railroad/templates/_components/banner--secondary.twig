@@ -1,0 +1,30 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    eyebrow: params.eyebrow,
+    image: params.image,
+    headline: params.headline,
+} %}
+
+{# -- Component Template -- #}
+
+<div class="c-banner -is-secondary">
+
+    <div class="c-banner__content">
+        <h1 class="c-banner__headline u-headline u-text-h2">{{ this.headline }}</h1>
+    </div>
+
+    {% if this.image is defined and this.image is not empty %}
+        {% include '_elements/picture.twig' with {
+            params: {
+                src: this.image,
+                background: true
+            }
+        } %}
+    {% else %}
+        <picture class="c-media -is-background">
+            <img src="https://adbf-railroad-website.ddev.site/app/themes/adbf-railroad/img/missing.png" alt="Missing image" class="c-media__image -background" />
+        </picture>
+    {% endif %}
+
+</div>

@@ -1,0 +1,128 @@
+// =============================================================================
+// Components: WYSIWYG
+// =============================================================================
+// This file styles the elements inside of a wysiwyg field
+
+// Component Frame
+// =============================================================================
+
+.c-wysiwyg {
+    position: relative;
+}
+
+// Component Modifiers
+// =============================================================================
+
+// .c-wysiwyg--large {
+// }
+
+// Component Elements
+// =============================================================================
+.c-wysiwyg {
+
+    // All headings
+    // =========================================================================
+    @for $i from 2 through 6 {
+        h#{$i} {
+            margin-top: 1.25em;
+            margin-bottom: 0.75em;
+
+            // no top-margin if its the first element
+            @include first(1) {
+                margin-top: 0;
+            }
+        }
+    }
+
+    // Headlines
+    // =========================================================================
+    h2 {
+        font-size: $font-h4;
+        font-weight: $font-semibold;
+
+        // at or above 600px
+        @include media(">=small") {
+            font-size: $font-h3;
+        }
+
+        // at or above 900px
+        @include media(">=medium") {
+            font-size: $vw-h3;
+        }
+    }
+
+    // Subheadlines
+    // =========================================================================
+    h3 {}
+    h4 {}
+
+    // Ordered & unordered lists
+    // =========================================================================
+    ul, ol {
+        display: block;
+        padding-left: 1em;
+        margin-bottom: $line-height;
+
+        ul, ol {
+            // margin-top: math.div($line-height, 2);
+            // margin-bottom: math.div($line-height, 2);
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        // space list items a bit
+        li {
+            display: list-item;
+            // margin-bottom: math.div($line-height, 2);
+        }
+    }
+    ul {
+        list-style-type: disc;
+
+        // custom <li> dots
+        // li::marker {}
+    }
+    ol {
+        list-style-type: decimal;
+
+        // custom <li> dots
+        // li::marker {}
+    }
+
+    // Text
+    // =========================================================================
+    p {
+        margin: 0 0 $line-height;
+        line-height: $line-height;
+
+        @include last(1) {
+            margin-bottom: 0
+        }
+    }
+
+    figure {
+        margin-bottom: $line-height;
+    }
+
+    blockquote {
+        margin-top: $line-height;
+        margin-bottom: $line-height;
+        font-size: rem($font-h5);
+        line-height: $heading-height;
+    }
+
+    // Links
+    // =========================================================================
+    a {
+        @include u-inline-link(true);
+        text-decoration: none;
+    }
+
+    // Typogrify classes
+    // =========================================================================
+
+    // set all caps to just slightly smaller
+    .caps {
+        font-size: 0.95em;
+    }
+}

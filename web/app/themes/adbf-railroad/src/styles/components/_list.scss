@@ -1,0 +1,43 @@
+// =============================================================================
+// Components: List
+// =============================================================================
+// This file styles the grid list component
+
+// Component Frame
+// =============================================================================
+
+.c-list {
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid $gray;
+}
+
+// Component Modifiers
+// =============================================================================
+
+// overwrite default wysiwyg styles
+.c-wysiwyg {
+    .c-list {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    .c-list__item {
+        margin-bottom: 0;
+    }
+}
+
+// Component Elements
+// =============================================================================
+
+.c-list__item {
+    flex: 0 0 50%;
+    max-width: 50%;
+    border-bottom: 1px solid $gray;
+    padding: 12px;
+
+    @include odd() {
+        border-right: 1px solid $gray;
+    }
+}

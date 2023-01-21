@@ -1,0 +1,33 @@
+{# -- Base page layout -- #}
+{# ----------------------------------------------------------------- #}
+{% extends "_base/html/_base.twig" %}
+
+{% set post = Post(post) %}
+
+{% block content %}
+
+    <section class="o-section -is-banner">
+        {% include '_components/banner--primary.twig' with {
+            params: {
+                eyebrow: post.banner_eyebrow,
+                image: Image(post.banner_image),
+                headline: post.banner_headline ? post.banner_headline : post.title,
+                body: post.banner_description,
+                links: post.meta('banner_links'),
+            }
+        } only %}
+    </section>
+
+    <article class="o-section -is-content">
+
+        {% if post.content %}
+            <div class="c-wysiwyg">
+                {{ post.content }}
+            </div>
+        {% endif %}
+
+        {% include '_components/sidebar.twig' %}
+
+    </article>
+
+{% endblock %}

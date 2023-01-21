@@ -1,0 +1,28 @@
+{# -- Site Header -- #}
+{# ----------------------------------------------------------------- #}
+
+<header class="o-header" data-module-navigation data-scroll>
+
+    {# Main logo #}
+    <a href="{{ site.link }}" class="o-header__logo">
+        {% include '_base/svg/logo--header.twig' with {
+            svgClass: '-is-dark'
+        } only %}
+    </a>
+
+    {# Primary navigation #}
+    <nav class="o-header__nav">
+        {% include '_components/navigation.twig' with {
+            'items': menu.get_items
+        } %}
+    </nav>
+
+    {# Hamburger menu #}
+    <div class="o-header__trigger">
+        <button type="button" class="c-hamburger js-nav-trigger -not-active">
+            {% include '_base/svg/icon-caret-down.twig' %}
+            Menu
+        </button>
+    </div>
+
+</header>

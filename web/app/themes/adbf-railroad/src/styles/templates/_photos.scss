@@ -1,0 +1,58 @@
+// =============================================================================
+// Templates: Photo Page & Photo Gallery
+// =============================================================================
+// This file contains the page properties
+
+// Template Class
+// =============================================================================
+// Unlike most of our code, let's wrap all internal classes with our template
+// class which will allow for easy overrides
+.t-page.-is-photo-gallery {
+
+    // Swiper
+    // =========================================================================
+
+    .o-section.-is-photos {
+        margin-left: $gutter-xs;
+        margin-right: $gutter-xs;
+        margin-bottom: $gutter-sm;
+
+        // at or above 900px
+        @include media(">=medium") {
+            margin-left: $gutter-sm;
+            margin-right: $gutter-sm;
+        }
+    }
+
+}
+
+.t-photo_album,
+.t-photo-gallery {
+
+    // Photo Grid
+    // =========================================================================
+
+    .o-section.-is-gallery {
+        margin-top: $gutter-sm;
+        margin-bottom: $gutter-lg;
+    }
+
+    // Google Map
+    // =========================================================================
+
+    .o-section.-is-content {
+        margin-bottom: $gutter;
+
+        .c-wysiwyg {
+            max-width: 75ch;
+        }
+    }
+
+    // Google Map
+    // =========================================================================
+
+    .o-section.-is-map {
+        margin-bottom: $gutter;
+    }
+
+}
