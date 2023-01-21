@@ -25,6 +25,11 @@
 
 .c-banner.-is-primary {
 
+    // at or above 1200px
+    @include media(">=large") {
+        margin-bottom: $gutter-lg;
+    }
+
     .c-banner__content {
         margin: $gutter auto;
         padding: $gutter-sm $gutter-xs $gutter-xs;
