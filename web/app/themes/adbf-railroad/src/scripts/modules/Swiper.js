@@ -59,7 +59,7 @@ export default class extends adbfModule {
       pagination: {
         el: '.c-swiper__pagination',
         clickable: true,
-        dynamicBullets: true,
+        // dynamicBullets: true,
       },
 
       // Navigation arrows
