@@ -70,14 +70,15 @@
 .o-header__logo {
     display: block;
     max-width: 100%;
-    padding: $gutter-xs;
+    padding: 12px $gutter-xs;
     border-bottom: 1px solid $gray;
 
-    .-svg {
+    .-svg,
+    .c-media__svg {
         display: block;
         height: auto;
         max-width: 100%;
-        max-height: 30px;
+        max-height: 64px;
         fill: $red;
     }
 
@@ -91,7 +92,15 @@
     // at or above 900px
     @include media(">=medium") {
         max-width: 500px;
-        padding: $gutter-sm;
+        padding: 12px $gutter-sm;
+    }
+
+    // at or above 1200px
+    @include media(">=large") {
+        .-svg,
+        .c-media__svg {
+            max-height: 72px;
+        }
     }
 }
 
