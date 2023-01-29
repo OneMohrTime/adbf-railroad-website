@@ -52,7 +52,7 @@
 @import "objects/container";
 @import "objects/footer";
 @import "objects/header";
-// @import "objects/page-transitions";
+@import "objects/page-transitions";
 // @import "objects/scroll-elements";
 @import "objects/section";
 
@@ -66,6 +66,7 @@
 @import "components/forms";
 @import "components/image";
 @import "components/list";
+@import "components/loader";
 @import "components/navigation";
 @import "components/photo-gallery";
 @import "components/related-posts";

@@ -13,39 +13,43 @@
     transition: $speed-hover $easing;
 
     // Is old
-    &.-is-old {
+    &.is-old {
 
         // Is loading
-        .-is-loading & {
+        .is-loading & {
             opacity: 0;
         }
 
         // Is slideOut transition AND is loading
-        .-is-slideOut.-is-loading & {
+        .is-slideOut.is-loading & {
             opacity: 0;
             transform: translateY(100vh);
         }
     }
 
     // Is new
-    &.-is-new {
+    &.is-new {
         opacity: 0;
 
         // Is slideOut transition AND is loading
-        .-is-slideOut.-is-loading & {
+        .is-slideOut.is-loading & {
             display: none;
         }
 
         // Is slideOut transition AND is loaded
-        .-is-slideOut.-is-loaded & {
+        .is-slideOut.is-loaded & {
             display: block;
             transform: translateY(-100vh);
         }
     }
 
-    // Is ready
-    .-is-ready & > {
-        opacity: 1;
-        transform: none;
-    }
+    // .o-main {
+    //     .o-section.-is-content .c-wysiwyg > *,
+    //     .o-section.-is-content .c-sidebar__menu > * {
+    //         .is-ready & {
+    //             opacity: 1;
+    //             transform: none;
+    //         }
+    //     }
+    // }
 }

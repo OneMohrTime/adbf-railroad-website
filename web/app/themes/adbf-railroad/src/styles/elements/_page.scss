@@ -29,11 +29,11 @@ html {
     }
 
     // Is loading
-    &.-is-loading {
+    &.is-loading {
         cursor: wait;
     }
 
-    &.-is-ready {
+    &.is-ready {
         overflow-y: scroll; /* [2] */
     }
 
