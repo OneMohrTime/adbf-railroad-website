@@ -31,9 +31,9 @@ export default class extends adbfModule {
       enterDelay: 300,
       exitDelay: 300,
       loadDelay: 300,
-      loadingClass: '-is-loading',
-      loadedClass: '-is-loaded',
-      readyClass: '-is-ready',
+      loadingClass: 'is-loading',
+      loadedClass: 'is-loaded',
+      readyClass: 'is-ready',
       transitions: {
         slideOut: {}
       }
@@ -47,10 +47,10 @@ export default class extends adbfModule {
       // user experience during the transition of a page
       this.call('destroy', 'scroll', 'Scroll');
 
-      // If we have our menu open, ensure it's closed
-      if (html.classList.contains('has-menu-open')) {
-        html.classList.remove('has-menu-open');
-      }
+      // // If we have our menu open, ensure it's closed
+      // if (html.classList.contains('has-menu-open')) {
+      //   html.classList.remove('has-menu-open');
+      // }
     });
 
     this.load.on('loaded', (transition, oldContainer, newContainer) => {
@@ -65,9 +65,9 @@ export default class extends adbfModule {
 
   // Go to
   // =========================================================================
-  goTo(arg) {
-    this.load.goTo(arg);
-  }
+  // goTo(arg) {
+  //   this.load.goTo(arg);
+  // }
 
   // Destroy
   // =========================================================================

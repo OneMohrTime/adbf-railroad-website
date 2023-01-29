@@ -34,10 +34,9 @@
 
     .o-section.-is-gallery {
         margin-top: $gutter-sm;
-        margin-bottom: $gutter-lg;
     }
 
-    // Google Map
+    // Post
     // =========================================================================
 
     .o-section.-is-content {
@@ -45,6 +44,17 @@
 
         .c-wysiwyg {
             max-width: 75ch;
+            padding: $gutter-xs;
+            background-color: $white;
+            color: $black;
+        }
+
+        // at or above 1200px
+        @include media(">=large") {
+
+            .c-wysiwyg {
+                padding: $gutter-sm;
+            }
         }
     }
 

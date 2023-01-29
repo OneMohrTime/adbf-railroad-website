@@ -3,7 +3,7 @@
 {# ----------------------------------------------------------------- #}
 
 <!doctype html>
-<html {{ site.language_attributes }} class="-no-js -is-loading" data-page="{{ post.slug }}">
+<html {{ site.language_attributes }} class="no-js is-loading" data-page="{{ post.slug }}">
 
 {# -- HTML Head -- #}
 {# ----------------------------------------------------------------- #}
@@ -16,21 +16,31 @@
 
 {# -- HTML Body -- #}
 {# ----------------------------------------------------------------- #}
-<body class="t-{{ bodyClass ?? post.category.slug ?? post.type.slug ?? 'default' }}{% if post.category %}{% endif %} -is-{{ post.slug }} -id-{{ post.id }}">
+<body class="t-{{ bodyClass ?? post.category.slug ?? post.type.slug ?? 'default' }}{% if post.category %}{% endif %} -is-{{ post.slug }} -id-{{ post.id }}" data-module-load>
     {# {{ function('wp_body_open') }} #}
 
-    <div class="o-scroll" data-module-scroll="main" data-scroll-container>
-        <div class="o-container" data-module-load data-load-container>
+    {# Set "loading" screen #}
+    {% include '_components/loader.twig' only %}
 
+    {# Container to be swapped in and out #}
+    <div data-load-container>
+
+    {# Container for scrolling events #}
+    <div class="o-scroll" data-module-scroll="main" data-scroll-container>
+
+        <div class="o-container">
             <a class="skip-link u-screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a>
 
+            {# Site Header & Navigation #}
             {% include '_objects/header.twig' %}
 
+            {# Page Content #}
             <main id="content" class="o-main">
                 {% block content %}
                     Sorry, no content
                 {% endblock %}
 
+                {# Bottom-of-the-page CTA #}
                 {% set callToAction = Post(post.cta_embed) %}
                 {% if callToAction is defined and callToAction[0] is not empty and callToAction.title != 'Auto Draft' %}
                     <section class="o-section -is-cta">
@@ -46,13 +56,17 @@
                 {% endif %}
             </main>
 
+            {# Site Footer #}
             {% include '_objects/footer.twig' %}
 
+            {# Site Overlae #}
             <div class="o-container__overlay js-nav-overlay -not-active"></div>
+
         </div>
     </div>
+    </div>
 
-    <script src="{{ site.theme.link }}/js/app.js"></script>
+    <script src="{{ site.theme.link }}/js/app.js" defer></script>
 
 </body>
 

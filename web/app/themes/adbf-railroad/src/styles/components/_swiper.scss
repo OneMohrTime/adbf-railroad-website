@@ -35,14 +35,16 @@
 
 .c-swiper__pagination {
     position: absolute;
-    height: 8px;
     transition: 300ms opacity;
     transform: translate3d(0, 0, 0);
     text-align: center;
     z-index: 10;
 
     &.swiper-pagination-horizontal {
-        bottom: calc(50% - 4px) !important;
+        bottom: calc(50% - 4.5px) !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .swiper-pagination-bullet.swiper-pagination-bullet-active {

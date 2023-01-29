@@ -6,10 +6,18 @@
 
 {% block content %}
 
+    {% include '_components/banner--primary.twig' with {
+        params: {
+            eyebrow: post.banner_eyebrow,
+            image: Image(post.banner_image),
+            headline: post.banner_headline ? post.banner_headline : post.title,
+            body: post.banner_description,
+            links: post.meta('banner_links'),
+        }
+    } only %}
+
     {% if photoGallery is defined and photoGallery is not empty %}
         <section class="o-section -is-gallery">
-
-            <h1 class="u-text-h1">{{ post.title }}</h1>
 
             <ul class="c-photo-gallery" data-module-zoom>
                 {% for photo in photoGallery %}
