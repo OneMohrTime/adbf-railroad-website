@@ -24,16 +24,16 @@
         } only %}
     </section>
 
-    <section class="o-section -is-content">
+    <section class="o-section -is-content" data-scroll>
 
-        <div class="c-wysiwyg u-text-center">
+        <div class="c-wysiwyg u-text-center u-fade-in">
             {{ post.content }}
         </div>
 
         {% if relatedPages is defined and relatedPages is not empty %}
         <ul class="c-list u-text-center">
             {% for item in relatedPages %}
-                <li class="c-list__item">
+                <li class="c-list__item u-fade-in">
                     {% include '_elements/link.twig' with {
                         params: {
                             isExternal: (item.target == '_blank'),
@@ -64,7 +64,7 @@
     {% endif %}
 
     {% if featuredPage %}
-    <section class="o-section -is-featured">
+    <section class="o-section -is-featured" data-scroll>
         {% if featuredPage.excerpt is defined and featuredPage.excerpt is not empty %}
             {% set content = featuredPage.excerpt %}
         {% else %}
@@ -81,8 +81,4 @@
     </section>
     {% endif %}
 
-{% endblock %}
-
-{% block cta %}
-front_page
 {% endblock %}

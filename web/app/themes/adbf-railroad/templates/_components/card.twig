@@ -12,7 +12,7 @@
 
 <figure class="c-card">
 
-    <div class="c-card__image">
+    <div class="c-card__image u-fade-in">
         {% if this.img is not empty %}
             {% include '_elements/picture.twig' with {
                 params: {
@@ -25,7 +25,7 @@
         {% endif %}
     </div>
 
-    <div class="c-card__content">
+    <div class="c-card__content u-fade-in">
         {% if this.eyebrow is not empty %}
             <strong class="c-card__eyebrow u-eyebrow">{{ this.eyebrow }}</strong>
         {% endif %}

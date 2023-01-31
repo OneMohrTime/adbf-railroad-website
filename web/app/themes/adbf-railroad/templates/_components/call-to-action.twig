@@ -12,8 +12,8 @@
 <figure class="c-cta">
 
     <figcaption href="{{ this.link.url }}" class="c-cta__content">
-        <h2 class="c-cta__headline u-text-h3">{{ this.headline }}</h2>
-        <div class="c-cta__body">
+        <h2 class="c-cta__headline u-text-h3 u-fade-in">{{ this.headline }}</h2>
+        <div class="c-cta__body u-fade-in">
             {{ this.body }}
         </div>
         {% include '_elements/link.twig' with {
@@ -23,7 +23,7 @@
                 linkUrl: this.link.url,
                 linkText: 'Learn More'
             },
-            class: 'c-cta__link'
+            class: 'c-cta__link u-fade-in'
         } only %}
     </figcaption>
 

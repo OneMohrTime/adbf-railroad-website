@@ -39,8 +39,6 @@ export default class extends adbfModule {
       }
     });
 
-    console.log(this.load);
-
     this.load.on('loading', () => {
       console.log('loading');
       // Ensure current scroll module is destroyed to better control the

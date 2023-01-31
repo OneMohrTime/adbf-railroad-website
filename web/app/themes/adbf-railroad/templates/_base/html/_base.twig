@@ -16,14 +16,11 @@
 
 {# -- HTML Body -- #}
 {# ----------------------------------------------------------------- #}
-<body class="t-{{ bodyClass ?? post.category.slug ?? post.type.slug ?? 'default' }}{% if post.category %}{% endif %} -is-{{ post.slug }} -id-{{ post.id }}" data-module-load>
+<body class="t-{{ bodyClass ?? post.category.slug ?? post.type.slug ?? 'default' }}{% if post.category %}{% endif %} -is-{{ post.slug }} -id-{{ post.id }}" data-module-load data-load-container>
     {# {{ function('wp_body_open') }} #}
 
     {# Set "loading" screen #}
-    {% include '_components/loader.twig' only %}
-
-    {# Container to be swapped in and out #}
-    <div data-load-container>
+    {# {% include '_components/loader.twig' only %} #}
 
     {# Container for scrolling events #}
     <div class="o-scroll" data-module-scroll="main" data-scroll-container>
@@ -43,7 +40,7 @@
                 {# Bottom-of-the-page CTA #}
                 {% set callToAction = Post(post.cta_embed) %}
                 {% if callToAction is defined and callToAction[0] is not empty and callToAction.title != 'Auto Draft' %}
-                    <section class="o-section -is-cta">
+                    <section class="o-section -is-cta" data-scroll>
                         {% include '_components/call-to-action.twig' with {
                             params: {
                                 headline: callToAction[0].post_title,
@@ -64,9 +61,8 @@
 
         </div>
     </div>
-    </div>
 
-    <script src="{{ site.theme.link }}/js/app.js" defer></script>
+    <script src="{{ site.theme.link }}/js/app.js"></script>
 
 </body>
 

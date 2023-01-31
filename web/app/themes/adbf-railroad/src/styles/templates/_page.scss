@@ -67,7 +67,7 @@
 
         // at or above 1200px
         @include media(">=large") {
-            margin-bottom: $gutter;
+            margin-bottom: $gutter-xs;
 
             .c-wysiwyg {
                 padding: $gutter-sm;
