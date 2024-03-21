@@ -1,105 +1,90 @@
-<p align="center">
-  <a href="https://roots.io/bedrock/">
-    <img alt="Bedrock" src="https://cdn.roots.io/app/uploads/logo-bedrock.svg" height="100">
-  </a>
-</p>
-
-<p align="center">
-  <a href="LICENSE.md">
-    <img alt="MIT License" src="https://img.shields.io/github/license/roots/bedrock?color=%23525ddc&style=flat-square" />
-  </a>
-
-  <a href="https://packagist.org/packages/roots/bedrock">
-    <img alt="Packagist" src="https://img.shields.io/packagist/v/roots/bedrock.svg?style=flat-square" />
-  </a>
-
-  <a href="https://github.com/roots/bedrock/actions/workflows/ci.yml">
-    <img alt="Build Status" src="https://img.shields.io/github/workflow/status/roots/bedrock/CI?style=flat-square" />
-  </a>
-
-  <a href="https://twitter.com/rootswp">
-    <img alt="Follow Roots" src="https://img.shields.io/twitter/follow/rootswp.svg?style=flat-square&color=1da1f2" />
-  </a>
-</p>
-
-<p align="center">
-  <strong>A modern WordPress stack</strong>
-</p>
-
-<p align="center">
-  <a href="https://roots.io/"><strong><code>Website</code></strong></a> &nbsp;&nbsp; <a href="https://docs.roots.io/bedrock/master/installation/"><strong><code>Documentation</code></strong></a> &nbsp;&nbsp; <a href="https://github.com/roots/bedrock/releases"><strong><code>Releases</code></strong></a> &nbsp;&nbsp; <a href="https://discourse.roots.io/"><strong><code>Support</code></strong></a>
-</p>
-
-## Sponsors
-
-**Bedrock** is an open source project and completely free to use.
-
-However, the amount of effort needed to maintain and develop new features and products within the Roots ecosystem is not sustainable without proper financial backing. If you have the capability, please consider [sponsoring Roots](https://github.com/sponsors/roots).
-
-<p align="center"><a href="https://github.com/sponsors/roots"><img height="32" src="https://img.shields.io/badge/sponsor%20roots-525ddc?logo=github&logoColor=ffffff&message=" alt="Sponsor Roots"></a></p>
-
-<div align="center">
-<a href="https://k-m.com/"><img src="https://cdn.roots.io/app/uploads/km-digital.svg" alt="KM Digital" width="148" height="111"></a> <a href="https://carrot.com/"><img src="https://cdn.roots.io/app/uploads/carrot.svg" alt="Carrot" width="148" height="111"></a> <a href="https://wordpress.com/"><img src="https://cdn.roots.io/app/uploads/wordpress.svg" alt="WordPress.com" width="148" height="111"></a> <a href="https://pantheon.io/"><img src="https://cdn.roots.io/app/uploads/pantheon.svg" alt="Pantheon" width="148" height="111"></a>
-</div>
-
-## Overview
-
-Bedrock is a modern WordPress stack that helps you get started with the best development tools and project structure.
-
-Much of the philosophy behind Bedrock is inspired by the [Twelve-Factor App](http://12factor.net/) methodology including the [WordPress specific version](https://roots.io/twelve-factor-wordpress/).
-
-## Features
-
-- Better folder structure
-- Dependency management with [Composer](https://getcomposer.org)
-- Easy WordPress configuration with environment specific files
-- Environment variables with [Dotenv](https://github.com/vlucas/phpdotenv)
-- Autoloader for mu-plugins (use regular plugins as mu-plugins)
-- Enhanced security (separated web root and secure passwords with [wp-password-bcrypt](https://github.com/roots/wp-password-bcrypt))
+# Adrian & Blissfield Railroad
 
 ## Requirements
+- WordPress 6.1
+- Timber 1.21
+- PHP 8.1
+- Composer 2.5
+- Node 16.x
+- NPM 9.3
 
-- PHP >= 8.0
-- Composer - [Install](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
+### Additional Technologies
 
-## Installation
+- [Timber Templating](https://timber.github.io/docs/)
+- [Advanced Custom Fields](https://advancecustomfields.com/)
+- [Roots Bedrock](https://roots.io/bedrock/)
 
-1. Create a new project:
-   ```sh
-   $ composer create-project roots/bedrock
-   ```
-   By default, this installs the `dist` version of all dependent packages.  To install the `source` versions instead, update `composer.json` as follows:
-   ```json
-    "preferred-install": {
-      "roots/wordpress-no-content": "dist",
-      "*": "source"
-    },
-   ```
-2. Update environment variables in the `.env` file. Wrap values that may contain non-alphanumeric characters with quotes, or they may be incorrectly parsed.
+## Sites
 
-- Database variables
-  - `DB_NAME` - Database name
-  - `DB_USER` - Database user
-  - `DB_PASSWORD` - Database password
-  - `DB_HOST` - Database host
-  - Optionally, you can define `DATABASE_URL` for using a DSN instead of using the variables above (e.g. `mysql://user:password@127.0.0.1:3306/db_name`)
-- `WP_ENV` - Set to environment (`development`, `staging`, `production`)
-- `WP_HOME` - Full URL to WordPress home (https://example.com)
-- `WP_SITEURL` - Full URL to WordPress including subdirectory (https://example.com/wp)
-- `AUTH_KEY`, `SECURE_AUTH_KEY`, `LOGGED_IN_KEY`, `NONCE_KEY`, `AUTH_SALT`, `SECURE_AUTH_SALT`, `LOGGED_IN_SALT`, `NONCE_SALT`
-  - Generate with [wp-cli-dotenv-command](https://github.com/aaemnnosttv/wp-cli-dotenv-command)
-  - Generate with [our WordPress salts generator](https://roots.io/salts.html)
+### Server Info
 
-3. Add theme(s) in `web/app/themes/` as you would for a normal WordPress site
-4. Set the document root on your webserver to Bedrock's `web` folder: `/path/to/site/web/`
-5. Access WordPress admin at `https://example.com/wp/wp-admin/`
+Servers provisioned and maintained by ServerPilot. Manage them here: [https://manage.serverpilot.io/servers](https://manage.serverpilot.io/servers)
 
-## Community
+#### DigitalOcean
+>**Reserved IP:** 161.35.252.107<br>
+>**Droplet:** adbf.do<br>
+>**Spaces Bucket:** adbf<br>
+>**Domain:** https://abrailroad.com
 
-Keep track of development and community news.
+#### ServerPilot
+>**Paths:** ~/apps/adbf-prod/<br>
+>**Databases:** adbf_production
 
-- Join us on Discord by [sponsoring us on GitHub](https://github.com/sponsors/roots)
-- Participate on the [Roots Discourse](https://discourse.roots.io/)
-- Follow [@rootswp on Twitter](https://twitter.com/rootswp)
-- Read and subscribe to the [Roots Blog](https://roots.io/blog/)
-- Subscribe to the [Roots Newsletter](https://roots.io/subscribe/)
+#### Buddy
+| Production | Sync Assets |
+|[![buddy pipeline](https://app.buddy.works/onemohrtime-1/adbf-railroad-website/pipelines/pipeline/431720/badge.svg?token=6bcffe8f4e35d4d2c9e61aa4f7caf1b910bebe86fd6b7a052347cd830845cd5f "buddy pipeline")](https://app.buddy.works/onemohrtime-1/adbf-railroad-website/pipelines/pipeline/431720)|-|
+|`x`|`x`|
+
+### NPM Packages
+
+| Package Name | `--save-dev`? | Description |
+|-|-|-|
+|`autoprefixer`| | Write your CSS rules without vendor prefixes |
+|`browser-sync`| &check; | Keep multiple browsers & devices in sync when building websites |
+|`bourbon`| | A lightweight sass tool set |
+|`dotenv`| &check; | zero-dependency module that loads environment variables from a `.env` file into `process.env` |
+|`include-media`| | Simple, elegant and maintainable media queries in Sass |
+|`laravel-mix`| &check; | Clean, fluent API for defining basic webpack build steps for your applications |
+|`locomotive-scroll`| | Detection of elements in viewport & smooth scrolling with parallax effects |
+|`modujs`| | Dead simple modular JavaScript framework for ES modules |
+|`modularload`| | Dead simple page transitions and lazy loading |
+|`normlize.css`| | A modern alternative to CSS resets |
+|`sass`| &check; | Provides a command-line sass executable and a Node.js API |
+|`sass-loader`| &check; | Loads a Sass/SCSS file and compiles it to CSS |
+
+### Composer Packages
+
+| Package Name | `require-dev`? | Description |
+|-|-|-|
+|`craftcms/redactor`| | Edit rich text content in Craft CMS |
+|`ether/logs`| | Access logs from the CP |
+|`presseddigital/linkit`| | One link field to rule them all |
+|`misterbk/mix`| | Helper plugin for Laravel Mix in Craft CMS templates |
+|`verbb/kint`| &check; | Craft CMS plugin for Kint debugging |
+|`mmikkel/cp-field-inspect`| &check; | Inspect field handles and easily edit field and element source settings |
+|`nystudio107/craft-imageoptimize`| | Automatically create & optimize responsive image transforms, using either native Craft transforms or a service like imgix, with zero template changes |
+|`nystudio107/craft-minify`| | A simple plugin that allows you to minify blocks of HTML, CSS, and JS inline in Craft CMS templates |
+|`nystudio107/craft-retour`| | Retour allows you to intelligently redirect legacy URLs, so that you don't lose SEO value when rebuilding & restructuring a website |
+|`nystudio107/craft-seomatic`| | SEOmatic facilitates modern SEO best practices & implementation for Craft CMS 3 |
+|`nystudio107/craft-typogrify`| | Typogrify prettifies your web typography by preventing ugly quotes and "widows" and more |
+|`putyourlightson/craft-blitz`| | Intelligent static page caching for creating lightning-fast sites |
+|`putyourlightson/craft-blitz-recommendations`| | Adds a utility that provides templating performance recommendations |
+|`solspace/craft-freeform`| | The most reliable, intuitive and powerful form builder for Craft |
+|`spicyweb/craft-neo`| | A Matrix-like field type that uses existing fields |
+|`vaersaagod/dospaces`| | DigitalOcean Spaces integration for Craft CMS |
+|`verbb/expanded-singles`| | A simple plugin for Craft CMS that alters the Entries Index sidebar to list all Singles, rather than grouping them under a "Singles" link |
+|`verbb/navigation`| | A Craft CMS plugin to create navigation menus for your site |
+|`vlucas/phpdotenv`| | Loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically |
+
+### Add site to DDEV
+```zsh
+cd ~/path/to/folder/
+git clone git@github.com:mightyinthemidwest/adbf-railroad-website.git
+cd adbf-railroad-website
+ddev configure
+ddev start
+```
+
+## Questions
+
+`FAQ to be added here as necessary`
